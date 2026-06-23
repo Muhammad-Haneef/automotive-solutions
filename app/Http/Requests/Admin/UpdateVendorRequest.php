@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Requests\Admin;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class UpdateVendorRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array
+    {
+        return [
+            'user_id' => 'required',
+            //'payment_method_id'=>'required',
+            //'logo'=>'required',
+            'title' => 'required',
+            'slug' => 'required',
+            //'email'=>'required',
+            //'description'=>'required',
+            //'website'=>'required',
+            //'address'=>'required',
+            //'contact'=>'required',
+            //'sort_by'=>'required',
+            //'is_active'=>'required'
+        ];
+    }
+}
