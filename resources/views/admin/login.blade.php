@@ -65,7 +65,7 @@
                 <p>Enter your email & password to login</p>
                 <div class="form-group">
                   <label class="col-form-label">Email Address</label>
-                  <input class="form-control" type="email" name="email" placeholder="test@gmail.com" value="admin@venta.com">
+                  <input class="form-control" type="email" name="email" placeholder="test@gmail.com" value="admin@automotivesolutions.com">
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Password</label>
