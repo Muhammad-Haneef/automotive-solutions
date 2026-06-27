@@ -15,7 +15,7 @@
 
         <div class="logo-icon-wrapper">
             <a href="{{ url('/') }}">
-                <img class="img-fluid" style="width: 30px;"  src="{{ asset('assets/images/logo-icon.png') }}" alt="">
+                <img class="img-fluid" style="width: 30px;" src="{{ asset('assets/images/logo-icon.png') }}" alt="">
             </a>
         </div>
 
@@ -65,12 +65,17 @@
                         </a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{ route('admin.orders') }}">View All</a></li>
-                            <!-- <li><a href="{{ route('admin.create-order') }}">Add New Order</a></li> -->
+                            <?php
+                            /*
+                            <li><a href="{{ route('admin.create-order') }}">Add New Order</a></li>
                             <li><a href="{{ route('admin.order-gift-wraps') }}">Gift Wrap Orders</a></li>
+                            */
+                            ?>
+
                         </ul>
                     </li>
 
-<?php /*                    
+                    <?php /*                    
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="#">
                             <svg class="stroke-icon">
@@ -94,7 +99,7 @@
                             <li><a href="{{ route('admin.email-campaigns') }}">Email Campaigns</a></li>
                         </ul>
                     </li>
-*/ ?>                    
+*/ ?>
 
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.subscribers') }}">
@@ -110,7 +115,7 @@
                     </li>
                     <!-- SALES & MARKETING - ending -->
 
-                    
+
 
                     <!-- PRODUCT CATALOG - starting -->
                     <li class="sidebar-main-title">
@@ -254,7 +259,7 @@
                     WarningController
                     -->
 
-<?php /*                    
+                    <?php /*                    
                     <li class="sidebar-main-title">
                         <div>
                             <h6 class="lan-1">HR & Payroll</h6>
@@ -324,7 +329,7 @@
                     <!-- HR & payroll - ending -->
 
 */ ?>
-                    
+
 
                     <!-- CMS - starting -->
                     <li class="sidebar-main-title">
@@ -346,6 +351,7 @@
                         </a>
                     </li>
 
+                    <?php /*
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.menues') }}">
                             <svg class="stroke-icon">
@@ -358,6 +364,7 @@
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
                         </a>
                     </li>
+                    */ ?>
 
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.pages') }}">
@@ -395,7 +402,7 @@
                             <li><a href="{{ route('admin.banner-locations') }}">Banner Locations</a></li>
                         </ul>
                     </li>
-                    */?>
+                    */ ?>
 
 
                     <li class="sidebar-list">
@@ -569,7 +576,7 @@
 
                     <!-- HELP DESK & SUPPORT - ending -->
 
-<?php /*
+                    <?php /*
 
                     <!-- SYSTEM USERS - starting -->
                     <li class="sidebar-main-title">
@@ -653,6 +660,7 @@
                         </ul>
                     </li>
 
+                    <?php /*
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="#">
                             <svg class="stroke-icon">
@@ -670,6 +678,7 @@
                             <li><a href="{{ route('admin.default-sms') }}">Default SMS</a></li>
                         </ul>
                     </li>
+                    */ ?>
 
                     <!-- SETTINGS - ending -->
 
