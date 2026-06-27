@@ -4,20 +4,15 @@ use Illuminate\Support\Facades\Route;
 
 // import all admin controllers
 
-
-
-
 Route::middleware(['auth:system'])
-    ->prefix('admin')->namespace('\App\Http\Controllers\Admin')
+    ->prefix('admin')
+    ->namespace('\App\Http\Controllers\Admin')
     ->name('admin.')
     ->group(function () {
-
-
         Route::get('/dashboard', function () {
             $from = 'admin.';
             return view($from . 'dashboard');
         })->name('dashboard');
-
 
         Route::get('/vouchers', function () {
             $from = 'admin.';
@@ -33,8 +28,6 @@ Route::middleware(['auth:system'])
             $from = 'admin.';
             return view($from . 'dashboard');
         })->name('site-maps');
-
-
 
         // CUSTOMERS - starting
         Route::controller(UserTempController::class)->group(function () {
@@ -147,7 +140,6 @@ Route::middleware(['auth:system'])
         });
         // CUSTOMERS - ending
 
-
         // PRODUCTS - starting
         Route::controller(CategoryController::class)->group(function () {
             Route::prefix('/categories')->group(function () {
@@ -232,21 +224,28 @@ Route::middleware(['auth:system'])
         });
 
         Route::controller(ProductImageController::class)->group(function () {
+            Route::prefix('/products/edit/{pid}/product-catalog-size-chart')->group(function () {
+                $sn = 'product-catalog-size-chart';
+                Route::get('/', 'catalogSizeChart')->name($sn);
+                Route::post('/', 'catalogSizeChart')->name('update-' . $sn);
+            });
+
             Route::prefix('/products/edit/{pid}/product-images')->group(function () {
                 $sn = 'product-image';
                 Route::get('/', 'index')->name($sn . 's');
 
                 Route::post('/update-title', 'updateImageTitle')->name('update-title-' . $sn);
 
-                //Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                /*
-            Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-            Route::post('/edit/{id}', 'update')->name('update-' . $sn);
+                // Route::get('/add', 'create')->name('create-' . $sn);
+                Route::post('/add', 'store')->name('store-' . $sn . 's');
 
-            Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-            Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            */
+                /*
+                 * Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
+                 * Route::post('/edit/{id}', 'update')->name('update-' . $sn);
+                 *
+                 * Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
+                 * Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
+                 */
                 Route::get('/destroy/{id}', 'destroy')->name('destroy-' . $sn);
             });
         });
@@ -255,28 +254,30 @@ Route::middleware(['auth:system'])
             Route::prefix('/products/edit/{pid}/product-reviews')->group(function () {
                 $sn = 'product-review';
                 Route::get('/', 'index')->name($sn . 's');
+
                 /*
-            Route::get('/add', 'create')->name('create-' . $sn);
-            Route::post('/add', 'store')->name('store-' . $sn);
-            Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-            */
+                 * Route::get('/add', 'create')->name('create-' . $sn);
+                 * Route::post('/add', 'store')->name('store-' . $sn);
+                 * Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
+                 */
                 Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-                //Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                //Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
+                // Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
+                // Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
             });
         });
         Route::controller(ProductReviewController::class)->group(function () {
             Route::prefix('/products/reviews')->group(function () {
                 $sn = 'review';
                 Route::get('/', 'index')->name($sn . 's');
+
                 /*
-            Route::get('/add', 'create')->name('create-' . $sn);
-            Route::post('/add', 'store')->name('store-' . $sn);
-            Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-            */
+                 * Route::get('/add', 'create')->name('create-' . $sn);
+                 * Route::post('/add', 'store')->name('store-' . $sn);
+                 * Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
+                 */
                 Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-                //Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                //Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
+                // Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
+                // Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
             });
         });
         Route::controller(ProductFaqController::class)->group(function () {
@@ -296,7 +297,7 @@ Route::middleware(['auth:system'])
             });
         });
         Route::controller(ProductVideoSectionController::class)->group(function () {
-            Route::prefix('/products/{pid}/product-video-sections')->group(function () {
+            Route::prefix('/products/edit/{pid}/product-video-sections')->group(function () {
                 $sn = 'product-video-section';
                 Route::get('/', 'index')->name($sn . 's');
                 Route::get('/add', 'create')->name('create-' . $sn);
@@ -310,7 +311,7 @@ Route::middleware(['auth:system'])
             });
         });
         Route::controller(ProductVideoController::class)->group(function () {
-            Route::prefix('/products/{pid}/product-videos')->group(function () {
+            Route::prefix('/products/edit/{pid}/product-videos')->group(function () {
                 $sn = 'product-video';
                 Route::get('/', 'index')->name($sn . 's');
                 Route::get('/add', 'create')->name('create-' . $sn);
@@ -324,7 +325,7 @@ Route::middleware(['auth:system'])
             });
         });
         Route::controller(ProductVariationController::class)->group(function () {
-            Route::prefix('/products/{pid}/product-variations')->group(function () {
+            Route::prefix('/products/edit/{pid}/product-variations')->group(function () {
                 $sn = 'product-variation';
                 Route::get('/', 'index')->name($sn . 's');
                 Route::get('/add', 'create')->name('create-' . $sn);
@@ -339,34 +340,34 @@ Route::middleware(['auth:system'])
         });
 
         /*
-    Route::controller(ProductCategoryController::class)->group(function () {
-        Route::prefix('/product-categories')->group(function () {
-            $sn = 'product-category';
-            $pn = 'product-categories';
-            Route::get('/', 'index')->name($pn);
-            Route::get('/add', 'create')->name('create-' . $sn);
-            Route::post('/add', 'store')->name('store-' . $sn);
-            Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-            Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-            Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-            Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-        });
-    });    
-    Route::controller(ProductTagController::class)->group(function () {
-        Route::prefix('/product-tags')->group(function () {
-            $sn = 'product-tag';
-            Route::get('/', 'index')->name($sn.'s');
-            Route::get('/add', 'create')->name('create-' . $sn);
-            Route::post('/add', 'store')->name('store-' . $sn);
-            Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-            Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-            Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-            Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-        });
-    });    
-    */
+         * Route::controller(ProductCategoryController::class)->group(function () {
+         *     Route::prefix('/product-categories')->group(function () {
+         *         $sn = 'product-category';
+         *         $pn = 'product-categories';
+         *         Route::get('/', 'index')->name($pn);
+         *         Route::get('/add', 'create')->name('create-' . $sn);
+         *         Route::post('/add', 'store')->name('store-' . $sn);
+         *         Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
+         *         Route::post('/edit/{id}', 'update')->name('update-' . $sn);
+         *
+         *         Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
+         *         Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
+         *     });
+         * });
+         * Route::controller(ProductTagController::class)->group(function () {
+         *     Route::prefix('/product-tags')->group(function () {
+         *         $sn = 'product-tag';
+         *         Route::get('/', 'index')->name($sn.'s');
+         *         Route::get('/add', 'create')->name('create-' . $sn);
+         *         Route::post('/add', 'store')->name('store-' . $sn);
+         *         Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
+         *         Route::post('/edit/{id}', 'update')->name('update-' . $sn);
+         *
+         *         Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
+         *         Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
+         *     });
+         * });
+         */
 
         Route::controller(WarehouseController::class)->group(function () {
             Route::prefix('/warehouses')->group(function () {
@@ -382,7 +383,6 @@ Route::middleware(['auth:system'])
             });
         });
         // PRODUCTS - ending
-
 
         // ORDER - starting
         Route::controller(CourierServiceController::class)->group(function () {
@@ -484,7 +484,6 @@ Route::middleware(['auth:system'])
         });
         // ORDER - ending
 
-
         // SMS - starting
         Route::controller(DefaultSmsController::class)->group(function () {
             Route::prefix('/default-sms')->group(function () {
@@ -530,13 +529,13 @@ Route::middleware(['auth:system'])
             Route::prefix('/sms')->group(function () {
                 $sn = 'sms';
                 Route::get('/', 'index')->name($sn);
-                //Route::get('/add', 'create')->name('create-' . $sn);
+                // Route::get('/add', 'create')->name('create-' . $sn);
                 Route::post('/add', 'store')->name('store-' . $sn);
-                //Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                //Route::post('/edit/{id}', 'update')->name('update-' . $sn);
+                // Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
+                // Route::post('/edit/{id}', 'update')->name('update-' . $sn);
 
-                //Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                //Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
+                // Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
+                // Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
             });
         });
         Route::controller(SmsApiIntegrationController::class)->group(function () {
@@ -553,7 +552,6 @@ Route::middleware(['auth:system'])
             });
         });
         // SMS - ending
-
 
         // MARKETING - starting
         Route::controller(BlogCategoryController::class)->group(function () {
@@ -736,7 +734,6 @@ Route::middleware(['auth:system'])
         });
         // MARKETING - ending
 
-
         // SUPPORT - starting
         Route::controller(CallBackRequestController::class)->group(function () {
             Route::prefix('/callback-requests')->group(function () {
@@ -847,6 +844,15 @@ Route::middleware(['auth:system'])
         });
         // SUPPORT - ending
 
+        // SEO - starting
+        Route::controller(SitemapController::class)->group(function () {
+            Route::prefix('sitemap')->group(function () {
+                $sn = 'sitemap';
+                Route::get('/generate', 'generate')->name('generate-' . $sn);
+                Route::post('/download', 'download')->name('download-' . $sn);
+            });
+        });
+        // SEO - ending
 
         // SYSTEM USERS - starting
         Route::controller(SystemUserRoleController::class)->group(function () {
@@ -903,7 +909,6 @@ Route::middleware(['auth:system'])
         });
 
         // SYSTEM USERS - ending
-
 
         // HR & PAYROLL - starting
         Route::controller(AttendanceController::class)->group(function () {
@@ -1155,7 +1160,6 @@ Route::middleware(['auth:system'])
         });
         // HR & PAYROLL - ending
 
-
         // CMS - starting
         Route::controller(BannerController::class)->group(function () {
             Route::prefix('/banners')->group(function () {
@@ -1210,8 +1214,20 @@ Route::middleware(['auth:system'])
                 Route::get('/destroy/{id}', 'destroy')->name('destroy-' . $sn);
             });
         });
-        // CMS - ending
+        Route::controller(AssociatedFaqController::class)->group(function () {
+            Route::prefix('/associated-faqs')->group(function () {
+                $sn = 'associated-faq';
+                Route::get('/', 'index')->name($sn . 's');
+                Route::get('/add', 'create')->name('create-' . $sn);
+                Route::post('/add', 'store')->name('store-' . $sn);
+                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
+                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
 
+                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
+                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
+            });
+        });
+        // CMS - ending
 
         // GENERAL - starting
         Route::controller(CountryController::class)->group(function () {
@@ -1243,7 +1259,6 @@ Route::middleware(['auth:system'])
             });
         });
         // GENERAL - ending
-
 
         // SETTINGS - starting
         Route::controller(CourierServiceIntegrationController::class)->group(function () {
@@ -1325,5 +1340,4 @@ Route::middleware(['auth:system'])
             });
         });
         // SETTINGS - ending
-
     });

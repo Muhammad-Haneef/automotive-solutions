@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSystemUserRolePrivilegeRequest extends FormRequest
+class UpdateSystemUserRolePrivilegeRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +23,10 @@ class UpdateSystemUserRolePrivilegeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'system_user_role_id'=>'required',
-            'privilege_id'=>'required',
-            //'sort_by',
-            //'is_active',
+            'system_user_role_id' => 'required',
+            'privilege_id' => 'required',
+            // 'sort_by',
+            // 'is_active',
         ];
     }
 }

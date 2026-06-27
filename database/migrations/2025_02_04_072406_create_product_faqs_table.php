@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('product_faqs', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('product_id');
+            $table->foreignId('product_id')->index();
             $table->string('q');
             $table->string('a');
                         

@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSubscriberRequest extends FormRequest
+class UpdateSubscriberRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +23,7 @@ class UpdateSubscriberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email'=>'required|unique:subscribers,email,'.$this->route('id')
+            'email' => 'required|unique:subscribers,email,' . $this->route('id')
         ];
     }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCallBackRequestRequest extends FormRequest
+class UpdateCallBackRequestRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +23,12 @@ class UpdateCallBackRequestRequest extends FormRequest
     public function rules(): array
     {
         return [
-           'name'=>'required',
-            'email'=>'required',
-            'contact'=>'required',
-            'message'=>'required',
-            //'status'=>'required',
-            //'handled_by'=>'required',
+            'name' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
+            'message' => 'required',
+            // 'status'=>'required',
+            // 'handled_by'=>'required',
         ];
     }
 }

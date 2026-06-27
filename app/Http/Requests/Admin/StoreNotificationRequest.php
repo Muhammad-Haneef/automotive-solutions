@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreNotificationRequest extends FormRequest
+class StoreNotificationRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +23,11 @@ class StoreNotificationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'notification_type_id'=>'required',
-            'user_id'=>'required',
-            'system_user_id'=>'required',
-            'title'=>'required',
-            'message'=>'required',
+            'notification_type_id' => 'required',
+            'user_id' => 'required',
+            'system_user_id' => 'required',
+            'title' => 'required',
+            'message' => 'required',
         ];
     }
 }

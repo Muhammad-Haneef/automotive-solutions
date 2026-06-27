@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\ProductReview;
 use App\Http\Requests\Admin\StoreProductReviewRequest;
 use App\Http\Requests\Admin\UpdateProductReviewRequest;
+use App\Models\Admin\ProductReview;
+use Illuminate\Support\Facades\DB;
 
 class ProductReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/product-reviews/";
+    private $root = 'admin/product-reviews/';
+
     private $data = [
         'rows' => [],
         'row' => [],
         'active' => 'product-reviews',
-        'rsn' => 'product-review', // route singular name
-        'rpn' => 'product-reviews', // route plural name
+        'rsn' => 'product-review',  // route singular name
+        'rpn' => 'product-reviews',  // route plural name
     ];
+
     public function index($pid)
     {
         $this->data['rows'] = ProductReview::where('product_id', $pid)->latest()->withTrashed()->get();
-        $this->data['pid']= $pid;
+        $this->data['pid'] = $pid;
         return view($this->root . 'list', $this->data);
     }
 
@@ -64,7 +64,7 @@ class ProductReviewController extends Controller
     public function edit(ProductReview $productReview, $id)
     {
         if (!$this->data['row'] = ProductReview::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -78,12 +78,13 @@ class ProductReviewController extends Controller
     public function update(UpdateProductReviewRequest $request, ProductReview $productReview, $id)
     {
         ProductReview::where('id', $id)->update($request->only((new ProductReview())->getFillable()));
+
         /*
-        return redirect()->route($this->data['rpn'])->with([
-            'message' => 'Saved successfully.',
-            'alert-type' => 'success'
-        ]);
-        */
+         * return redirect()->route('admin.' . $this->data['rpn'])->with([
+         *     'message' => 'Saved successfully.',
+         *     'alert-type' => 'success'
+         * ]);
+         */
     }
 
     /**
@@ -107,6 +108,7 @@ class ProductReviewController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -125,6 +127,7 @@ class ProductReviewController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

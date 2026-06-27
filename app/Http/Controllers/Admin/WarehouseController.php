@@ -2,31 +2,32 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Warehouse;
-use App\Models\Admin\SystemUser;
 use App\Http\Requests\Admin\StoreWarehouseRequest;
 use App\Http\Requests\Admin\UpdateWarehouseRequest;
+use App\Models\Admin\SystemUser;
+use App\Models\Admin\Warehouse;
+use Illuminate\Support\Facades\DB;
 
 class WarehouseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/warehouses/";
+    private $root = 'admin/warehouses/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'warehouse', // route singular name
-            'rpn' => 'warehouses', // route plural name
+            'rsn' => 'warehouse',  // route singular name
+            'rpn' => 'warehouses',  // route plural name
         ];
     }
+
     public function index()
     {
         $this->data['rows'] = Warehouse::latest()->withTrashed()->get();
@@ -68,13 +69,13 @@ class WarehouseController extends Controller
     public function edit(Warehouse $warehouse, $id)
     {
         if (!$this->data['row'] = Warehouse::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Warehouse::latest()->withTrashed()->get();
-        return view($this->root . 'list', $this->data);
+        $this->data['systemUsers'] = SystemUser::all();
+        return view($this->root . 'form', $this->data);
     }
 
     /**
@@ -83,7 +84,7 @@ class WarehouseController extends Controller
     public function update(UpdateWarehouseRequest $request, Warehouse $warehouse, $id)
     {
         Warehouse::where('id', $id)->update($request->only((new Warehouse())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -110,6 +111,7 @@ class WarehouseController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -128,6 +130,7 @@ class WarehouseController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->foreignId('tag_id')->constrained()->onDelete('cascade');
 */
-            $table->foreignId('product_id');
-            $table->foreignId('tag_id');
+            $table->foreignId('product_id')->index();
+            $table->foreignId('tag_id')->index();
             
             $table->integer('sort_by')->default(0)->nullable();
             $table->boolean('is_active')->default(true)->nullable();

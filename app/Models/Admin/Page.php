@@ -11,14 +11,12 @@ class Page extends Model
     /** @use HasFactory<\Database\Factories\PageFactory> */
     use HasFactory, SoftDeletes;
 
-    
     protected $fillable = [
-        'image', 
-        'title', 
-        'slug', 
+        'banner',
+        'title',
+        'slug',
         'content',
         'sort_by',
         'is_active',
     ];
-
 }

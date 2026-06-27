@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -15,13 +14,13 @@ return new class extends Migration
             $table->id();
 
             /*
-            $table->unsignedBigInteger('handled_by')->nullable(); // Admin who handles the inquiry
-            $table->foreign('handled_by')->references('id')->on('system_users')->onDelete('set null');
-            */  
+             * $table->unsignedBigInteger('handled_by')->nullable(); // Admin who handles the inquiry
+             * $table->foreign('handled_by')->references('id')->on('system_users')->onDelete('set null');
+             */
 
             $table->foreignId('handled_by')->nullable()->default(1);
 
-            $table->string('name'); // Customer Name
+            $table->string('name');  // Customer Name
             $table->string('email')->nullable();
             $table->string('contact')->nullable();
             $table->text('message');

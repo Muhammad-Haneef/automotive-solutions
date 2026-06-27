@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('product_reviews', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id');
-            $table->foreignId('product_id');
+            $table->foreignId('user_id')->index();
+            $table->foreignId('product_id')->index();
 
             $table->string('review');
             $table->string('quality_rating');

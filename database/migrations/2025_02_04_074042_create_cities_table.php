@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('country_id');
+            $table->foreignId('country_id')->index();
             $table->string('title')->unique();
             
             $table->integer('sort_by')->default(0)->nullable();

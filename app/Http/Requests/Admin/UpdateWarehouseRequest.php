@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateWarehouseRequest extends FormRequest
+class UpdateWarehouseRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +23,10 @@ class UpdateWarehouseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'system_user_id'=>'required',
-            'title'=>'required|unique:warehouses,title,id'.$this->route('id'),
-            'address'=>'required|unique:warehouses,title,id'.$this->route('id'),
-            'contact'=>'required|unique:warehouses,title,id'.$this->route('id'),
+            'system_user_id' => 'required',
+            'title' => 'required|unique:warehouses,title,' . $this->route('id'),
+            'address' => 'required|unique:warehouses,title,' . $this->route('id'),
+            'contact' => 'required|unique:warehouses,title,' . $this->route('id'),
         ];
     }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePaymentGatewayRequest extends FormRequest
+class UpdatePaymentGatewayRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +23,9 @@ class UpdatePaymentGatewayRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255|unique:payment_gateways,title,'.$this->route('id'),
-            //'slug' => 'required|string|max:255|unique:payment_gateways,slug,'.$this->route('id'),
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'title' => 'required|string|max:255|unique:payment_gateways,title,' . $this->route('id'),
+            // 'slug' => 'required|string|max:255|unique:payment_gateways,slug,'.$this->route('id'),
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'description' => 'nullable|string',
             'api_key' => 'required|string|max:255',
             'secret_key' => 'required|string|max:255',

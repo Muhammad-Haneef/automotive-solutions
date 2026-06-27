@@ -2,14 +2,14 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StorePopupRequest extends FormRequest
+class StorePopupRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
-
     public function authorize(): bool
     {
         return true;
@@ -24,7 +24,7 @@ class StorePopupRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255|unique:popups,title',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'display_pages' => 'required|array',
             'link' => 'nullable',
             'start_date' => 'nullable|date',

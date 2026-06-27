@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreWalletTransactionRequest extends FormRequest
+class StoreWalletTransactionRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,17 +23,17 @@ class StoreWalletTransactionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
-            'wallet_id'=>'required',
-            'user_id'=>'required',
-            'transaction_type'=>'required',
-            'amount'=>'required',
-            'currency'=>'required',
-            'reference_id'=>'nullable|required',
-            'payment_method'=>'nullable|required',
-            'description'=>'nullable|required',
-            'status'=>'nullable|required',
-            'processed_at'=>'nullable|required',
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
+            'wallet_id' => 'required',
+            'user_id' => 'required',
+            'transaction_type' => 'required',
+            'amount' => 'required',
+            'currency' => 'required',
+            'reference_id' => 'nullable|required',
+            'payment_method' => 'nullable|required',
+            'description' => 'nullable|required',
+            'status' => 'nullable|required',
+            'processed_at' => 'nullable|required',
         ];
     }
 }

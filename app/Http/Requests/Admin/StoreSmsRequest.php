@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSmsRequest extends FormRequest
+class StoreSmsRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +23,8 @@ class StoreSmsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'recipient_number'=>'required',
-            'message'=>'required'
+            'recipient_number' => 'required',
+            'message' => 'required'
         ];
     }
 }

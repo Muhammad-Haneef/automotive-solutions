@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->default(1);
+            $table->foreignId('user_id')->nullable()->default(1)->index();
             $table->string('session_id')->nullable()->index();
-            $table->foreignId('product_id')->default(1);
-            $table->integer('variation_id')->default(1);
+            $table->foreignId('product_id')->default(1)->index();
+            $table->integer('variation_id')->default(1)->index();
             $table->integer('quantity')->default(1);
             $table->decimal('price', 10, 2);         // snapshot price at time of adding
             $table->decimal('sale_price', 10, 2)->nullable();

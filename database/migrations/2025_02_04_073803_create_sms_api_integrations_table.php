@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sms_api_integrations', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('sms_gateway_id');
+            $table->foreignId('sms_gateway_id')->index();
             $table->string('api_user_name');
             $table->string('api_url');
             $table->string('api_key');

@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSmsApiIntegrationRequest extends FormRequest
+class UpdateSmsApiIntegrationRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +23,15 @@ class UpdateSmsApiIntegrationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sms_gateway_id'=>'required',
-            'api_user_name'=>'required',
-            'api_url'=>'required',
-            'api_key'=>'required|unique:sms_api_integrations,api_key,'.$this->route('id'),
-            'api_password'=>'required',
-            //'mask'=>'required',
-            'is_default_gateway'=>'required',
-            //'sort_by'=>'required',
-            //'is_active'=>'required',
+            'sms_gateway_id' => 'required',
+            'api_user_name' => 'required',
+            'api_url' => 'required',
+            'api_key' => 'required|unique:sms_api_integrations,api_key,' . $this->route('id'),
+            'api_password' => 'required',
+            // 'mask'=>'required',
+            'is_default_gateway' => 'required',
+            // 'sort_by'=>'required',
+            // 'is_active'=>'required',
         ];
     }
 }

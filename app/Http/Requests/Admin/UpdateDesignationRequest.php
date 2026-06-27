@@ -2,11 +2,11 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
-
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateDesignationRequest extends FormRequest
+class UpdateDesignationRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class UpdateDesignationRequest extends FormRequest
             'title' => [
                 'required',
                 Rule::unique('designations')
-                    ->ignore($this->route('id')) // or $this->id depending on route model binding
+                    ->ignore($this->route('id'))  // or $this->id depending on route model binding
                     ->where(function ($query) {
                         return $query->where('department_id', request('department_id'));
                     }),
@@ -36,7 +36,7 @@ class UpdateDesignationRequest extends FormRequest
             'slug' => [
                 'required',
                 Rule::unique('designations')
-                    ->ignore($this->route('id')) // or $this->id depending on route model binding
+                    ->ignore($this->route('id'))  // or $this->id depending on route model binding
                     ->where(function ($query) {
                         return $query->where('department_id', request('department_id'));
                     }),

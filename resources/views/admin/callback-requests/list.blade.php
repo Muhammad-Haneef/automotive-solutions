@@ -30,7 +30,7 @@
             <td>{{ $row->email }}</td>
             <td>{{ $row->contact }}</td>
             <td>{{ $row->message }}</td>
-            <td>{{ $row->status }}</td>
+            <td>{{ $row->getStatusLabel() }}</td>
             <td>{{ $row->handler->name ?? '' }}</td>
 
             <td class="text-center">{{ $row->sort_by }}</td>

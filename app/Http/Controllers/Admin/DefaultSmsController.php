@@ -2,38 +2,38 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\DefaultSms;
-use App\Models\Admin\SmsCategory;
 use App\Http\Requests\Admin\StoreDefaultSmsRequest;
 use App\Http\Requests\Admin\UpdateDefaultSmsRequest;
+use App\Models\Admin\DefaultSms;
+use App\Models\Admin\SmsCategory;
+use Illuminate\Support\Facades\DB;
 
 class DefaultSmsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/default-sms/";
+    private $root = 'admin/default-sms/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'default-sms', // route singular name
-            'rpn' => 'default-sms', // route plural name
-            'categories' => [], // Fetch gateways properly
+            'rsn' => 'default-sms',  // route singular name
+            'rpn' => 'default-sms',  // route plural name
+            'categories' => [],  // Fetch gateways properly
         ];
     }
 
     public function index()
     {
         $this->data['categories'] = SmsCategory::all();
-        $this->data['rows'] = DefaultSms::withTrashed()->get();
-        return view($this->root.'list', $this->data);
+        $this->data['rows'] = DefaultSms::latest()->withTrashed()->get();
+        return view($this->root . 'list', $this->data);
     }
 
     /**
@@ -70,14 +70,14 @@ class DefaultSmsController extends Controller
     public function edit(DefaultSms $defaultSms, $id)
     {
         if (!$this->data['row'] = DefaultSms::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
         $this->data['categories'] = SmsCategory::all();
-        $this->data['rows'] = DefaultSms::withTrashed()->get();
-        return view($this->root.'list', $this->data);
+        $this->data['rows'] = DefaultSms::latest()->withTrashed()->get();
+        return view($this->root . 'list', $this->data);
     }
 
     /**
@@ -86,7 +86,7 @@ class DefaultSmsController extends Controller
     public function update(UpdateDefaultSmsRequest $request, DefaultSms $defaultSms, $id)
     {
         DefaultSms::where('id', $id)->update($request->only((new DefaultSms())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -113,6 +113,7 @@ class DefaultSmsController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -131,6 +132,7 @@ class DefaultSmsController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

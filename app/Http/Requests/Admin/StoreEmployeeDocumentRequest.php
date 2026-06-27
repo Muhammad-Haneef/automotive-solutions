@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreEmployeeDocumentRequest extends FormRequest
+class StoreEmployeeDocumentRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +26,8 @@ class StoreEmployeeDocumentRequest extends FormRequest
             'employee_id' => 'required',
             'document_type' => 'required',
             'file_path' => 'required',
-            //'sort_by' => 'required',
-            //'is_active' => 'required',
+            // 'sort_by' => 'required',
+            // 'is_active' => 'required',
         ];
     }
 }

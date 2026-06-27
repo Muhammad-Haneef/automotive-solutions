@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Referral;
-use App\Models\Admin\ReferralSetting;
 use App\Http\Requests\Admin\StoreReferralRequest;
 use App\Http\Requests\Admin\UpdateReferralRequest;
+use App\Models\Admin\Referral;
+use App\Models\Admin\ReferralSetting;
+use Illuminate\Support\Facades\DB;
 
 class ReferralController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/referrals/";
+    private $root = 'admin/referrals/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'referral', // route singular name
-        'rpn' => 'referrals', // route plural name
+        'rsn' => 'referral',  // route singular name
+        'rpn' => 'referrals',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = Referral::withTrashed()->get();
+        $this->data['rows'] = Referral::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -63,13 +63,13 @@ class ReferralController extends Controller
     public function edit(Referral $referral, $id)
     {
         if (!$this->data['row'] = Referral::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        //$this->data['row'] = Referrals::find($id);
-        $this->data['rows'] = Referral::withTrashed()->get();
+        // $this->data['row'] = Referrals::find($id);
+        $this->data['rows'] = Referral::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -79,7 +79,7 @@ class ReferralController extends Controller
     public function update(UpdateReferralRequest $request, Referral $referral, $id)
     {
         Referral::where('id', $id)->update($request->only((new Referral())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -106,6 +106,7 @@ class ReferralController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -124,6 +125,7 @@ class ReferralController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

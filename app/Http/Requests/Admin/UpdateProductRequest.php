@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateProductRequest extends FormRequest
+class UpdateProductRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,16 +24,16 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             /*
-            'title' => 'required|unique:products,title,' . $this->route('id'),
-            'slug' => 'required|unique:products,slug,' . $this->route('id'),
-            //'excerpt' => 'required',
-            'category_id' => 'required',
-            //'brand_id'=>'required',
-            //'sku'=>'required|unique:products',
-            //'thumbnail' => 'required',
-            'price' => 'required',
-            'sale_price' => 'required',
-            */
+             * 'title' => 'required|unique:products,title,' . $this->route('id'),
+             * 'slug' => 'required|unique:products,slug,' . $this->route('id'),
+             * //'excerpt' => 'required',
+             * 'categories' => 'required',
+             * //'brand_id'=>'required',
+             * //'sku'=>'required|unique:products',
+             * //'thumbnail' => 'required',
+             * 'price' => 'required',
+             * 'sale_price' => 'required',
+             */
         ];
     }
 }

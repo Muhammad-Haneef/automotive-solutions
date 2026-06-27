@@ -17,8 +17,8 @@ return new class extends Migration
             //$table->foreignId('referrer_id')->constrained('users')->onDelete('cascade');
             //$table->foreignId('referred_id')->nullable()->constrained('users')->onDelete('cascade');
 
-            $table->foreignId('referrer_id');
-            $table->foreignId('referred_id');
+            $table->foreignId('referrer_id')->index();
+            $table->foreignId('referred_id')->index();
             
 
             $table->string('referral_code')->unique();

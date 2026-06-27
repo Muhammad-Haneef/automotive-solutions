@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('issued_by')->constrained('employees')->onDelete('cascade');
             */
 
-            $table->foreignId('employee_id');
+            $table->foreignId('employee_id')->index();
             $table->foreignId('issued_by');
 
             $table->string('warning_type');

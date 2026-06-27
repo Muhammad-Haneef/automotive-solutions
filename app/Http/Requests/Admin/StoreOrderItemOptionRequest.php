@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreOrderItemOptionRequest extends FormRequest
+class StoreOrderItemOptionRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +23,12 @@ class StoreOrderItemOptionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
-            'order_item_id'=>'required',
-            'attribute_group_id'=>'required',
-            'attribute_value_id'=>'required',
-            //'sort_by',
-            //'is_active',
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
+            'order_item_id' => 'required',
+            'attribute_group_id' => 'required',
+            'attribute_value_id' => 'required',
+            // 'sort_by',
+            // 'is_active',
         ];
     }
 }

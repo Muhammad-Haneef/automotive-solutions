@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreignId('department_id')->nullable()->constrained('departments')->onDelete('cascade');
             */
 
-            $table->foreignId('department_id');
-            $table->foreignId('designation_id');
+            $table->foreignId('department_id')->index();
+            $table->foreignId('designation_id')->index();
 
             $table->decimal('base_salary', 10, 2);
             $table->decimal('allowance_percentage', 5, 2);

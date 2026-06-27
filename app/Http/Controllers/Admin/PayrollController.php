@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Payroll;
 use App\Http\Requests\Admin\StorePayrollRequest;
 use App\Http\Requests\Admin\UpdatePayrollRequest;
+use App\Models\Admin\Payroll;
+use Illuminate\Support\Facades\DB;
 
 class PayrollController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/payrolls/";
+    private $root = 'admin/payrolls/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'payroll', // route singular name
-        'rpn' => 'payrolls', // route plural name
+        'rsn' => 'payroll',  // route singular name
+        'rpn' => 'payrolls',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = Payroll::withTrashed()->get();
+        $this->data['rows'] = Payroll::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class PayrollController extends Controller
     public function edit(Payroll $payroll, $id)
     {
         if (!$this->data['row'] = Payroll::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Payroll::withTrashed()->get();
+        $this->data['rows'] = Payroll::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class PayrollController extends Controller
     public function update(UpdatePayrollRequest $request, Payroll $payroll, $id)
     {
         Payroll::where('id', $id)->update($request->only((new Payroll())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class PayrollController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class PayrollController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

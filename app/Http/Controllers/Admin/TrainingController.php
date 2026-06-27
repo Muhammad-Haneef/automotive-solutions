@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Training;
 use App\Http\Requests\Admin\StoreTrainingRequest;
 use App\Http\Requests\Admin\UpdateTrainingRequest;
+use App\Models\Admin\Training;
+use Illuminate\Support\Facades\DB;
 
 class TrainingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/trainings/";
+    private $root = 'admin/trainings/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'training', // route singular name
-        'rpn' => 'trainings', // route plural name
+        'rsn' => 'training',  // route singular name
+        'rpn' => 'trainings',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = Training::withTrashed()->get();
+        $this->data['rows'] = Training::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class TrainingController extends Controller
     public function edit(Training $training, $id)
     {
         if (!$this->data['row'] = Training::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Training::withTrashed()->get();
+        $this->data['rows'] = Training::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class TrainingController extends Controller
     public function update(UpdateTrainingRequest $request, Training $training, $id)
     {
         Training::where('id', $id)->update($request->only((new Training())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class TrainingController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class TrainingController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

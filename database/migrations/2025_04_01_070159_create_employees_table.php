@@ -20,10 +20,10 @@ return new class extends Migration
             $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
 */
 
-            $table->foreignId('department_id');
-            $table->foreignId('designation_id');
-            $table->foreignId('system_user_role_id');
-            $table->foreignId('salary_structure_id');
+            $table->foreignId('department_id')->index();
+            $table->foreignId('designation_id')->index();
+            $table->foreignId('system_user_role_id')->index();
+            $table->foreignId('salary_structure_id')->index();
 
 
             $table->string('image')->nullable();

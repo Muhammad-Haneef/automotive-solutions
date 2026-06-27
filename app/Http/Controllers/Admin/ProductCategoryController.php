@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\ProductCategory;
 use App\Http\Requests\Admin\StoreProductCategoryRequest;
 use App\Http\Requests\Admin\UpdateProductCategoryRequest;
+use App\Models\Admin\ProductCategory;
+use Illuminate\Support\Facades\DB;
 
 class ProductCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/product-categories/";
+    private $root = 'admin/product-categories/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'product-category', // route singular name
-        'rpn' => 'product-categories', // route plural name
+        'rsn' => 'product-category',  // route singular name
+        'rpn' => 'product-categories',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = ProductCategory::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class ProductCategoryController extends Controller
     public function edit(ProductCategory $productCategory, $id)
     {
         if (!$this->data['row'] = ProductCategory::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class ProductCategoryController extends Controller
     public function update(UpdateProductCategoryRequest $request, ProductCategory $productCategory, $id)
     {
         ProductCategory::where('id', $id)->update($request->only((new ProductCategory())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class ProductCategoryController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class ProductCategoryController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

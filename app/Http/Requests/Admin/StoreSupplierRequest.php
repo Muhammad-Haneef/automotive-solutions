@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSupplierRequest extends FormRequest
+class StoreSupplierRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,18 +20,17 @@ class StoreSupplierRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
-            //'logo'=>'required',
-            'title'=>'required|unique:suppliers',
-            'email'=>'required|unique:suppliers',
-            'contact_person'=>'required|unique:suppliers',
-            'contact_email'=>'required|unique:suppliers',
-            'contact_phone'=>'required|unique:suppliers',
-            'address'=>'required',
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
+            // 'logo'=>'required',
+            'title' => 'required|unique:suppliers',
+            'email' => 'required|unique:suppliers',
+            'contact_person' => 'required|unique:suppliers',
+            'contact_email' => 'required|unique:suppliers',
+            'contact_phone' => 'required|unique:suppliers',
+            'address' => 'required',
         ];
     }
 }

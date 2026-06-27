@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\PayrollLoan;
 use App\Http\Requests\Admin\StorePayrollLoanRequest;
 use App\Http\Requests\Admin\UpdatePayrollLoanRequest;
+use App\Models\Admin\PayrollLoan;
+use Illuminate\Support\Facades\DB;
 
 class PayrollLoanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/payroll-loans/";
+    private $root = 'admin/payroll-loans/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'payroll-loan', // route singular name
-        'rpn' => 'payroll-loans', // route plural name
+        'rsn' => 'payroll-loan',  // route singular name
+        'rpn' => 'payroll-loans',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = PayrollLoan::withTrashed()->get();
+        $this->data['rows'] = PayrollLoan::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class PayrollLoanController extends Controller
     public function edit(PayrollLoan $payrollLoan, $id)
     {
         if (!$this->data['row'] = PayrollLoan::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = PayrollLoan::withTrashed()->get();
+        $this->data['rows'] = PayrollLoan::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class PayrollLoanController extends Controller
     public function update(UpdatePayrollLoanRequest $request, PayrollLoan $payrollLoan, $id)
     {
         PayrollLoan::where('id', $id)->update($request->only((new PayrollLoan())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class PayrollLoanController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class PayrollLoanController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

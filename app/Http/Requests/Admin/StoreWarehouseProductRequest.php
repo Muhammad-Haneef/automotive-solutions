@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreWarehouseProductRequest extends FormRequest
+class StoreWarehouseProductRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,6 +14,7 @@ class StoreWarehouseProductRequest extends FormRequest
     {
         return true;
     }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -21,9 +23,9 @@ class StoreWarehouseProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'warehouse_id'=>'required',
-            'product_id'=>'required',
-            'quantity'=>'required'
+            'warehouse_id' => 'required',
+            'product_id' => 'required',
+            'quantity' => 'required'
         ];
     }
 }

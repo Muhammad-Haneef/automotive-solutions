@@ -2,32 +2,33 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\AttributeValue;
-use App\Models\Admin\Attribute;
 use App\Http\Requests\Admin\StoreAttributeValueRequest;
 use App\Http\Requests\Admin\UpdateAttributeValueRequest;
+use App\Models\Admin\Attribute;
+use App\Models\Admin\AttributeValue;
+use Illuminate\Support\Facades\DB;
 
 class AttributeValueController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/attribute-values/";
+    private $root = 'admin/attribute-values/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
             'attributes' => [],
-            'rsn' => 'attribute-value', // route singular name
-            'rpn' => 'attribute-values', // route plural name
+            'rsn' => 'attribute-value',  // route singular name
+            'rpn' => 'attribute-values',  // route plural name
         ];
     }
+
     public function index()
     {
         $this->data['attributes'] = Attribute::all();
@@ -69,7 +70,7 @@ class AttributeValueController extends Controller
     public function edit(AttributeValue $attributeValue, $id)
     {
         if (!$this->data['row'] = AttributeValue::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -85,7 +86,7 @@ class AttributeValueController extends Controller
     public function update(UpdateAttributeValueRequest $request, AttributeValue $attributeValue, $id)
     {
         AttributeValue::where('id', $id)->update($request->only((new AttributeValue())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -112,6 +113,7 @@ class AttributeValueController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -130,6 +132,7 @@ class AttributeValueController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('address_books', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->index();
             $table->string('title')->nullable(); // Recipient name
             $table->string('phone')->nullable();
             $table->string('email')->nullable();

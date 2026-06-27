@@ -3,23 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
-use Illuminate\Support\Facades\DB;
-
-use App\Models\Admin\Compare;
-use App\Models\Admin\User;
-use App\Models\Admin\Product;
 use App\Http\Requests\Admin\StoreCompareRequest;
 use App\Http\Requests\Admin\UpdateCompareRequest;
-
+use App\Models\Admin\Compare;
+use App\Models\Admin\Product;
+use App\Models\Admin\User;
+use Illuminate\Support\Facades\DB;
 
 class CompareController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/compares/";
+    private $root = 'admin/compares/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
@@ -27,8 +26,8 @@ class CompareController extends Controller
             'row' => [],
             'users' => [],
             'products' => [],
-            'rsn' => 'compare', // route singular name
-            'rpn' => 'compares', // route plural name
+            'rsn' => 'compare',  // route singular name
+            'rpn' => 'compares',  // route plural name
         ];
     }
 
@@ -74,7 +73,7 @@ class CompareController extends Controller
     public function edit(Compare $compare, $id)
     {
         if (!$this->data['row'] = Compare::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -91,7 +90,7 @@ class CompareController extends Controller
     public function update(UpdateCompareRequest $request, Compare $compare, $id)
     {
         Compare::where('id', $id)->update($request->only((new Compare())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -118,6 +117,7 @@ class CompareController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -136,6 +136,7 @@ class CompareController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

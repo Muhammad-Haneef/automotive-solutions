@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Popup;
 use App\Http\Requests\Admin\StorePopupRequest;
 use App\Http\Requests\Admin\UpdatePopupRequest;
+use App\Models\Admin\Popup;
+use Illuminate\Support\Facades\DB;
 
 class PopupController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/popups/";
+    private $root = 'admin/popups/';
+
     private $data;
 
     public function __construct()
@@ -23,14 +22,15 @@ class PopupController extends Controller
         $this->data = [
             'rows' => [],
             'row' => [],
-            'pages' => [], // Call method to fetch pages
-            'rsn' => 'popup', // Route singular name
-            'rpn' => 'popups', // Route plural name
+            'pages' => [],  // Call method to fetch pages
+            'rsn' => 'popup',  // Route singular name
+            'rpn' => 'popups',  // Route plural name
         ];
     }
+
     public function index()
     {
-        $this->data['pages'] = getPagesList(); // Call method to fetch pages
+        $this->data['pages'] = getPagesList();  // Call method to fetch pages
         $this->data['rows'] = Popup::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
@@ -48,14 +48,14 @@ class PopupController extends Controller
      */
     public function store(StorePopupRequest $request)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store($this->data['rpn'], 'public');
         }
-        if($data['display_pages']){
-            $data['display_pages']= implode(',', $data['display_pages']);
+        if ($data['display_pages']) {
+            $data['display_pages'] = implode(',', $data['display_pages']);
         }
 
         // Save only fillable fields in the database
@@ -81,15 +81,15 @@ class PopupController extends Controller
     public function edit(Popup $popup, $id)
     {
         if (!$this->data['row'] = Popup::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
 
-        //echo "<pre>"; print_r($this->data['row']); exit();
-            $this->data['pages'] = getPagesList(); // Call method to fetch pages
-            $this->data['rows'] = Popup::latest()->withTrashed()->get();
+        // echo "<pre>"; print_r($this->data['row']); exit();
+        $this->data['pages'] = getPagesList();  // Call method to fetch pages
+        $this->data['rows'] = Popup::latest()->withTrashed()->get();
         return view($this->root . 'form', $this->data);
     }
 
@@ -98,14 +98,17 @@ class PopupController extends Controller
      */
     public function update(UpdatePopupRequest $request, Popup $popup, $id)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store($this->data['rpn'], 'public');
+            deleteImage($request->old_image);
+        } else {
+            $data['image'] = $request->old_image;
         }
-        if($data['display_pages']){
-            $data['display_pages']= implode(',', $data['display_pages']);
+        if ($data['display_pages']) {
+            $data['display_pages'] = implode(',', $data['display_pages']);
         }
         // Save only fillable fields in the database
         Popup::where('id', $id)->update(array_intersect_key($data, array_flip((new Popup())->getFillable())));
@@ -137,6 +140,7 @@ class PopupController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -155,6 +159,7 @@ class PopupController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

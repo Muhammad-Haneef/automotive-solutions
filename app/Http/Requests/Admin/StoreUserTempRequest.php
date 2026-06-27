@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserTempRequest extends FormRequest
+class StoreUserTempRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +23,12 @@ class StoreUserTempRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:customers,email',
             'contact' => 'nullable|string|max:20',
             'password' => 'required|min:8',
-            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'dob' => 'nullable|date',
             'gender' => 'nullable|in:male,female,other',
             'newsletter_subscription' => 'boolean',

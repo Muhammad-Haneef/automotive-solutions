@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePayrollAllowanceRequest extends FormRequest
+class UpdatePayrollAllowanceRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +26,8 @@ class UpdatePayrollAllowanceRequest extends FormRequest
             'payroll_id' => 'required',
             'allowance_type' => 'required',
             'amount' => 'required',
-            //'sort_by' => 'required',
-            //'is_active' => 'required',
+            // 'sort_by' => 'required',
+            // 'is_active' => 'required',
         ];
     }
 }

@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\PayrollPayment;
 use App\Http\Requests\Admin\StorePayrollPaymentRequest;
 use App\Http\Requests\Admin\UpdatePayrollPaymentRequest;
+use App\Models\Admin\PayrollPayment;
+use Illuminate\Support\Facades\DB;
 
 class PayrollPaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/payroll-payments/";
+    private $root = 'admin/payroll-payments/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'payroll-payment', // route singular name
-        'rpn' => 'payroll-payments', // route plural name
+        'rsn' => 'payroll-payment',  // route singular name
+        'rpn' => 'payroll-payments',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = PayrollPayment::withTrashed()->get();
+        $this->data['rows'] = PayrollPayment::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class PayrollPaymentController extends Controller
     public function edit(PayrollPayment $payrollPayment, $id)
     {
         if (!$this->data['row'] = PayrollPayment::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = PayrollPayment::withTrashed()->get();
+        $this->data['rows'] = PayrollPayment::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class PayrollPaymentController extends Controller
     public function update(UpdatePayrollPaymentRequest $request, PayrollPayment $payrollPayment, $id)
     {
         PayrollPayment::where('id', $id)->update($request->only((new PayrollPayment())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class PayrollPaymentController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class PayrollPaymentController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

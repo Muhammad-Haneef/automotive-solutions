@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateWarningRequest extends FormRequest
+class UpdateWarningRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,8 +29,8 @@ class UpdateWarningRequest extends FormRequest
             'warning_reason' => 'required',
             'warning_date' => 'required',
             'status' => 'required',
-            //'sort_by' => 'required',
-            //'is_active' => 'required',
+            // 'sort_by' => 'required',
+            // 'is_active' => 'required',
         ];
     }
 }

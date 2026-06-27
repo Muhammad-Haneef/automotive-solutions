@@ -3,23 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
-use Illuminate\Support\Facades\DB;
-
-use App\Models\Admin\Wishlist;
-use App\Models\Admin\User;
-use App\Models\Admin\Product;
 use App\Http\Requests\Admin\StoreWishlistRequest;
 use App\Http\Requests\Admin\UpdateWishlistRequest;
-
+use App\Models\Admin\Product;
+use App\Models\Admin\User;
+use App\Models\Admin\Wishlist;
+use Illuminate\Support\Facades\DB;
 
 class WishlistController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/wishlists/";
+    private $root = 'admin/wishlists/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
@@ -27,8 +26,8 @@ class WishlistController extends Controller
             'row' => [],
             'users' => [],
             'products' => [],
-            'rsn' => 'wishlist', // route singular name
-            'rpn' => 'wishlists', // route plural name
+            'rsn' => 'wishlist',  // route singular name
+            'rpn' => 'wishlists',  // route plural name
         ];
     }
 
@@ -74,7 +73,7 @@ class WishlistController extends Controller
     public function edit(Wishlist $wishlist, $id)
     {
         if (!$this->data['row'] = Wishlist::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -91,7 +90,7 @@ class WishlistController extends Controller
     public function update(UpdateWishlistRequest $request, Wishlist $wishlist, $id)
     {
         Wishlist::where('id', $id)->update($request->only((new Wishlist())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -118,6 +117,7 @@ class WishlistController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -136,6 +136,7 @@ class WishlistController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

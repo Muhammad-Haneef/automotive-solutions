@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBannerImageRequest extends FormRequest
+class StoreBannerImageRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,13 +20,12 @@ class StoreBannerImageRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
-            //'banner_id'=>'required',
-            //'image'=>'required',
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
+            // 'banner_id'=>'required',
+            // 'image'=>'required',
         ];
     }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StorePayrollSettingRequest extends FormRequest
+class StorePayrollSettingRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +27,8 @@ class StorePayrollSettingRequest extends FormRequest
             'overtime_rate' => 'required',
             'tax_policy' => 'required',
             'default_payment_method' => 'required',
-            //'sort_by' => 'required',
-            //'is_active' => 'required',
+            // 'sort_by' => 'required',
+            // 'is_active' => 'required',
         ];
     }
 }

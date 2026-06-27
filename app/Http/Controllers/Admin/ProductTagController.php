@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\ProductTag;
 use App\Http\Requests\Admin\StoreProductTagRequest;
 use App\Http\Requests\Admin\UpdateProductTagRequest;
+use App\Models\Admin\ProductTag;
+use Illuminate\Support\Facades\DB;
 
 class ProductTagController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/product-tags/";
+    private $root = 'admin/product-tags/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'product-tag', // route singular name
-        'rpn' => 'product-tags', // route plural name
+        'rsn' => 'product-tag',  // route singular name
+        'rpn' => 'product-tags',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = ProductTag::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class ProductTagController extends Controller
     public function edit(ProductTag $productTag, $id)
     {
         if (!$this->data['row'] = ProductTag::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class ProductTagController extends Controller
     public function update(UpdateProductTagRequest $request, ProductTag $productTag, $id)
     {
         ProductTag::where('id', $id)->update($request->only((new ProductTag())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class ProductTagController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class ProductTagController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

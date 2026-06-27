@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Attendance;
 use App\Http\Requests\Admin\StoreAttendanceRequest;
 use App\Http\Requests\Admin\UpdateAttendanceRequest;
+use App\Models\Admin\Attendance;
+use Illuminate\Support\Facades\DB;
 
 class AttendanceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/attendances/";
+    private $root = 'admin/attendances/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'attendance', // route singular name
-        'rpn' => 'attendances', // route plural name
+        'rsn' => 'attendance',  // route singular name
+        'rpn' => 'attendances',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = Attendance::withTrashed()->get();
+        $this->data['rows'] = Attendance::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class AttendanceController extends Controller
     public function edit(Attendance $attendance, $id)
     {
         if (!$this->data['row'] = Attendance::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Attendance::withTrashed()->get();
+        $this->data['rows'] = Attendance::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class AttendanceController extends Controller
     public function update(UpdateAttendanceRequest $request, Attendance $attendance, $id)
     {
         Attendance::where('id', $id)->update($request->only((new Attendance())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class AttendanceController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class AttendanceController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

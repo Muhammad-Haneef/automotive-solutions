@@ -12,8 +12,7 @@ class Product extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-
-        'category_id',
+        // 'category_id',
         'brand_id',
         'warehouse_id',
         'shipping_class_id',
@@ -24,7 +23,10 @@ class Product extends Model
         'model',
         'excerpt',
         'description',
+        'features',
         'details',
+        'catalog',
+        'size_chart',
         'type',
         'thumbnail',
         'thumbnail2',
@@ -62,8 +64,6 @@ class Product extends Model
         'is_active',
     ];
 
-
-
     public function wishlists()
     {
         return $this->hasMany(Wishlist::class);
@@ -78,8 +78,29 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
     public function categories()
     {
+        return $this->belongsToMany(Category::class, 'product_categories');
+    }
+
+    public function categoriesIds()
+    {
+        $cat = [];
+        foreach ($this->categories as $key => $value) {
+            $cat[] = $value->id;
+        }
+        return $cat;
+    }
+
+    public function productCategories()
+    {
+        return $this->hasMany(ProductCategory::class);
+    }
+
+    public function productCategoriesIds()
+    {
+        // return $this->belongsToMany(Category::class, 'product_categories')->select('categories.id');;
         return $this->belongsToMany(Category::class, 'product_categories');
     }
 
@@ -127,17 +148,17 @@ class Product extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+
     public function couponUsage()
     {
         return $this->hasOne(CouponUsage::class);
     }
 
-     /**
+    /**
      * A Product can have many video sections.
      */
     public function videoSections()
     {
         return $this->hasMany(ProductVideoSection::class, 'product_id');
     }
-
 }

@@ -2,37 +2,38 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\City;
-use App\Models\Admin\Country;
 use App\Http\Requests\Admin\StoreCityRequest;
 use App\Http\Requests\Admin\UpdateCityRequest;
+use App\Models\Admin\City;
+use App\Models\Admin\Country;
+use Illuminate\Support\Facades\DB;
 
 class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/cities/";
+    private $root = 'admin/cities/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'city', // route singular name
-            'rpn' => 'cities', // route plural name
-            'countries' => [], // Fetch gateways properly
+            'rsn' => 'city',  // route singular name
+            'rpn' => 'cities',  // route plural name
+            'countries' => [],  // Fetch gateways properly
         ];
     }
+
     public function index()
     {
         $this->data['countries'] = Country::all();
-        $this->data['rows'] = City::withTrashed()->get();
-        return view($this->root.'list', $this->data);
+        $this->data['rows'] = City::latest()->withTrashed()->get();
+        return view($this->root . 'list', $this->data);
     }
 
     /**
@@ -40,7 +41,7 @@ class CityController extends Controller
      */
     public function create()
     {
-        //return view($this->root . 'form');
+        // return view($this->root . 'form');
     }
 
     /**
@@ -69,13 +70,13 @@ class CityController extends Controller
     public function edit(City $city, $id)
     {
         if (!$this->data['row'] = City::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
         $this->data['countries'] = Country::all();
-        $this->data['rows'] = City::withTrashed()->get();
+        $this->data['rows'] = City::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -85,7 +86,7 @@ class CityController extends Controller
     public function update(UpdateCityRequest $request, City $city, $id)
     {
         City::where('id', $id)->update($request->only((new City())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -112,6 +113,7 @@ class CityController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -130,6 +132,7 @@ class CityController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

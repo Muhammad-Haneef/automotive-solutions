@@ -1,11 +1,11 @@
 <x-layouts.admin>
-  <form method="post" action="{{$row ? route('admin.update-sms-api-integration', $row->id) : route('admin.create-sms-api-integration')}}">
+  <form method="post" action="{{$row ? route('admin.update-'.$rpn, $row->id) : route('admin.create-'.$rpn) }}" enctype="multipart/form-data">
     @csrf
     <div class="row">
       <div class="col-xl-12">
         <div class="card">
 
-          <x-admin.card-header title="SMS API Integration" route="sms-api-integrations" />
+          <x-admin.card-header title="SMS API Integration" route="{{route('admin.'.$rpn)}}" />
 
           <div class="card-body">
             <div class="row g-3">

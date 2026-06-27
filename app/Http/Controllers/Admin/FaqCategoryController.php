@@ -2,36 +2,36 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\FaqCategory;
 use App\Http\Requests\Admin\StoreFaqCategoryRequest;
 use App\Http\Requests\Admin\UpdateFaqCategoryRequest;
+use App\Models\Admin\FaqCategory;
+use Illuminate\Support\Facades\DB;
 
 class FaqCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'faq-category', // route singular name
-            'rpn' => 'faq-categories', // route plural name
-            'categories' => [], // Fetch gateways properly
+            'rsn' => 'faq-category',  // route singular name
+            'rpn' => 'faq-categories',  // route plural name
+            'categories' => [],  // Fetch gateways properly
         ];
     }
 
     public function index()
     {
         $this->data['categories'] = FaqCategory::all();
-        $this->data['rows'] = FaqCategory::withTrashed()->get();
+        $this->data['rows'] = FaqCategory::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -69,13 +69,13 @@ class FaqCategoryController extends Controller
     public function edit(FaqCategory $faqCategory, $id)
     {
         if (!$this->data['row'] = FaqCategory::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
         $this->data['categories'] = FaqCategory::all();
-        $this->data['rows'] = FaqCategory::withTrashed()->get();
+        $this->data['rows'] = FaqCategory::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -85,7 +85,7 @@ class FaqCategoryController extends Controller
     public function update(UpdateFaqCategoryRequest $request, FaqCategory $faqCategory, $id)
     {
         FaqCategory::where('id', $id)->update($request->only((new FaqCategory())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -112,6 +112,7 @@ class FaqCategoryController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -130,6 +131,7 @@ class FaqCategoryController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

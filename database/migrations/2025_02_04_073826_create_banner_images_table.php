@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('banner_images', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('banner_id');
+            $table->foreignId('banner_id')->index();
             
             $table->string('image_alt')->nullable();
             $table->string('image_link')->nullable()->default('#');

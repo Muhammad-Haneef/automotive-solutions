@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCategoryRequest extends FormRequest
+class StoreCategoryRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +23,14 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
-            'parent_id'=>'required',
-            'title'=>'required|unique:categories',
-            'slug'=>'required|unique:categories',
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
+            'parent_id' => 'required',
+            'title' => 'required|unique:categories',
+            'slug' => 'required|unique:categories',
             'description' => 'nullable|string',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-            'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
+            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:4096',
+            'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,ico,svg|max:1024',
             'meta_title' => 'nullable|string',
             'meta_description' => 'nullable|string',
             'meta_keywords' => 'nullable|string',

@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\EmployeeDocument;
 use App\Http\Requests\Admin\StoreEmployeeDocumentRequest;
 use App\Http\Requests\Admin\UpdateEmployeeDocumentRequest;
+use App\Models\Admin\EmployeeDocument;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeDocumentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/employee-documents/";
+    private $root = 'admin/employee-documents/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'employee-document', // route singular name
-        'rpn' => 'employee-documents', // route plural name
+        'rsn' => 'employee-document',  // route singular name
+        'rpn' => 'employee-documents',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = EmployeeDocument::withTrashed()->get();
+        $this->data['rows'] = EmployeeDocument::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class EmployeeDocumentController extends Controller
     public function edit(EmployeeDocument $employeeDocument, $id)
     {
         if (!$this->data['row'] = EmployeeDocument::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = EmployeeDocument::withTrashed()->get();
+        $this->data['rows'] = EmployeeDocument::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class EmployeeDocumentController extends Controller
     public function update(UpdateEmployeeDocumentRequest $request, EmployeeDocument $employeeDocument, $id)
     {
         EmployeeDocument::where('id', $id)->update($request->only((new EmployeeDocument())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class EmployeeDocumentController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class EmployeeDocumentController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
-use App\Http\Controllers\Controller;    
-
-use App\Models\Admin\UserTemp;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreUserTempRequest;
 use App\Http\Requests\Admin\UpdateUserTempRequest;
+use App\Models\Admin\UserTemp;
+use Illuminate\Support\Facades\DB;
 
 class UserTempController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/customers/";
+    private $root = 'admin/customers/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'customer', // route singular name
-        'rpn' => 'customers', // route plural name
+        'rsn' => 'customer',  // route singular name
+        'rpn' => 'customers',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = UserTemp::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class UserTempController extends Controller
     public function edit(UserTemp $userTemp, $id)
     {
         if (!$this->data['row'] = UserTemp::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class UserTempController extends Controller
     public function update(UpdateUserTempRequest $request, UserTemp $userTemp, $id)
     {
         UserTemp::where('id', $id)->update($request->only((new UserTemp())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class UserTempController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class UserTempController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

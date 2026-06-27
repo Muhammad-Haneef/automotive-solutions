@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCouponUsageRequest extends FormRequest
+class StoreCouponUsageRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +23,13 @@ class StoreCouponUsageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
-            'coupon_id'=>'required',
-            'user_id'=>'required',
-            'order_id'=>'required',
-            'discount_applied'=>'required',
-            //'sort_by'=>'nullable',
-            //'is_active'=>'nullable'
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
+            'coupon_id' => 'required',
+            'user_id' => 'required',
+            'order_id' => 'required',
+            'discount_applied' => 'required',
+            // 'sort_by'=>'nullable',
+            // 'is_active'=>'nullable'
         ];
     }
 }

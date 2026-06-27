@@ -19,7 +19,7 @@
                     <li class="breadcrumb-item">
                         <a href="{{ route('admin.dashboard') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('svg') }}stroke-home"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-home') }}"></use>
                             </svg>
                         </a>
                     </li>

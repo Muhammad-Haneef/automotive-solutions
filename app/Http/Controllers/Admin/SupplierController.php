@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Supplier;
 use App\Http\Requests\Admin\StoreSupplierRequest;
 use App\Http\Requests\Admin\UpdateSupplierRequest;
+use App\Models\Admin\Supplier;
+use Illuminate\Support\Facades\DB;
 
 class SupplierController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/suppliers/";
+    private $root = 'admin/suppliers/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'supplier', // route singular name
-        'rpn' => 'suppliers', // route plural name
+        'rsn' => 'supplier',  // route singular name
+        'rpn' => 'suppliers',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = Supplier::latest()->withTrashed()->get();
@@ -41,7 +41,7 @@ class SupplierController extends Controller
      */
     public function store(StoreSupplierRequest $request)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('logo')) {
@@ -71,7 +71,7 @@ class SupplierController extends Controller
     public function edit(Supplier $supplier, $id)
     {
         if (!$this->data['row'] = Supplier::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -84,11 +84,14 @@ class SupplierController extends Controller
      */
     public function update(UpdateSupplierRequest $request, Supplier $supplier, $id)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('logo')) {
             $data['logo'] = $request->file('logo')->store('suppliers', 'public');
+            deleteImage($request->old_logo);
+        } else {
+            $data['logo'] = $request->old_logo;
         }
 
         // Save only fillable fields in the database
@@ -121,6 +124,7 @@ class SupplierController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -139,6 +143,7 @@ class SupplierController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

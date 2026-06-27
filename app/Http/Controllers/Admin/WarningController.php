@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Warning;
 use App\Http\Requests\Admin\StoreWarningRequest;
 use App\Http\Requests\Admin\UpdateWarningRequest;
+use App\Models\Admin\Warning;
+use Illuminate\Support\Facades\DB;
 
 class WarningController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/warnings/";
+    private $root = 'admin/warnings/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'warning', // route singular name
-        'rpn' => 'warnings', // route plural name
+        'rsn' => 'warning',  // route singular name
+        'rpn' => 'warnings',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = Warning::withTrashed()->get();
+        $this->data['rows'] = Warning::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class WarningController extends Controller
     public function edit(Warning $warning, $id)
     {
         if (!$this->data['row'] = Warning::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Warning::withTrashed()->get();
+        $this->data['rows'] = Warning::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class WarningController extends Controller
     public function update(UpdateWarningRequest $request, Warning $warning, $id)
     {
         Warning::where('id', $id)->update($request->only((new Warning())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class WarningController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class WarningController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

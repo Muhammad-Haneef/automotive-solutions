@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\SmsCategory;
 use App\Http\Requests\Admin\StoreSmsCategoryRequest;
 use App\Http\Requests\Admin\UpdateSmsCategoryRequest;
+use App\Models\Admin\SmsCategory;
+use Illuminate\Support\Facades\DB;
 
 class SmsCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'sms-category', // route singular name
-        'rpn' => 'sms-categories', // route plural name
+        'rsn' => 'sms-category',  // route singular name
+        'rpn' => 'sms-categories',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = SmsCategory::withTrashed()->get();
+        $this->data['rows'] = SmsCategory::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class SmsCategoryController extends Controller
     public function edit(SmsCategory $smsCategory, $id)
     {
         if (!$this->data['row'] = SmsCategory::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = SmsCategory::withTrashed()->get();
+        $this->data['rows'] = SmsCategory::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class SmsCategoryController extends Controller
     public function update(UpdateSmsCategoryRequest $request, SmsCategory $smsCategory, $id)
     {
         SmsCategory::where('id', $id)->update($request->only((new SmsCategory())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class SmsCategoryController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class SmsCategoryController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Wallet;
-use App\Models\Admin\User;
 use App\Http\Requests\Admin\StoreWalletRequest;
 use App\Http\Requests\Admin\UpdateWalletRequest;
+use App\Models\Admin\User;
+use App\Models\Admin\Wallet;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class WalletController extends Controller
@@ -17,16 +15,18 @@ class WalletController extends Controller
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/wallets/";
+    private $root = 'admin/wallets/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
             'users' => [],
-            'rsn' => 'wallet', // route singular name
-            'rpn' => 'wallets', // route plural name
+            'rsn' => 'wallet',  // route singular name
+            'rpn' => 'wallets',  // route plural name
         ];
     }
 
@@ -43,7 +43,7 @@ class WalletController extends Controller
     public function create()
     {
         $this->data['wallet_key'] = Str::uuid();
-        return view($this->root . 'form' , $this->data);
+        return view($this->root . 'form', $this->data);
     }
 
     /**
@@ -72,7 +72,7 @@ class WalletController extends Controller
     public function edit(Wallet $wallet, $id)
     {
         if (!$this->data['row'] = Wallet::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -87,7 +87,7 @@ class WalletController extends Controller
     public function update(UpdateWalletRequest $request, Wallet $wallet, $id)
     {
         Wallet::where('id', $id)->update($request->only((new Wallet())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -114,6 +114,7 @@ class WalletController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -132,6 +133,7 @@ class WalletController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -40,6 +39,11 @@ return new class extends Migration
             $table->boolean('is_active')->default(true)->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            // Composite Indexes (for common queries)
+            $table->index(['account_status', 'is_active']);
+            $table->index(['email_verified_at', 'is_active']);
+            $table->index(['created_at', 'is_active']);
         });
     }
 

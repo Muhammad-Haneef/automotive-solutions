@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\Admin\StoreBannerRequest;
+use App\Http\Requests\Admin\UpdateBannerRequest;
 use App\Models\Admin\Banner;
 use App\Models\Admin\BannerImage;
 use App\Models\Admin\BannerLocation;
-
-use App\Http\Requests\Admin\StoreBannerRequest;
-use App\Http\Requests\Admin\UpdateBannerRequest;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class BannerController extends Controller
@@ -20,16 +16,18 @@ class BannerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/banners/";
+    private $root = 'admin/banners/';
+
     private $data;
+
     function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
             'locations' => [],
-            'rsn' => 'banner', // route singular name
-            'rpn' => 'banners', // route plural name
+            'rsn' => 'banner',  // route singular name
+            'rpn' => 'banners',  // route plural name
         ];
     }
 
@@ -45,6 +43,7 @@ class BannerController extends Controller
      */
     public function create()
     {
+        $this->data['locations'] = BannerLocation::all();
         return view($this->root . 'form', $this->data);
     }
 
@@ -66,18 +65,14 @@ class BannerController extends Controller
             [
                 'title.required' => 'The banner title is required.',
                 'title.unique' => 'A banner with this title already exists.',
-
                 'banner_location_id.required' => 'Please select a banner location.',
                 'banner_location_id.exists' => 'The selected banner location does not exist.',
-
                 'display.required' => 'Please choose whether the banner is static or a slider.',
                 'display.in' => 'Invalid display type selected. Choose either static or slider.',
-
                 'image_url.*.required' => 'At least one banner image is required.',
                 'image_url.*.max' => 'Each image URL should not exceed 255 characters.',
             ]
         );
-
 
         DB::beginTransaction();
         try {
@@ -95,13 +90,13 @@ class BannerController extends Controller
             if ($request->hasFile('image_url')) {
                 $bannerImages = collect($request->file('image_url'))->map(function ($image, $index) use ($request, $banner) {
                     // Save the image
-                    $imagePath = $image->store('banners', 'public'); // Store in `storage/app/public/banners/`
+                    $imagePath = $image->store('banners', 'public');  // Store in `storage/app/public/banners/`
 
                     return [
                         'banner_id' => $banner->id,
                         'image_alt' => $request->image_alt[$index] ?? null,
                         'image_link' => $request->image_link[$index] ?? '#',
-                        'image_url' => $imagePath, // Store image path in DB
+                        'image_url' => $imagePath,  // Store image path in DB
                         'image_sort_by' => $request->image_sort_by[$index] ?? 0,
                         'image_is_active' => $request->image_is_active[$index] ?? true,
                         'created_at' => now(),
@@ -109,7 +104,7 @@ class BannerController extends Controller
                     ];
                 })->toArray();
 
-                BannerImage::insert($bannerImages); // Bulk insert for better performance
+                BannerImage::insert($bannerImages);  // Bulk insert for better performance
             }
 
             DB::commit();
@@ -140,7 +135,7 @@ class BannerController extends Controller
     public function edit(Banner $banner, $id)
     {
         if (!$this->data['row'] = Banner::with('images')->find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -155,7 +150,6 @@ class BannerController extends Controller
      */
     public function update(UpdateBannerRequest $request, Banner $banner, $id)
     {
-
         $request->validate(
             [
                 'title' => 'required|unique:banners,title,' . $id,
@@ -169,13 +163,10 @@ class BannerController extends Controller
             [
                 'title.required' => 'The banner title is required.',
                 'title.unique' => 'A banner with this title already exists.',
-
                 'banner_location_id.required' => 'Please select a banner location.',
                 'banner_location_id.exists' => 'The selected banner location does not exist.',
-
                 'display.required' => 'Please choose whether the banner is static or a slider.',
                 'display.in' => 'Invalid display type selected. Choose either static or slider.',
-
                 'image_url.*.required' => 'At least one banner image is required.',
                 'image_url.*.max' => 'Each image URL should not exceed 255 characters.',
             ]
@@ -198,7 +189,6 @@ class BannerController extends Controller
             foreach ($deleted_ids as $deleted_id) {
                 $re = BannerImage::find($deleted_id);
                 if ($re) {
-
                     if ($re->image_url && Storage::disk('public')->exists($re->image_url)) {
                         Storage::disk('public')->delete($re->image_url);
                     }
@@ -208,7 +198,6 @@ class BannerController extends Controller
             }
             if (isset($request->ids) && sizeof($request->ids)) {
                 for ($x = 0; $x < sizeof($request->ids); $x++) {
-
                     $xr = BannerImage::where('id', $request->ids[$x])->get();
                     $data = [
                         'banner_id' => $id,
@@ -227,8 +216,8 @@ class BannerController extends Controller
                         BannerImage::where('id', $request->ids[$x])->update($data);
                     } else {
                         if (isset($request->image_url[$x])) {
-                            //$imagePath = $request->image_url[$x]->store($this->data['rpn'], 'public');
-                            //$data['image_url'] = $imagePath ?? '';
+                            // $imagePath = $request->image_url[$x]->store($this->data['rpn'], 'public');
+                            // $data['image_url'] = $imagePath ?? '';
                             BannerImage::insert($data);
                         }
                     }
@@ -247,7 +236,6 @@ class BannerController extends Controller
             ]);
         }
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -270,6 +258,7 @@ class BannerController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -288,6 +277,7 @@ class BannerController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

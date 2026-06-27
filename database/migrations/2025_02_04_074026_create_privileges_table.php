@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('privileges', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('privile_gegroup_id');
+            $table->foreignId('privile_gegroup_id')->index();
 
             $table->string('title');
             $table->string('slug');

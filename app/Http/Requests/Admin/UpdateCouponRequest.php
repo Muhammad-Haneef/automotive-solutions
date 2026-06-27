@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCouponRequest extends FormRequest
+class UpdateCouponRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,17 +23,16 @@ class UpdateCouponRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image'         => 'nullable',
-            'title'         => 'required|unique:coupons,title,' . $this->id,
-            'description'   => 'required',
-            'code'          => 'required|unique:coupons,code,' . $this->id,
-            'type'          => 'required|in:Flat,%',
-            'discount'      => 'required|numeric|min:0',
+            'image' => 'nullable',
+            'title' => 'required|unique:coupons,title,' . $this->id,
+            'description' => 'required',
+            'code' => 'required|unique:coupons,code,' . $this->id,
+            'type' => 'required|in:Flat,%',
+            'discount' => 'required|numeric|min:0',
             'minimum_spend' => 'nullable|numeric|min:0',
-            'usage_limit'   => 'nullable|integer|min:1',
-            'start_date'    => 'nullable|date',
-            'end_date'      => 'nullable|date|after:start_date',
+            'usage_limit' => 'nullable|integer|min:1',
+            'start_date' => 'nullable|date',
+            'end_date' => 'nullable|date|after:start_date',
         ];
-
     }
 }

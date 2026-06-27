@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('default_sms', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('sms_category_id');
+            $table->foreignId('sms_category_id')->index();
             $table->string('title')->unique();
             $table->string('sms')->nullable();
 

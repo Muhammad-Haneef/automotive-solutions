@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\PayrollTax;
 use App\Http\Requests\Admin\StorePayrollTaxRequest;
 use App\Http\Requests\Admin\UpdatePayrollTaxRequest;
+use App\Models\Admin\PayrollTax;
+use Illuminate\Support\Facades\DB;
 
 class PayrollTaxController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/payroll-taxes/";
+    private $root = 'admin/payroll-taxes/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'payroll-tax', // route singular name
-        'rpn' => 'payroll-taxes', // route plural name
+        'rsn' => 'payroll-tax',  // route singular name
+        'rpn' => 'payroll-taxes',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = PayrollTax::withTrashed()->get();
+        $this->data['rows'] = PayrollTax::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class PayrollTaxController extends Controller
     public function edit(PayrollTax $payrollTax, $id)
     {
         if (!$this->data['row'] = PayrollTax::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = PayrollTax::withTrashed()->get();
+        $this->data['rows'] = PayrollTax::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class PayrollTaxController extends Controller
     public function update(UpdatePayrollTaxRequest $request, PayrollTax $payrollTax, $id)
     {
         PayrollTax::where('id', $id)->update($request->only((new PayrollTax())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class PayrollTaxController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class PayrollTaxController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

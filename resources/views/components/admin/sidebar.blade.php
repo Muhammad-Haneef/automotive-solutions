@@ -15,7 +15,8 @@
 
         <div class="logo-icon-wrapper">
             <a href="{{ url('/') }}">
-                <img class="img-fluid" style="width: 30px;" src="{{ asset('assets/images/logo-icon.png') }}" alt="">
+                <img class="img-fluid" style="width: 30px;" src="{{ asset('assets/images/logo-icon.png') }}"
+                    alt="">
             </a>
         </div>
 
@@ -34,12 +35,13 @@
                     </li>
 
                     <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav {{ request()->segment(2) == 'dashboard' ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
+                        <a class="sidebar-link sidebar-title link-nav {{ request()->segment(2) == 'dashboard' ? 'active' : '' }}"
+                            href="{{ route('admin.dashboard') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Dashboard</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -56,58 +58,54 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="#">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-widget') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-widget') }}"></use>
                             </svg>
                             <span class="lan-6">Orders</span>
                         </a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{ route('admin.orders') }}">View All</a></li>
-                            <?php
-                            /*
-                            <li><a href="{{ route('admin.create-order') }}">Add New Order</a></li>
+                            <!-- <li><a href="{{ route('admin.create-order') }}">Add New Order</a></li> -->
                             <li><a href="{{ route('admin.order-gift-wraps') }}">Gift Wrap Orders</a></li>
-                            */
-                            ?>
-
                         </ul>
                     </li>
 
-                    <?php /*                    
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title" href="#">
-                            <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-widget') }}"></use>
-                            </svg>
-                            <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-widget') }}"></use>
-                            </svg>
-                            <span class="lan-6">Marketing</span>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li><a href="{{ route('admin.coupons') }}">Coupons</a></li>
-                            <li><a href="{{ route('admin.offers') }}">Offers</a></li>
-                            <li><a href="{{ route('admin.loyalty-settings') }}">Loyalty Programs</a></li>
-                            <li><a href="{{ route('admin.referrals') }}">Referrals</a></li>
-                            <li><a href="{{ route('admin.gift-wraps') }}">Gift Wraps</a></li>
-                            <li><a href="{{ route('admin.vouchers') }}">Vouchers</a></li>
-                            <li><a href="{{ route('admin.popups') }}">Popups</a></li>
-                            <li><a href="{{ route('admin.sms') }}">Send SMS</a></li>
-                            <li><a href="{{ route('admin.notifications') }}">Notifications</a></li>
-                            <li><a href="{{ route('admin.email-campaigns') }}">Email Campaigns</a></li>
-                        </ul>
-                    </li>
-*/ ?>
+                    <?php /*
+ * <li class="sidebar-list">
+ *     <a class="sidebar-link sidebar-title" href="#">
+ *         <svg class="stroke-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-widget') }}"></use>
+ *         </svg>
+ *         <svg class="fill-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#fill-widget') }}"></use>
+ *         </svg>
+ *         <span class="lan-6">Marketing</span>
+ *     </a>
+ *     <ul class="sidebar-submenu">
+ *         <li><a href="{{ route('admin.coupons') }}">Coupons</a></li>
+ *         <li><a href="{{ route('admin.offers') }}">Offers</a></li>
+ *         <li><a href="{{ route('admin.loyalty-settings') }}">Loyalty Programs</a></li>
+ *         <li><a href="{{ route('admin.referrals') }}">Referrals</a></li>
+ *         <li><a href="{{ route('admin.gift-wraps') }}">Gift Wraps</a></li>
+ *         <li><a href="{{ route('admin.vouchers') }}">Vouchers</a></li>
+ *         <li><a href="{{ route('admin.popups') }}">Popups</a></li>
+ *         <li><a href="{{ route('admin.sms') }}">Send SMS</a></li>
+ *         <li><a href="{{ route('admin.notifications') }}">Notifications</a></li>
+ *         <li><a href="{{ route('admin.email-campaigns') }}">Email Campaigns</a></li>
+ *     </ul>
+ * </li>
+ */
+                    ?>
 
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.subscribers') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Subscribers</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -127,10 +125,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href=" {{ route('admin.products') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Products</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -138,27 +136,28 @@
                     </li>
 
                     <?php /*
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.reviews') }}">
-                            <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
-                            </svg>
-                            <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
-                            </svg>
-                            <span>Product Reviews</span>
-                            <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
-                        </a>
-                    </li>
-                    */ ?>
+ * <li class="sidebar-list">
+ *     <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.reviews') }}">
+ *         <svg class="stroke-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
+ *         </svg>
+ *         <svg class="fill-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
+ *         </svg>
+ *         <span>Product Reviews</span>
+ *         <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
+ *     </a>
+ * </li>
+ */
+                    ?>
 
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.categories') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Categories</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -168,10 +167,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.brands') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Brands</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -181,10 +180,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.tags') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Tags</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -194,10 +193,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href=" {{ route('admin.suppliers') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Suppliers</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -207,10 +206,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href=" {{ route('admin.warehouses') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>warehouses</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -220,10 +219,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="#">
                             <!-- <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-widget') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-widget') }}"></use>
                             </svg> -->
                             <span class="lan-6">Attributes</span>
                         </a>
@@ -235,7 +234,7 @@
                     <!-- PRODUCT CATALOG - ending -->
 
 
-                    <!-- CMS - starting 
+                    <!-- CMS - starting
 
                     AttendanceController
                     DepartmentController
@@ -259,76 +258,76 @@
                     WarningController
                     -->
 
-                    <?php /*                    
-                    <li class="sidebar-main-title">
-                        <div>
-                            <h6 class="lan-1">HR & Payroll</h6>
-                        </div>
-                    </li>
-
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title" href="#">
-                            <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-widget') }}"></use>
-                            </svg>
-                            <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-widget') }}"></use>
-                            </svg>
-                            <span class="lan-6">HR</span>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li><a href="{{ route('admin.employees') }}">Employees</a></li>
-                            <li><a href="{{ route('admin.employee-documents') }}">Employee Documents</a></li>
-                            <li><a href="{{ route('admin.performance-reviews') }}">Performance Reviews</a></li>
-                            <li><a href="{{ route('admin.promotions') }}">Promotions</a></li>
-                            <li><a href="{{ route('admin.trainings') }}">Trainings</a></li>
-                            <li><a href="{{ route('admin.warnings') }}">Warnings</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title" href="#">
-                            <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-widget') }}"></use>
-                            </svg>
-                            <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-widget') }}"></use>
-                            </svg>
-                            <span class="lan-6">Payroll</span>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li><a href="{{ route('admin.attendances') }}">Attendance</a></li>
-                            <li><a href="{{ route('admin.leaves') }}">Leaves</a></li>
-                            <li><a href="{{ route('admin.payrolls') }}">Payrolls</a></li>
-                            <li><a href="{{ route('admin.payroll-deductions') }}">Payroll Deductions</a></li>
-                            <li><a href="{{ route('admin.payroll-loans') }}">Payroll Loans</a></li>
-                            <li><a href="{{ route('admin.payroll-payments') }}">Payroll Payments</a></li>
-                            <li><a href="{{ route('admin.payroll-taxes') }}">Payroll Taxes</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title" href="#">
-                            <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-widget') }}"></use>
-                            </svg>
-                            <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-widget') }}"></use>
-                            </svg>
-                            <span class="lan-6">Settings</span>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li><a href="{{ route('admin.salary-structures') }}">Salary Structures</a></li>
-                            <li><a href="{{ route('admin.departments') }}">Departments</a></li>
-                            <li><a href="{{ route('admin.designations') }}">Designations</a></li>
-                            <li><a href="{{ route('admin.leave-types') }}">Leave Types</a></li>
-                            <li><a href="{{ route('admin.payroll-allowances') }}">Payroll Allowances</a></li>
-                            <li><a href="{{ route('admin.payroll-settings') }}">Payroll Settings</a></li>
-                        </ul>
-                    </li>
-                    <!-- HR & payroll - ending -->
-
-*/ ?>
+                    <?php /*
+ * <li class="sidebar-main-title">
+ *     <div>
+ *         <h6 class="lan-1">HR & Payroll</h6>
+ *     </div>
+ * </li>
+ *
+ * <li class="sidebar-list">
+ *     <a class="sidebar-link sidebar-title" href="#">
+ *         <svg class="stroke-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-widget') }}"></use>
+ *         </svg>
+ *         <svg class="fill-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#fill-widget') }}"></use>
+ *         </svg>
+ *         <span class="lan-6">HR</span>
+ *     </a>
+ *     <ul class="sidebar-submenu">
+ *         <li><a href="{{ route('admin.employees') }}">Employees</a></li>
+ *         <li><a href="{{ route('admin.employee-documents') }}">Employee Documents</a></li>
+ *         <li><a href="{{ route('admin.performance-reviews') }}">Performance Reviews</a></li>
+ *         <li><a href="{{ route('admin.promotions') }}">Promotions</a></li>
+ *         <li><a href="{{ route('admin.trainings') }}">Trainings</a></li>
+ *         <li><a href="{{ route('admin.warnings') }}">Warnings</a></li>
+ *     </ul>
+ * </li>
+ *
+ * <li class="sidebar-list">
+ *     <a class="sidebar-link sidebar-title" href="#">
+ *         <svg class="stroke-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-widget') }}"></use>
+ *         </svg>
+ *         <svg class="fill-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#fill-widget') }}"></use>
+ *         </svg>
+ *         <span class="lan-6">Payroll</span>
+ *     </a>
+ *     <ul class="sidebar-submenu">
+ *         <li><a href="{{ route('admin.attendances') }}">Attendance</a></li>
+ *         <li><a href="{{ route('admin.leaves') }}">Leaves</a></li>
+ *         <li><a href="{{ route('admin.payrolls') }}">Payrolls</a></li>
+ *         <li><a href="{{ route('admin.payroll-deductions') }}">Payroll Deductions</a></li>
+ *         <li><a href="{{ route('admin.payroll-loans') }}">Payroll Loans</a></li>
+ *         <li><a href="{{ route('admin.payroll-payments') }}">Payroll Payments</a></li>
+ *         <li><a href="{{ route('admin.payroll-taxes') }}">Payroll Taxes</a></li>
+ *     </ul>
+ * </li>
+ *
+ * <li class="sidebar-list">
+ *     <a class="sidebar-link sidebar-title" href="#">
+ *         <svg class="stroke-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-widget') }}"></use>
+ *         </svg>
+ *         <svg class="fill-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#fill-widget') }}"></use>
+ *         </svg>
+ *         <span class="lan-6">Settings</span>
+ *     </a>
+ *     <ul class="sidebar-submenu">
+ *         <li><a href="{{ route('admin.salary-structures') }}">Salary Structures</a></li>
+ *         <li><a href="{{ route('admin.departments') }}">Departments</a></li>
+ *         <li><a href="{{ route('admin.designations') }}">Designations</a></li>
+ *         <li><a href="{{ route('admin.leave-types') }}">Leave Types</a></li>
+ *         <li><a href="{{ route('admin.payroll-allowances') }}">Payroll Allowances</a></li>
+ *         <li><a href="{{ route('admin.payroll-settings') }}">Payroll Settings</a></li>
+ *     </ul>
+ * </li>
+ * <!-- HR & payroll - ending -->
+ */
+                    ?>
 
 
                     <!-- CMS - starting -->
@@ -341,38 +340,36 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.vendors') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>vendors</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
                         </a>
                     </li>
 
-                    <?php /*
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.menues') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Menu</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
                         </a>
                     </li>
-                    */ ?>
 
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.pages') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Pages</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -382,10 +379,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.banners') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Banners</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -393,25 +390,26 @@
                     </li>
 
                     <?php /*
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title" href="#">
-                            <span class="lan-6">Banners</span>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li><a href="{{ route('admin.banners') }}">Banners</a></li>
-                            <li><a href="{{ route('admin.banner-locations') }}">Banner Locations</a></li>
-                        </ul>
-                    </li>
-                    */ ?>
+ * <li class="sidebar-list">
+ *     <a class="sidebar-link sidebar-title" href="#">
+ *         <span class="lan-6">Banners</span>
+ *     </a>
+ *     <ul class="sidebar-submenu">
+ *         <li><a href="{{ route('admin.banners') }}">Banners</a></li>
+ *         <li><a href="{{ route('admin.banner-locations') }}">Banner Locations</a></li>
+ *     </ul>
+ * </li>
+ */
+                    ?>
 
 
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="#">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-widget') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-widget') }}"></use>
                             </svg>
                             <span class="lan-6">FAQ</span>
                         </a>
@@ -424,10 +422,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="#">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-widget') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-widget') }}"></use>
                             </svg>
                             <span class="lan-6">Blog</span>
                         </a>
@@ -450,10 +448,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.customer-groups') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Customer Groups</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -463,10 +461,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.customers') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Customers</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -475,10 +473,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.wallets') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Wallet</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -488,10 +486,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.wishlists') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Wishlist</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -509,12 +507,12 @@
                     </li>
 
                     <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.site-maps') }}">
+                        <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.generate-sitemap') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Site Map</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -535,10 +533,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.callback-requests') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Callback Requests</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -548,10 +546,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.inquiries') }}">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
                             </svg>
                             <span>Inquiries</span>
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
@@ -561,10 +559,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="#">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-widget') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-widget') }}"></use>
                             </svg>
                             <span class="lan-6">Settings</span>
                         </a>
@@ -577,42 +575,42 @@
                     <!-- HELP DESK & SUPPORT - ending -->
 
                     <?php /*
-
-                    <!-- SYSTEM USERS - starting -->
-                    <li class="sidebar-main-title">
-                        <div>
-                            <h6 class="lan-1">System Users</h6>
-                        </div>
-                    </li>
-
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.system-users') }}">
-                            <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
-                            </svg>
-                            <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
-                            </svg>
-                            <span>System Users</span>
-                            <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
-                        </a>
-                    </li>
-
-
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.system-user-roles') }}">
-                            <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-board') }}"></use>
-                            </svg>
-                            <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-board') }}"></use>
-                            </svg>
-                            <span>User Roles</span>
-                            <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
-                        </a>
-                    </li>
-                    <!-- SYSTEM USERS - ending -->
-*/ ?>
+ * <!-- SYSTEM USERS - starting -->
+ * <li class="sidebar-main-title">
+ *     <div>
+ *         <h6 class="lan-1">System Users</h6>
+ *     </div>
+ * </li>
+ *
+ * <li class="sidebar-list">
+ *     <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.system-users') }}">
+ *         <svg class="stroke-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
+ *         </svg>
+ *         <svg class="fill-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
+ *         </svg>
+ *         <span>System Users</span>
+ *         <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
+ *     </a>
+ * </li>
+ *
+ *
+ * <li class="sidebar-list">
+ *     <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.system-user-roles') }}">
+ *         <svg class="stroke-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-board') }}"></use>
+ *         </svg>
+ *         <svg class="fill-icon">
+ *             <use href="{{ asset('assets/svg/icon-sprite.svg#fill-board') }}"></use>
+ *         </svg>
+ *         <span>User Roles</span>
+ *         <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
+ *     </a>
+ * </li>
+ * <!-- SYSTEM USERS - ending -->
+ */
+                    ?>
 
 
                     <!-- SETTINGS - starting -->
@@ -625,10 +623,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="#">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-widget') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-widget') }}"></use>
                             </svg>
                             <span class="lan-6">For Store</span>
                         </a>
@@ -642,10 +640,10 @@
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="#">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-widget') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-widget') }}"></use>
                             </svg>
                             <span class="lan-6">For Orders</span>
                         </a>
@@ -656,18 +654,18 @@
                             <li><a href="{{ route('admin.payment-gateways') }}">Payment Gateway</a></li>
                             <li><a href="{{ route('admin.payment-methods') }}">Payment Method</a></li>
                             <li><a href="{{ route('admin.courier-services') }}">Courier Service</a></li>
-                            <li><a href="{{route('admin.courier-services-integrations')}}">Courier Service Integration</a></li>
+                            <li><a href="{{ route('admin.courier-services-integrations') }}">Courier Service
+                                    Integration</a></li>
                         </ul>
                     </li>
 
-                    <?php /*
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="#">
                             <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/stroke-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-widget') }}"></use>
                             </svg>
                             <svg class="fill-icon">
-                                <use href="{{ asset('assets/svg/fill-widget') }}"></use>
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-widget') }}"></use>
                             </svg>
                             <span class="lan-6">For SMS</span>
                         </a>
@@ -678,7 +676,6 @@
                             <li><a href="{{ route('admin.default-sms') }}">Default SMS</a></li>
                         </ul>
                     </li>
-                    */ ?>
 
                     <!-- SETTINGS - ending -->
 

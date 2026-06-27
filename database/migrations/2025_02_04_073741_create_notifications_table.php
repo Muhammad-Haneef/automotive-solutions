@@ -22,10 +22,10 @@ return new class extends Migration
             $table->foreignId('system_user_id')->nullable()->constrained('system_users')->onDelete('set null');
         */
 
-            $table->foreignId('notification_type_id');
+            $table->foreignId('notification_type_id')->index();
                     
-            $table->foreignId('user_id');
-            $table->foreignId('system_user_id');
+            $table->foreignId('user_id')->index();
+            $table->foreignId('system_user_id')->index();
 
 
             $table->string('title');

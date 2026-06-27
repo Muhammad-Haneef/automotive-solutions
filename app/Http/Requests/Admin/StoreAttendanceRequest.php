@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreAttendanceRequest extends FormRequest
+class StoreAttendanceRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +28,8 @@ class StoreAttendanceRequest extends FormRequest
             'check_in' => 'required',
             'check_out' => 'required',
             'status' => 'required',
-            //'sort_by' => 'required',
-            //'is_active' => 'required',
+            // 'sort_by' => 'required',
+            // 'is_active' => 'required',
         ];
     }
 }

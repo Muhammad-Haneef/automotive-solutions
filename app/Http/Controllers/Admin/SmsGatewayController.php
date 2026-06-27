@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\SmsGateway;
 use App\Http\Requests\Admin\StoreSmsGatewayRequest;
 use App\Http\Requests\Admin\UpdateSmsGatewayRequest;
+use App\Models\Admin\SmsGateway;
+use Illuminate\Support\Facades\DB;
 
 class SmsGatewayController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'sms-gateway', // route singular name
-        'rpn' => 'sms-gateways', // route plural name
+        'rsn' => 'sms-gateway',  // route singular name
+        'rpn' => 'sms-gateways',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = SmsGateway::withTrashed()->get();
+        $this->data['rows'] = SmsGateway::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class SmsGatewayController extends Controller
     public function edit(SmsGateway $smsGateway, $id)
     {
         if (!$this->data['row'] = SmsGateway::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = SmsGateway::withTrashed()->get();
+        $this->data['rows'] = SmsGateway::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class SmsGatewayController extends Controller
     public function update(UpdateSmsGatewayRequest $request, SmsGateway $smsGateway, $id)
     {
         SmsGateway::where('id', $id)->update($request->only((new SmsGateway())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class SmsGatewayController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class SmsGatewayController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

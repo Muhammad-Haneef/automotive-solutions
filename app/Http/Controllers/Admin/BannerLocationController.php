@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\BannerLocation;
 use App\Http\Requests\Admin\StoreBannerLocationRequest;
 use App\Http\Requests\Admin\UpdateBannerLocationRequest;
+use App\Models\Admin\BannerLocation;
+use Illuminate\Support\Facades\DB;
 
 class BannerLocationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/banner-locations/";
+    private $root = 'admin/banner-locations/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'banner-location', // route singular name
-        'rpn' => 'banner-locations', // route plural name
+        'rsn' => 'banner-location',  // route singular name
+        'rpn' => 'banner-locations',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = BannerLocation::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class BannerLocationController extends Controller
     public function edit(BannerLocation $bannerLocation, $id)
     {
         if (!$this->data['row'] = BannerLocation::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class BannerLocationController extends Controller
     public function update(UpdateBannerLocationRequest $request, BannerLocation $bannerLocation, $id)
     {
         BannerLocation::where('id', $id)->update($request->only((new BannerLocation())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class BannerLocationController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class BannerLocationController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

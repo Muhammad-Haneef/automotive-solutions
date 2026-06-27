@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePopupStatisticRequest extends FormRequest
+class UpdatePopupStatisticRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +23,8 @@ class UpdatePopupStatisticRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'popup_id','required',
+            'popup_id',
+            'required',
         ];
     }
 }

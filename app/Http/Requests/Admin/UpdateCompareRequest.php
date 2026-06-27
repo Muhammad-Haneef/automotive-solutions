@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCompareRequest extends FormRequest
+class UpdateCompareRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +23,10 @@ class UpdateCompareRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),            
-            'user_id'=>'required',
-            'product_id'=>'required',
-            'qty'=>'required',
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
+            'user_id' => 'required',
+            'product_id' => 'required',
+            'qty' => 'required',
             'description' => 'nullable|string',
         ];
     }

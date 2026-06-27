@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\Admin\StoreOfferRequest;
+use App\Http\Requests\Admin\UpdateOfferRequest;
+use App\Models\Admin\Brand;
+use App\Models\Admin\Category;
 use App\Models\Admin\Offer;
 use App\Models\Admin\OfferItem;
 use App\Models\Admin\Product;
-use App\Models\Admin\Brand;
-use App\Models\Admin\Category;
-
-use App\Http\Requests\Admin\StoreOfferRequest;
-use App\Http\Requests\Admin\UpdateOfferRequest;
+use Illuminate\Support\Facades\DB;
 use Laravel\Pail\ValueObjects\Origin\Console;
 
 class OfferController extends Controller
@@ -21,15 +18,17 @@ class OfferController extends Controller
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/Offers/";
+    private $root = 'admin/Offers/';
+
     private $data = [
         'rows' => [],
         'row' => [],
         'xItems' => [],
         'selected' => [],
-        'rsn' => 'offer', // route singular name
-        'rpn' => 'offers', // route plural name
+        'rsn' => 'offer',  // route singular name
+        'rpn' => 'offers',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = Offer::latest()->withTrashed()->get();
@@ -43,18 +42,15 @@ class OfferController extends Controller
             2 => Brand::class,
             3 => Category::class,
         ];
-        $items = isset($models[$id]) ? $models[$id]::all() : collect([]);    
+        $items = isset($models[$id]) ? $models[$id]::all() : collect([]);
         return $jsonResponse ? response()->json($items) : $items;
     }
-    
-
-
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {        
+    {
         return view($this->root . 'form', $this->data);
     }
 
@@ -63,7 +59,7 @@ class OfferController extends Controller
      */
     public function store(StoreOfferRequest $request)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
         // Store the file and update the data array
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store($this->data['rpn'], 'public');
@@ -97,7 +93,7 @@ class OfferController extends Controller
         $offer = Offer::with('items')->find($id);
 
         if (!$offer) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -105,23 +101,25 @@ class OfferController extends Controller
 
         $this->data['row'] = $offer;
         $this->data['xItems'] = $this->getOfferItemsByType($offer->offer_scope, 0);
-        $this->data['xSelected'] = $offer->items->pluck('item_id')->toArray(); // Optimized selection extraction
+        $this->data['xSelected'] = $offer->items->pluck('item_id')->toArray();  // Optimized selection extraction
 
-//echo "<pre>"; print_r($this->data); exit();
+        // echo "<pre>"; print_r($this->data); exit();
 
         return view($this->root . 'form', $this->data);
     }
-
 
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdateOfferRequest $request, Offer $offer, $id)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
         // Store the file and update the data array
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store($this->data['rpn'], 'public');
+            deleteImage($request->old_image);
+        } else {
+            $data['image'] = $request->old_image;
         }
         // Save only fillable fields in the database
         Offer::where('id', $id)->update(array_intersect_key($data, array_flip((new Offer())->getFillable())));
@@ -152,6 +150,7 @@ class OfferController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -170,6 +169,7 @@ class OfferController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

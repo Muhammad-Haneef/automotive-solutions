@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePopupRequest extends FormRequest
+class UpdatePopupRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +23,8 @@ class UpdatePopupRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255|unique:popups,title,'.$this->route('id'),
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'required|string|max:255|unique:popups,title,' . $this->route('id'),
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'display_pages' => 'required|array',
             'link' => 'nullable',
             'start_date' => 'nullable|date',

@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCourierServiceIntegrationRequest extends FormRequest
+class StoreCourierServiceIntegrationRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,14 +22,13 @@ class StoreCourierServiceIntegrationRequest extends FormRequest
      */
     public function rules(): array
     {
-
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
-            'courier_service_id'=>'required',
-            'api_user_name'=>'required|unique:courier_service_integrations',
-            'api_key'=>'required|unique:courier_service_integrations',
-            'api_url'=>'required',
-            'tracking_url'=>'required',
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
+            'courier_service_id' => 'required',
+            'api_user_name' => 'required|unique:courier_service_integrations',
+            'api_key' => 'required|unique:courier_service_integrations',
+            'api_url' => 'required',
+            'tracking_url' => 'required',
         ];
     }
 }

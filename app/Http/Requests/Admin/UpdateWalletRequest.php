@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateWalletRequest extends FormRequest
+class UpdateWalletRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +25,7 @@ class UpdateWalletRequest extends FormRequest
         return [
             'user_id' => 'required|unique:wallets',
             'balance' => 'required',
-            //'currency'=>'required',
+            // 'currency'=>'required',
             'wallet_key' => 'required',
         ];
     }

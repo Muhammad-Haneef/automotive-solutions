@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('wishlists', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('user_id');
-            $table->foreignId('product_id');
+            $table->foreignId('user_id')->index();
+            $table->foreignId('product_id')->index();
             
             $table->integer('qty')->default(1);
             $table->text('description')->nullable();

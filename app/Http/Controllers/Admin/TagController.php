@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Tag;
 use App\Http\Requests\Admin\StoreTagRequest;
 use App\Http\Requests\Admin\UpdateTagRequest;
+use App\Models\Admin\Tag;
+use Illuminate\Support\Facades\DB;
 
 class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'tag', // route singular name
-        'rpn' => 'tags', // route plural name
+        'rsn' => 'tag',  // route singular name
+        'rpn' => 'tags',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = Tag::withTrashed()->get();
+        $this->data['rows'] = Tag::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class TagController extends Controller
     public function edit(Tag $tag, $id)
     {
         if (!$this->data['row'] = Tag::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Tag::withTrashed()->get();
+        $this->data['rows'] = Tag::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class TagController extends Controller
     public function update(UpdateTagRequest $request, Tag $tag, $id)
     {
         Tag::where('id', $id)->update($request->only((new Tag())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class TagController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class TagController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\SupportStatus;
 use App\Http\Requests\Admin\StoreSupportStatusRequest;
 use App\Http\Requests\Admin\UpdateSupportStatusRequest;
+use App\Models\Admin\SupportStatus;
+use Illuminate\Support\Facades\DB;
 
 class SupportStatusController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'support-status', // route singular name
-        'rpn' => 'support-statuses', // route plural name
+        'rsn' => 'support-status',  // route singular name
+        'rpn' => 'support-statuses',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = SupportStatus::withTrashed()->get();
+        $this->data['rows'] = SupportStatus::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class SupportStatusController extends Controller
     public function edit(SupportStatus $supportStatus, $id)
     {
         if (!$this->data['row'] = SupportStatus::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = SupportStatus::withTrashed()->get();
+        $this->data['rows'] = SupportStatus::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class SupportStatusController extends Controller
     public function update(UpdateSupportStatusRequest $request, SupportStatus $supportStatus, $id)
     {
         SupportStatus::where('id', $id)->update($request->only((new SupportStatus())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class SupportStatusController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class SupportStatusController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

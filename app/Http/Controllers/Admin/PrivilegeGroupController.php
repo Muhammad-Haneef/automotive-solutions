@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\PrivilegeGroup;
 use App\Http\Requests\Admin\StorePrivilegeGroupRequest;
 use App\Http\Requests\Admin\UpdatePrivilegeGroupRequest;
+use App\Models\Admin\PrivilegeGroup;
+use Illuminate\Support\Facades\DB;
 
 class PrivilegeGroupController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/privilege-groups/";
+    private $root = 'admin/privilege-groups/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'privilege-group', // route singular name
-        'rpn' => 'privilege-groups', // route plural name
+        'rsn' => 'privilege-group',  // route singular name
+        'rpn' => 'privilege-groups',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = PrivilegeGroup::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class PrivilegeGroupController extends Controller
     public function edit(PrivilegeGroup $privilegeGroup, $id)
     {
         if (!$this->data['row'] = PrivilegeGroup::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class PrivilegeGroupController extends Controller
     public function update(UpdatePrivilegeGroupRequest $request, PrivilegeGroup $privilegeGroup, $id)
     {
         PrivilegeGroup::where('id', $id)->update($request->only((new PrivilegeGroup())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class PrivilegeGroupController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class PrivilegeGroupController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

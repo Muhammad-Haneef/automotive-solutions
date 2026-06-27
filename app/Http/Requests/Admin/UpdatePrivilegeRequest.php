@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePrivilegeRequest extends FormRequest
+class UpdatePrivilegeRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +23,11 @@ class UpdatePrivilegeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
-            'title'=>'required',
-            'slug'=>'required',
-            //'sort_by',
-            //'is_active',
-    
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
+            'title' => 'required',
+            'slug' => 'required',
+            // 'sort_by',
+            // 'is_active',
         ];
     }
 }

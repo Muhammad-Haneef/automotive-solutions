@@ -47,28 +47,28 @@
                 <li class="fullscreen-body">
                     <span>
                         <svg id="maximize-screen">
-                            <use href="{{ asset('svg/full-screen') }}"></use>
+                            <use href="{{ asset('assets/svg/icon-sprite.svg#full-screen') }}"></use>
                         </svg>
                     </span>
                 </li>
                 <li>
                     <span class="header-search">
                         <svg>
-                            <use href="{{ asset('svg/search') }}"></use>
+                            <use href="{{ asset('assets/svg/icon-sprite.svg#search') }}"></use>
                         </svg>
                     </span>
                 </li>
                 <li>
                     <div class="mode">
                         <svg>
-                            <use href="{{ asset('svg/moon') }}"></use>
+                            <use href="{{ asset('assets/svg/icon-sprite.svg#moon') }}"></use>
                         </svg>
                     </div>
                 </li>
                 <li class="onhover-dropdown">
                     <div class="notification-box">
                         <svg>
-                            <use href="{{ asset('svg/notifications') }}"></use>
+                            <use href="{{ asset('assets/svg/icon-sprite.svg#notification') }}"></use>
                         </svg>
                         <span class="badge rounded-pill badge-success">4</span>
                     </div>

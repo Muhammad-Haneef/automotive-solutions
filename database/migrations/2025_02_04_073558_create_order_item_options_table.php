@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('order_item_options', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('order_item_id');
-            $table->foreignId('attribute_group_id');
-            $table->foreignId('attribute_value_id');
+            $table->foreignId('order_item_id')->index();
+            $table->foreignId('attribute_group_id')->index();
+            $table->foreignId('attribute_value_id')->index();
 
             $table->integer('sort_by')->default(0)->nullable();
             $table->boolean('is_active')->default(true)->nullable();

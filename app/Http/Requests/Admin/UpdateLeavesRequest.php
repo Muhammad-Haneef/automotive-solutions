@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateLeavesRequest extends FormRequest
+class UpdateLeavesRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,8 +30,8 @@ class UpdateLeavesRequest extends FormRequest
             'end_date' => 'required',
             'status' => 'required',
             'reason' => 'required',
-            //'sort_by' => 'required',
-            //'is_active' => 'required',
+            // 'sort_by' => 'required',
+            // 'is_active' => 'required',
         ];
     }
 }

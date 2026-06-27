@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\CourierService;
 use App\Http\Requests\Admin\StoreCourierServiceRequest;
 use App\Http\Requests\Admin\UpdateCourierServiceRequest;
+use App\Models\Admin\CourierService;
+use Illuminate\Support\Facades\DB;
 
 class CourierServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/courier-services/";
+    private $root = 'admin/courier-services/';
+
     private $data = [
-        'rows'=> [],
-        'row'=> [],
-        'rsn'=>'courier-service', // route singular name
-        'rpn'=>'courier-services', // route plural name
+        'rows' => [],
+        'row' => [],
+        'rsn' => 'courier-service',  // route singular name
+        'rpn' => 'courier-services',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = CourierService::withTrashed()->get();
-        return view($this->root.'list', $this->data);
+        $this->data['rows'] = CourierService::latest()->withTrashed()->get();
+        return view($this->root . 'list', $this->data);
     }
 
     /**
@@ -41,7 +41,7 @@ class CourierServiceController extends Controller
      */
     public function store(StoreCourierServiceRequest $request)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('logo')) {
@@ -71,7 +71,7 @@ class CourierServiceController extends Controller
     public function edit(CourierService $courierService, $id)
     {
         if (!$this->data['row'] = CourierService::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -84,11 +84,14 @@ class CourierServiceController extends Controller
      */
     public function update(UpdateCourierServiceRequest $request, CourierService $courierService, $id)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('logo')) {
             $data['logo'] = $request->file('logo')->store('shippers', 'public');
+            deleteImage($request->old_logo);
+        } else {
+            $data['logo'] = $request->old_logo;
         }
 
         // Save only fillable fields in the database
@@ -121,6 +124,7 @@ class CourierServiceController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -139,6 +143,7 @@ class CourierServiceController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();
@@ -156,6 +161,5 @@ class CourierServiceController extends Controller
                 'alert-type' => 'error'
             ]);
         }
-    }  
-
+    }
 }

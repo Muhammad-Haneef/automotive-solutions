@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,14 +12,17 @@ return new class extends Migration
     {
         Schema::create('user_groups', function (Blueprint $table) {
             $table->id();
-            
+
             $table->string('title')->unique();
             $table->string('description', 5000)->nullable();
-            
+
             $table->integer('sort_by')->default(0)->nullable();
             $table->boolean('is_active')->default(true)->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index(['is_active', 'sort_by']);
+            $table->index(['created_at', 'is_active']);
         });
     }
 

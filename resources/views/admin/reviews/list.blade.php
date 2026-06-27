@@ -2,7 +2,7 @@
 
     <x-slot:header>
         <x-admin.card-header title="SMS API Integrations">
-            <x-admin.add-new-btn route="{{ $data['rsn'] }}" />
+            <x-admin.add-new-btn :route="$rsn" />
         </x-admin.card-header>
     </x-slot:header>
 

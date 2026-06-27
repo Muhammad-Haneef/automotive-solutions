@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Shipper;
 use App\Http\Requests\Admin\StoreShipperRequest;
 use App\Http\Requests\Admin\UpdateShipperRequest;
+use App\Models\Admin\Shipper;
+use Illuminate\Support\Facades\DB;
 
 class ShipperController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/shippers/";
+    private $root = 'admin/shippers/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'shipper', // route singular name
-        'rpn' => 'shippers', // route plural name
+        'rsn' => 'shipper',  // route singular name
+        'rpn' => 'shippers',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = Shipper::latest()->withTrashed()->get();
@@ -41,7 +41,7 @@ class ShipperController extends Controller
      */
     public function store(StoreShipperRequest $request)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('logo')) {
@@ -71,7 +71,7 @@ class ShipperController extends Controller
     public function edit(Shipper $shipper, $id)
     {
         if (!$this->data['row'] = Shipper::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -84,11 +84,14 @@ class ShipperController extends Controller
      */
     public function update(UpdateShipperRequest $request, Shipper $shipper, $id)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('logo')) {
             $data['logo'] = $request->file('logo')->store('shippers', 'public');
+            deleteImage($request->old_logo);
+        } else {
+            $data['logo'] = $request->old_logo;
         }
 
         // Save only fillable fields in the database
@@ -98,7 +101,6 @@ class ShipperController extends Controller
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
-
     }
 
     /**
@@ -122,6 +124,7 @@ class ShipperController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -140,6 +143,7 @@ class ShipperController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

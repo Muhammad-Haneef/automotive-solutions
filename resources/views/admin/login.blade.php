@@ -10,9 +10,9 @@
   <meta name="keywords" content="XStoreO" />
   <meta name="author" content="pixelstrap" />
 
-  <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
-  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-
+  <link rel="icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
+          
   <title>XStoreO</title>
 
   <!-- Google font-->
@@ -65,7 +65,7 @@
                 <p>Enter your email & password to login</p>
                 <div class="form-group">
                   <label class="col-form-label">Email Address</label>
-                  <input class="form-control" type="email" name="email" placeholder="test@gmail.com" value="admin@automotivesolutions.com">
+                  <input class="form-control" type="email" name="email" placeholder="test@gmail.com" value="admin@venta.com">
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Password</label>

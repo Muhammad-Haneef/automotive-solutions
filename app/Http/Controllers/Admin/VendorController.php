@@ -2,34 +2,34 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Vendor;
-use App\Models\Admin\User;
-use App\Models\Admin\PaymentMethod;
 use App\Http\Requests\Admin\StoreVendorRequest;
 use App\Http\Requests\Admin\UpdateVendorRequest;
+use App\Models\Admin\PaymentMethod;
+use App\Models\Admin\User;
+use App\Models\Admin\Vendor;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class VendorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/vendors/";
+    private $root = 'admin/vendors/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'vendor', // route singular name
-        'rpn' => 'vendors', // route plural name
+        'rsn' => 'vendor',  // route singular name
+        'rpn' => 'vendors',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = Vendor::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -46,7 +46,7 @@ class VendorController extends Controller
      */
     public function store(StoreVendorRequest $request)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('logo')) {
@@ -76,7 +76,7 @@ class VendorController extends Controller
     public function edit(Vendor $vendor, $id)
     {
         if (!$this->data['row'] = Vendor::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -91,14 +91,17 @@ class VendorController extends Controller
      */
     public function update(UpdateVendorRequest $request, Vendor $vendor, $id)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('logo')) {
             $data['logo'] = $request->file('logo')->store($this->data['rpn'], 'public');
+            deleteImage($request->old_logo);
         } else {
             $data['logo'] = $request->old_logo;
         }
+
+        // echo '<pre>'; print_r($data); die;
 
         // Save only fillable fields in the database
         Vendor::where('id', $id)->update(array_intersect_key($data, array_flip((new Vendor())->getFillable())));
@@ -130,6 +133,7 @@ class VendorController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -148,6 +152,7 @@ class VendorController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

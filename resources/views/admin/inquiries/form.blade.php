@@ -26,6 +26,7 @@
                 ref="handled_by"
                 title="Handled By"
                 :options="$systemUsers"
+                field="name"
                 selected="{{$row ? $row->handled_by : old('v')}}"
                 class="col-md-3" />
 

@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Notification;
 use App\Http\Requests\Admin\StoreNotificationRequest;
 use App\Http\Requests\Admin\UpdateNotificationRequest;
+use App\Models\Admin\Notification;
+use Illuminate\Support\Facades\DB;
 
 class NotificationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/notifications/";
+    private $root = 'admin/notifications/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'notification', // route singular name
-        'rpn' => 'notifications', // route plural name
+        'rsn' => 'notification',  // route singular name
+        'rpn' => 'notifications',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = Notification::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class NotificationController extends Controller
     public function edit(Notification $notification, $id)
     {
         if (!$this->data['row'] = Notification::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class NotificationController extends Controller
     public function update(UpdateNotificationRequest $request, Notification $notification, $id)
     {
         Notification::where('id', $id)->update($request->only((new Notification())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class NotificationController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class NotificationController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

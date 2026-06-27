@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreWarehouseRequest extends FormRequest
+class StoreWarehouseRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +23,10 @@ class StoreWarehouseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'system_user_id'=>'required',
-            'title'=>'required',
-            'address'=>'required',
-            'contact'=>'required'
+            'system_user_id' => 'required',
+            'title' => 'required',
+            'address' => 'required',
+            'contact' => 'required'
         ];
     }
 }

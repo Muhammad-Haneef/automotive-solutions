@@ -101,7 +101,7 @@ class CartController extends Controller
     public function update(UpdateCartRequest $request, Cart $cart, $id)
     {
         Cart::where('id', $id)->update($request->only((new Cart())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alertType' => 'success'
         ]);

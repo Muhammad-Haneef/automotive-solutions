@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('payment_gateway_id')->nullable()->default(0);
+            $table->foreignId('payment_gateway_id')->nullable()->default(0)->index();
 
             $table->string('title')->unique();
             $table->string('description', 5000)->nullable();

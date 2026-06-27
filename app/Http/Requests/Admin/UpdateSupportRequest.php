@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSupportRequest extends FormRequest
+class UpdateSupportRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,17 +23,17 @@ class UpdateSupportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
-            'support_type_id'=>'required',
-            'support_status_id'=>'required',
-            'code'=>'required',
-            //'name'=>'required',
-           //'email'=>'required',
-            //'contact'=>'required',
-            //'subject'=>'required',
-            //'message'=>'required',
-            'status'=>'required',
-            //'callback_at'=>'required',
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
+            'support_type_id' => 'required',
+            'support_status_id' => 'required',
+            'code' => 'required',
+            // 'name'=>'required',
+            // 'email'=>'required',
+            // 'contact'=>'required',
+            // 'subject'=>'required',
+            // 'message'=>'required',
+            'status' => 'required',
+            // 'callback_at'=>'required',
         ];
     }
 }

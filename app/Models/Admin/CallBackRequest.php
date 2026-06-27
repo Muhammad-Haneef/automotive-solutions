@@ -11,13 +11,12 @@ class CallBackRequest extends Model
     /** @use HasFactory<\Database\Factories\CallBackRequestFactory> */
     use HasFactory, SoftDeletes;
 
-
     protected $fillable = [
         'name',
         'email',
         'contact',
         'message',
-        'status',
+        'status_id',
         'handled_by',
         'sort_by',
         'is_active',
@@ -28,4 +27,14 @@ class CallBackRequest extends Model
         return $this->belongsTo(SystemUser::class, 'handled_by');
     }
 
+    // Accessor for status label
+
+    public function getStatusLabel()
+    {
+        $statuses = getCallbackStatus();
+        $status = collect($statuses)
+            ->map(fn($item) => (object) $item)
+            ->firstWhere('id', $this->status_id);
+        return $status->title ?? 'Unknown';
+    }
 }

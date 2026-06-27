@@ -16,7 +16,7 @@ return new class extends Migration
             /*
             $table->foreignId('system_user_role_id')->constrained('system_user_roles')->onDelete('set null')->nullable();
             */
-            $table->foreignId('system_user_role_id')->default(0);
+            $table->foreignId('system_user_role_id')->default(0)->index();
 
             $table->string('name');
             $table->string('email')->unique();

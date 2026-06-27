@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateBlogRequest extends FormRequest
+class UpdateBlogRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +26,10 @@ class UpdateBlogRequest extends FormRequest
             'blog_category_id' => 'required|exists:blog_categories,id',
             //           'blog_category_id.0' => 'required', // Ensures at least one category is selected
             //            'blog_category_id.*' => 'exists:blog_categories,id', // Ensures each ID exists in the database
-            'title'              => 'required|unique:blogs,title,'.$this->route('id'),
-            'slug'              => 'required|unique:blogs,slug,'.$this->route('id'),
-            'content'            => 'required',
-            'image'            => 'required',
+            'title' => 'required|unique:blogs,title,' . $this->route('id'),
+            'slug' => 'required|unique:blogs,slug,' . $this->route('id'),
+            'content' => 'required',
+            // 'image' => 'required',
         ];
     }
 
@@ -36,9 +37,7 @@ class UpdateBlogRequest extends FormRequest
     {
         return [
             'blog_category_id.required' => 'Please select a category.',
-            'blog_category_id.exists'   => 'The selected category is invalid.',
+            'blog_category_id.exists' => 'The selected category is invalid.',
         ];
     }
-
-
 }

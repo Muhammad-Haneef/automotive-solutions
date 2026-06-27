@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Privilege;
 use App\Http\Requests\Admin\StorePrivilegeRequest;
 use App\Http\Requests\Admin\UpdatePrivilegeRequest;
+use App\Models\Admin\Privilege;
+use Illuminate\Support\Facades\DB;
 
 class PrivilegeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/privileges/";
+    private $root = 'admin/privileges/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'privilege', // route singular name
-        'rpn' => 'privileges', // route plural name
+        'rsn' => 'privilege',  // route singular name
+        'rpn' => 'privileges',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = Privilege::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class PrivilegeController extends Controller
     public function edit(Privilege $privilege, $id)
     {
         if (!$this->data['row'] = Privilege::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class PrivilegeController extends Controller
     public function update(UpdatePrivilegeRequest $request, Privilege $privilege, $id)
     {
         Privilege::where('id', $id)->update($request->only((new Privilege())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class PrivilegeController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class PrivilegeController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

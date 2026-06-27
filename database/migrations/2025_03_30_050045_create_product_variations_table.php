@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('product_variations', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('product_id');
-            $table->foreignId('attribute_id');
-            $table->foreignId('attribute_value_id');
+            $table->foreignId('product_id')->index();
+            $table->foreignId('attribute_id')->index();
+            $table->foreignId('attribute_value_id')->index();
 
             $table->string('sku');
             $table->string('image');

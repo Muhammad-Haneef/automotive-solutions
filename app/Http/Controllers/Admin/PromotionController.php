@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Promotion;
 use App\Http\Requests\Admin\StorePromotionRequest;
 use App\Http\Requests\Admin\UpdatePromotionRequest;
+use App\Models\Admin\Promotion;
+use Illuminate\Support\Facades\DB;
 
 class PromotionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/promotion/";
+    private $root = 'admin/promotion/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'promotion', // route singular name
-        'rpn' => 'promotions', // route plural name
+        'rsn' => 'promotion',  // route singular name
+        'rpn' => 'promotions',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = Promotion::withTrashed()->get();
+        $this->data['rows'] = Promotion::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class PromotionController extends Controller
     public function edit(Promotion $promotion, $id)
     {
         if (!$this->data['row'] = Promotion::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Promotion::withTrashed()->get();
+        $this->data['rows'] = Promotion::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class PromotionController extends Controller
     public function update(UpdatePromotionRequest $request, Promotion $promotion, $id)
     {
         Promotion::where('id', $id)->update($request->only((new Promotion())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class PromotionController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class PromotionController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

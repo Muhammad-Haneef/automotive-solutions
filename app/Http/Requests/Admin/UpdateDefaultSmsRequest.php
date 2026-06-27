@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateDefaultSmsRequest extends FormRequest
+class UpdateDefaultSmsRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +23,9 @@ class UpdateDefaultSmsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sms_category_id'=>'required',
-            'title'=>'required|unique:default_sms,title,'.$this->route('id'),
-            'sms'=>'required'
+            'sms_category_id' => 'required',
+            'title' => 'required|unique:default_sms,title,' . $this->route('id'),
+            'sms' => 'required'
         ];
     }
 }

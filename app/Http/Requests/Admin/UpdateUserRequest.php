@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateUserRequest extends FormRequest
+class UpdateUserRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +23,13 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
             'name' => 'sometimes|string|max:255',
             'email' => 'sometimes|email|unique:users,email,' . $this->id,
             'contact' => 'nullable|string|max:20',
             'password' => 'nullable|min:8',
-            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'account_status' => 'required',
+            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'dob' => 'nullable|date',
             'gender' => 'nullable',
             'newsletter_subscription' => 'boolean',

@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSalaryStructureRequest extends FormRequest
+class UpdateSalaryStructureRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +28,8 @@ class UpdateSalaryStructureRequest extends FormRequest
             'base_salary' => 'required',
             'allowance_percentage' => 'required',
             'tax_percentage' => 'required',
-            //'sort_by' => 'required',
-            //'is_active' => 'required',
+            // 'sort_by' => 'required',
+            // 'is_active' => 'required',
         ];
     }
 }

@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\SalaryStructure;
 use App\Http\Requests\Admin\StoreSalaryStructureRequest;
 use App\Http\Requests\Admin\UpdateSalaryStructureRequest;
+use App\Models\Admin\SalaryStructure;
+use Illuminate\Support\Facades\DB;
 
 class SalaryStructureController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/salary-structures/";
+    private $root = 'admin/salary-structures/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'salary-structure', // route singular name
-        'rpn' => 'salary-structures', // route plural name
+        'rsn' => 'salary-structure',  // route singular name
+        'rpn' => 'salary-structures',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = SalaryStructure::withTrashed()->get();
+        $this->data['rows'] = SalaryStructure::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class SalaryStructureController extends Controller
     public function edit(SalaryStructure $salaryStructure, $id)
     {
         if (!$this->data['row'] = SalaryStructure::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = SalaryStructure::withTrashed()->get();
+        $this->data['rows'] = SalaryStructure::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class SalaryStructureController extends Controller
     public function update(UpdateSalaryStructureRequest $request, SalaryStructure $salaryStructure, $id)
     {
         SalaryStructure::where('id', $id)->update($request->only((new SalaryStructure())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class SalaryStructureController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class SalaryStructureController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

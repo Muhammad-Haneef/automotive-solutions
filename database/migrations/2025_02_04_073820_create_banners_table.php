@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('banner_location_id');
+            $table->foreignId('banner_location_id')->index();
 
             $table->string('title')->default('Banner');
             $table->text('description')->nullable();

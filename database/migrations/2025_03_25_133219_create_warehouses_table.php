@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('warehouses', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('system_user_id');
+            $table->foreignId('system_user_id')->index();
             
             $table->string('title');
             $table->string('address', 2000);

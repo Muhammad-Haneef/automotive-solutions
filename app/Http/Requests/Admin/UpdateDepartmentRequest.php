@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateDepartmentRequest extends FormRequest
+class UpdateDepartmentRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +23,11 @@ class UpdateDepartmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255|unique:departments,title,'.$this->route('id'),
-            'slug' => 'required|string|max:255|unique:departments,slug,'.$this->route('id'),
-            //'description' => 'required',
-            //'sort_by' => 'required',
-            //'is_active' => 'required',
+            'title' => 'required|string|max:255|unique:departments,title,' . $this->route('id'),
+            'slug' => 'required|string|max:255|unique:departments,slug,' . $this->route('id'),
+            // 'description' => 'required',
+            // 'sort_by' => 'required',
+            // 'is_active' => 'required',
         ];
     }
 }

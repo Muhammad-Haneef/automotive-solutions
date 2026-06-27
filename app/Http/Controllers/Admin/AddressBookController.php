@@ -2,30 +2,31 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\AddressBook;
 use App\Http\Requests\Admin\StoreAddressBookRequest;
 use App\Http\Requests\Admin\UpdateAddressBookRequest;
+use App\Models\Admin\AddressBook;
+use Illuminate\Support\Facades\DB;
 
 class AddressBookController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/address-books/";
+    private $root = 'admin/address-books/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'address-book', // route singular name
-            'rpn' => 'address-books', // route plural name
+            'rsn' => 'address-book',  // route singular name
+            'rpn' => 'address-books',  // route plural name
         ];
     }
+
     public function index()
     {
         $this->data['rows'] = AddressBook::latest()->withTrashed()->get();
@@ -66,7 +67,7 @@ class AddressBookController extends Controller
     public function edit(AddressBook $addressBook, $id)
     {
         if (!$this->data['row'] = AddressBook::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -80,7 +81,7 @@ class AddressBookController extends Controller
     public function update(UpdateAddressBookRequest $request, AddressBook $addressBook, $id)
     {
         AddressBook::where('id', $id)->update($request->only((new AddressBook())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -107,6 +108,7 @@ class AddressBookController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -125,6 +127,7 @@ class AddressBookController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

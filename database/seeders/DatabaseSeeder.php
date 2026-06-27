@@ -15,94 +15,79 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         /*
-        // User::factory(10)->create();
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-        */
+         * // User::factory(10)->create();
+         * User::factory()->create([
+         *     'name' => 'Test User',
+         *     'email' => 'test@example.com',
+         * ]);
+         */
         $this->call([
             // SYSTEM & SETTINGS
-            //SettingSeeder::class,
-            //SitemapSeeder::class,
-        
+            // SettingSeeder::class,
+            // SitemapSeeder::class,
             // LOCATIONS
             AddressTypeSeeder::class,
             CountrySeeder::class,
-            CitySeeder::class,  //only for UAE
-        
+            CitySeeder::class,  // only for UAE
             // USERS & ROLES
             UserGroupSeeder::class,
             UserSeeder::class,
-            //UserTempSeeder::class,
+            // UserTempSeeder::class,
             SystemUserRoleSeeder::class,
             SystemUserSeeder::class,
-            //SystemUserRolePrivilegeSeeder::class,
-            //PrivilegeGroupSeeder::class,
-            //PrivilegeSeeder::class,
-        
+            // SystemUserRolePrivilegeSeeder::class,
+            // PrivilegeGroupSeeder::class,
+            // PrivilegeSeeder::class,
             // INQUIRIES & SUPPORT
-            //InquirySeeder::class,
+            // InquirySeeder::class,
             SupportTypeSeeder::class,
             SupportStatusSeeder::class,
-            //SupportSeeder::class,
-            //SupportCommentSeeder::class,
-            //CallBackRequestSeeder::class,
-        
+            // SupportSeeder::class,
+            // SupportCommentSeeder::class,
+            // CallBackRequestSeeder::class,
             // FAQ
             FaqCategorySeeder::class,
             FaqSeeder::class,
             ProductFaqSeeder::class,
-        
             // BLOG
             BlogCategorySeeder::class,
             BlogSeeder::class,
-        
             // NOTIFICATIONS
             NotificationTypeSeeder::class,
-            //NotificationSeeder::class,
+            // NotificationSeeder::class,
             PopupSeeder::class,
-        
             // ORDERS & PAYMENTS
             OrderStatusSeeder::class,
             OrderSourceSeeder::class,
-            //OrderSeeder::class,
-            //OrderStatusLogSeeder::class,
-            //OrderItemSeeder::class,
-            //OrderItemOptionSeeder::class,
+            // OrderSeeder::class,
+            // OrderStatusLogSeeder::class,
+            // OrderItemSeeder::class,
+            // OrderItemOptionSeeder::class,
             PaymentGatewaySeeder::class,
             PaymentMethodSeeder::class,
-        
             // SHIPPING & COURIERS
             ShippingClassSeeder::class,
             ShipperSeeder::class,
             CourierServiceSeeder::class,
-            //CourierServiceIntegrationSeeder::class,
-        
+            // CourierServiceIntegrationSeeder::class,
             // WALLET & TRANSACTIONS
-            //WalletSeeder::class,
-            //WalletTransactionSeeder::class,
-            //WalletPayoutRequestSeeder::class,
-        
+            // WalletSeeder::class,
+            // WalletTransactionSeeder::class,
+            // WalletPayoutRequestSeeder::class,
             // SMS & EMAIL
             SmsGatewaySeeder::class,
             SmsCategorySeeder::class,
-            //SmsSeeder::class,
+            // SmsSeeder::class,
             DefaultSmsSeeder::class,
-            //SmsApiIntegrationSeeder::class,
-            //EmailCampaignSeeder::class,
-        
-        
+            // SmsApiIntegrationSeeder::class,
+            // EmailCampaignSeeder::class,
             // ATTRIBUTES
             AttributeSeeder::class,
             AttributeValueSeeder::class,
-
-                    
             // WISHLIST & MISCELLANEOUS
-            //WishlistSeeder::class,
-            //CompareSeeder::class,
+            // WishlistSeeder::class,
+            // CompareSeeder::class,
             TagSeeder::class,
-
             // PRODUCTS & CATEGORIES
             CategorySeeder::class,
             BrandSeeder::class,
@@ -116,29 +101,22 @@ class DatabaseSeeder extends Seeder
             ProductVideoSectionSeeder::class,
             ProductVideoSeeder::class,
             ProductVariationSeeder::class,
-
-        
             // COUPONS & DISCOUNTS
-            //CouponSeeder::class,
-            //CouponUsageSeeder::class,
-        
+            // CouponSeeder::class,
+            // CouponUsageSeeder::class,
             // BANNERS & PAGES
             BannerLocationSeeder::class,
-            //BannerImageSeeder::class,
+            // BannerImageSeeder::class,
             BannerSeeder::class,
             PageSeeder::class,
-        
             // SUBSCRIPTIONS & REFERRALS
-            //SubscriberSeeder::class,
-            //ReferralSeeder::class,
-        
+            // SubscriberSeeder::class,
+            // ReferralSeeder::class,
             // HR & PAYROLL
             DepartmentSeeder::class,
             DesignationSeeder::class,
             LeaveTypeSeeder::class,
+            // AssociatedFaqSeeder::class,
         ]);
-        
-        
-
     }
 }

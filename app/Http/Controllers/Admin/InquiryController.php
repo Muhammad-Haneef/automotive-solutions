@@ -2,46 +2,45 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Inquiry;
-use App\Models\Admin\SystemUser;
 use App\Http\Requests\Admin\StoreInquiryRequest;
 use App\Http\Requests\Admin\UpdateInquiryRequest;
+use App\Models\Admin\Inquiry;
+use App\Models\Admin\SystemUser;
+use Illuminate\Support\Facades\DB;
 
 class InquiryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/inquiries/";
+    private $root = 'admin/inquiries/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
             'systemUsers' => [],
-            'rsn' => 'inquiry', // route singular name
-            'rpn' => 'inquiries', // route plural name
+            'rsn' => 'inquiry',  // route singular name
+            'rpn' => 'inquiries',  // route plural name
         ];
     }
 
     public function index()
     {
-        $this->data['systemUsers'] = SystemUser::all();
-        $this->data['rows'] = Inquiry::withTrashed()->get();
+        $this->data['rows'] = Inquiry::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
-
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
+        $this->data['systemUsers'] = SystemUser::all();
         return view($this->root . 'form', $this->data);
     }
 
@@ -71,7 +70,7 @@ class InquiryController extends Controller
     public function edit(Inquiry $inquiry, $id)
     {
         if (!$this->data['row'] = Inquiry::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -86,7 +85,7 @@ class InquiryController extends Controller
     public function update(UpdateInquiryRequest $request, Inquiry $inquiry, $id)
     {
         Inquiry::where('id', $id)->update($request->only((new Inquiry())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -113,6 +112,7 @@ class InquiryController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -131,6 +131,7 @@ class InquiryController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

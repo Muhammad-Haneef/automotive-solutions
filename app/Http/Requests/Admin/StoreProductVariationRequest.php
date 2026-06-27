@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductVariationRequest extends FormRequest
+class StoreProductVariationRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,16 +23,16 @@ class StoreProductVariationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'product_id'=>'required',
-            'attribute_id'=>'required',
-            'attribute_value_id'=>'required',
-            //'sku'=>'required',
-            'image'=>'required',
-            //'cost'=>'required',
-            'price'=>'required',
-            'sale_price'=>'required',
-            //'sort_by'=>'required',
-            //'is_active'=>'required',
+            'product_id' => 'required',
+            'attribute_id' => 'required',
+            'attribute_value_id' => 'required',
+            // 'sku'=>'required',
+            'image' => 'required',
+            // 'cost'=>'required',
+            'price' => 'required',
+            'sale_price' => 'required',
+            // 'sort_by'=>'required',
+            // 'is_active'=>'required',
         ];
     }
 }

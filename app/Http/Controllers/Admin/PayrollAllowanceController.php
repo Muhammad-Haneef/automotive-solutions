@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\PayrollAllowance;
 use App\Http\Requests\Admin\StorePayrollAllowanceRequest;
 use App\Http\Requests\Admin\UpdatePayrollAllowanceRequest;
+use App\Models\Admin\PayrollAllowance;
+use Illuminate\Support\Facades\DB;
 
 class PayrollAllowanceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/payroll-allowances/";
+    private $root = 'admin/payroll-allowances/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'payroll-allowance', // route singular name
-        'rpn' => 'payroll-allowances', // route plural name
+        'rsn' => 'payroll-allowance',  // route singular name
+        'rpn' => 'payroll-allowances',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = PayrollAllowance::withTrashed()->get();
+        $this->data['rows'] = PayrollAllowance::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class PayrollAllowanceController extends Controller
     public function edit(PayrollAllowance $payrollAllowance, $id)
     {
         if (!$this->data['row'] = PayrollAllowance::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = PayrollAllowance::withTrashed()->get();
+        $this->data['rows'] = PayrollAllowance::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class PayrollAllowanceController extends Controller
     public function update(UpdatePayrollAllowanceRequest $request, PayrollAllowance $payrollAllowance, $id)
     {
         PayrollAllowance::where('id', $id)->update($request->only((new PayrollAllowance())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class PayrollAllowanceController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class PayrollAllowanceController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

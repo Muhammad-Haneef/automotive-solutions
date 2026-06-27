@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Page;
 use App\Http\Requests\Admin\StorePageRequest;
 use App\Http\Requests\Admin\UpdatePageRequest;
+use App\Models\Admin\Page;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/pages/";
+    private $root = 'admin/pages/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'page', // route singular name
-            'rpn' => 'pages', // route plural name
+            'rsn' => 'page',  // route singular name
+            'rpn' => 'pages',  // route plural name
         ];
     }
 
@@ -46,13 +46,11 @@ class PageController extends Controller
      */
     public function store(StorePageRequest $request)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('pages', 'public');
-        } else {
-            $data['image'] = $request->old_image;
+        if ($request->hasFile('banner')) {
+            $data['banner'] = $request->file('banner')->store($this->data['rpn'], 'public');
         }
 
         // Save only fillable fields in the database
@@ -78,7 +76,7 @@ class PageController extends Controller
     public function edit(Page $page, $id)
     {
         if (!$this->data['row'] = Page::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -91,17 +89,17 @@ class PageController extends Controller
      */
     public function update(UpdatePageRequest $request, Page $page, $id)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('pages', 'public');
+        if ($request->hasFile('banner')) {
+            $data['banner'] = $request->file('banner')->store($this->data['rpn'], 'public');
+            deleteImage($request->old_banner);
         } else {
-            $data['image'] = $request->old_image;
+            $data['banner'] = $request->old_banner;
         }
 
-        // Save only fillable fields in the database
-        Page::where('id', $id)->update($request->only((new Page())->getFillable()));
+        Page::where('id', $id)->update(array_intersect_key($data, array_flip((new Page())->getFillable())));
 
         return back()->with([
             'message' => 'Saved successfully.',
@@ -130,6 +128,7 @@ class PageController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -148,6 +147,7 @@ class PageController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

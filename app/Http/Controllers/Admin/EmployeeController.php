@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Employee;
 use App\Http\Requests\Admin\StoreEmployeeRequest;
 use App\Http\Requests\Admin\UpdateEmployeeRequest;
+use App\Models\Admin\Employee;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/employees/";
+    private $root = 'admin/employees/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'employee', // route singular name
-        'rpn' => 'employees', // route plural name
+        'rsn' => 'employee',  // route singular name
+        'rpn' => 'employees',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = Employee::withTrashed()->get();
+        $this->data['rows'] = Employee::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class EmployeeController extends Controller
     public function edit(Employee $employee, $id)
     {
         if (!$this->data['row'] = Employee::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Employee::withTrashed()->get();
+        $this->data['rows'] = Employee::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class EmployeeController extends Controller
     public function update(UpdateEmployeeRequest $request, Employee $employee, $id)
     {
         Employee::where('id', $id)->update($request->only((new Employee())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class EmployeeController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class EmployeeController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

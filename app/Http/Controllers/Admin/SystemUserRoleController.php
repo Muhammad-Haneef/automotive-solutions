@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\SystemUserRole;
 use App\Http\Requests\Admin\StoreSystemUserRoleRequest;
 use App\Http\Requests\Admin\UpdateSystemUserRoleRequest;
+use App\Models\Admin\SystemUserRole;
+use Illuminate\Support\Facades\DB;
 
 class SystemUserRoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data = [
-        'rows'=>[],
-        'row'=>[],
-        'rsn'=>'system-user-role', // route singular name
-        'rpn'=>'system-user-roles', // route plural name
+        'rows' => [],
+        'row' => [],
+        'rsn' => 'system-user-role',  // route singular name
+        'rpn' => 'system-user-roles',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = SystemUserRole::withTrashed()->get();
-        return view($this->root.'list', $this->data);
+        $this->data['rows'] = SystemUserRole::latest()->withTrashed()->get();
+        return view($this->root . 'list', $this->data);
     }
 
     /**
@@ -62,8 +62,8 @@ class SystemUserRoleController extends Controller
     public function edit(SystemUserRole $systemUserRole, $id)
     {
         $this->data['row'] = SystemUserRole::find($id);
-        $this->data['rows'] = SystemUserRole::withTrashed()->get();
-        return view($this->root.'list', $this->data);
+        $this->data['rows'] = SystemUserRole::latest()->withTrashed()->get();
+        return view($this->root . 'list', $this->data);
     }
 
     /**
@@ -72,7 +72,7 @@ class SystemUserRoleController extends Controller
     public function update(UpdateSystemUserRoleRequest $request, SystemUserRole $systemUserRole, $id)
     {
         SystemUserRole::where('id', $id)->update($request->only((new SystemUserRole())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -99,6 +99,7 @@ class SystemUserRoleController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -117,6 +118,7 @@ class SystemUserRoleController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();
@@ -134,5 +136,5 @@ class SystemUserRoleController extends Controller
                 'alert-type' => 'error'
             ]);
         }
-    }    
+    }
 }

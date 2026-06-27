@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateOfferRequest extends FormRequest
+class UpdateOfferRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,17 +23,17 @@ class UpdateOfferRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'image'=>'required',
-            'title'=>'required|unique:offers,title,'.$this->route('id'),
-            //'description'=>'required',
-            'offer_scope'=>'required',
+            // 'image'=>'required',
+            'title' => 'required|unique:offers,title,' . $this->route('id'),
+            // 'description'=>'required',
+            'offer_scope' => 'required',
             'offer_items' => 'required|array|min:1',
-            'discount'=>'required',
-            'discount_type'=>'required',
-            'start_date'=>'required',
-            'end_date'=>'required',
-            //'sort_by'=>'required',
-            //'is_active'=>'required',
+            'discount' => 'required',
+            'discount_type' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            // 'sort_by'=>'required',
+            // 'is_active'=>'required',
         ];
     }
 }

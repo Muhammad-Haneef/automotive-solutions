@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreFaqCategoryRequest extends FormRequest
+class StoreFaqCategoryRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +23,7 @@ class StoreFaqCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required|unique:faq_categories'
+            'title' => 'required|unique:faq_categories'
         ];
     }
 }

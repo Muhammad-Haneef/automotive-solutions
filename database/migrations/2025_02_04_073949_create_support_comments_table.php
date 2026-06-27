@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('support_comments', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('support_id');
+            $table->foreignId('support_id')->index();
             $table->string('comments');
             
             $table->integer('sort_by')->default(0)->nullable();

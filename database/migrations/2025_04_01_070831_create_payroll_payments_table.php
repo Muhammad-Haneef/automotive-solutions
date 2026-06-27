@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
             */
 
-            $table->foreignId('payroll_id');
-            $table->foreignId('employee_id');
+            $table->foreignId('payroll_id')->index();
+            $table->foreignId('employee_id')->index();
 
             $table->enum('payment_method', ['Bank Transfer', 'Cash', 'Check', 'Online Payment']);
             $table->string('transaction_id')->nullable();

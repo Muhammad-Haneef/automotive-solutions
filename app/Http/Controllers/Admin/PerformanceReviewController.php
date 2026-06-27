@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\PerformanceReview;
 use App\Http\Requests\Admin\StorePerformanceReviewRequest;
 use App\Http\Requests\Admin\UpdatePerformanceReviewRequest;
+use App\Models\Admin\PerformanceReview;
+use Illuminate\Support\Facades\DB;
 
 class PerformanceReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/performance-reviews/";
+    private $root = 'admin/performance-reviews/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'performance-review', // route singular name
-        'rpn' => 'performance-reviews', // route plural name
+        'rsn' => 'performance-review',  // route singular name
+        'rpn' => 'performance-reviews',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = PerformanceReview::withTrashed()->get();
+        $this->data['rows'] = PerformanceReview::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class PerformanceReviewController extends Controller
     public function edit(PerformanceReview $performanceReview, $id)
     {
         if (!$this->data['row'] = PerformanceReview::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = PerformanceReview::withTrashed()->get();
+        $this->data['rows'] = PerformanceReview::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class PerformanceReviewController extends Controller
     public function update(UpdatePerformanceReviewRequest $request, PerformanceReview $performanceReview, $id)
     {
         PerformanceReview::where('id', $id)->update($request->only((new PerformanceReview())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class PerformanceReviewController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class PerformanceReviewController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

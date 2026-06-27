@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\FaqCategory;
-use App\Models\Admin\Faq;
 use App\Http\Requests\Admin\StoreFaqRequest;
 use App\Http\Requests\Admin\UpdateFaqRequest;
+use App\Models\Admin\Faq;
+use App\Models\Admin\FaqCategory;
+use Illuminate\Support\Facades\DB;
 
 class FaqController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/faqs/";
+    private $root = 'admin/faqs/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'faq', // route singular name
-            'rpn' => 'faqs', // route plural name
-            'categories' => [], // Fetch gateways properly
+            'rsn' => 'faq',  // route singular name
+            'rpn' => 'faqs',  // route plural name
+            'categories' => [],  // Fetch gateways properly
         ];
     }
 
@@ -70,7 +70,7 @@ class FaqController extends Controller
     public function edit(Faq $faq, $id)
     {
         if (!$this->data['row'] = Faq::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -86,7 +86,7 @@ class FaqController extends Controller
     public function update(UpdateFaqRequest $request, Faq $faq, $id)
     {
         Faq::where('id', $id)->update($request->only((new Faq())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -113,6 +113,7 @@ class FaqController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -131,6 +132,7 @@ class FaqController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

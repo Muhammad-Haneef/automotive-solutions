@@ -15,7 +15,7 @@ return new class extends Migration
          
             $table->id();
 
-            $table->foreignId('attribute_id');
+            $table->foreignId('attribute_id')->index();
             $table->string('title');
 
             $table->integer('sort_by')->default(0)->nullable();

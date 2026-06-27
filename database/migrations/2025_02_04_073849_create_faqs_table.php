@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('faq_category_id');
+            $table->foreignId('faq_category_id')->index();
             $table->string('q');
             $table->string('a');
             

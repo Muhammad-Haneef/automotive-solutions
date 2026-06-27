@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreDepartmentRequest extends FormRequest
+class StoreDepartmentRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +25,9 @@ class StoreDepartmentRequest extends FormRequest
         return [
             'title' => 'required|string|max:255|unique:departments,title',
             'slug' => 'required|string|max:255|unique:departments,slug',
-            //'description' => 'required',
-            //'sort_by' => 'required',
-            //'is_active' => 'required',
+            // 'description' => 'required',
+            // 'sort_by' => 'required',
+            // 'is_active' => 'required',
         ];
     }
 }

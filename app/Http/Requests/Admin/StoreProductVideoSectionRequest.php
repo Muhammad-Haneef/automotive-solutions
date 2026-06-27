@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductVideoSectionRequest extends FormRequest
+class StoreProductVideoSectionRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +23,13 @@ class StoreProductVideoSectionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'product_id'=>'required',
-            'title'=>'required',
-            //'description'=>'required',
-            'per_row'=>'required',
-            //'show_title'=>'required',
-            //'show_description'=>'required',
-            //'show_video_title'=>'required',     
+            'product_id' => 'required',
+            'title' => 'required',
+            // 'description'=>'required',
+            'per_row' => 'required',
+            // 'show_title'=>'required',
+            // 'show_description'=>'required',
+            // 'show_video_title'=>'required',
         ];
     }
 }

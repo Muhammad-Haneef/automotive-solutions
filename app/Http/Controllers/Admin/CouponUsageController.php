@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\CouponUsage;
 use App\Http\Requests\Admin\StoreCouponUsageRequest;
 use App\Http\Requests\Admin\UpdateCouponUsageRequest;
+use App\Models\Admin\CouponUsage;
+use Illuminate\Support\Facades\DB;
 
 class CouponUsageController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/coupons-usage/";
+    private $root = 'admin/coupons-usage/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'coupons-usage', // route singular name
-        'rpn' => 'coupons-usage', // route plural name
+        'rsn' => 'coupons-usage',  // route singular name
+        'rpn' => 'coupons-usage',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = CouponUsage::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class CouponUsageController extends Controller
     public function edit(CouponUsage $CouponUsage, $id)
     {
         if (!$this->data['row'] = CouponUsage::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class CouponUsageController extends Controller
     public function update(UpdateCouponUsageRequest $request, CouponUsage $CouponUsage, $id)
     {
         CouponUsage::where('id', $id)->update($request->only((new CouponUsage())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class CouponUsageController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class CouponUsageController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

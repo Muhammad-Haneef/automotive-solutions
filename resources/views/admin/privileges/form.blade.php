@@ -5,7 +5,7 @@
       <div class="col-xl-12">
         <div class="card">
 
-          <x-admin.card-header title="SMS API Integration" route="sms-api-integrations" />
+          <x-admin.card-header title="SMS API Integration" route="{{route('admin.'.$rpn)}}" />
 
           <div class="card-body">
             <div class="row g-3">

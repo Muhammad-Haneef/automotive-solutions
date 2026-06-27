@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateShipperRequest extends FormRequest
+class UpdateShipperRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,42 +23,35 @@ class UpdateShipperRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'logo' => 'nullable',
-            'title' => 'required|string|max:255|unique:shippers,title,'.$this->route('id'),
-            'email' => 'nullable|email|max:255|unique:shippers,email,'.$this->route('id'),
-
+            'title' => 'required|string|max:255|unique:shippers,title,' . $this->route('id'),
+            'email' => 'nullable|email|max:255|unique:shippers,email,' . $this->route('id'),
             'contact_person' => 'nullable|string|max:255',
-            'contact_email' => 'nullable|email|max:255|unique:shippers,contact_email,'.$this->route('id'),
-            'contact_phone' => 'nullable|string|max:20|unique:shippers,contact_phone,'.$this->route('id'),
-
+            'contact_email' => 'nullable|email|max:255|unique:shippers,contact_email,' . $this->route('id'),
+            'contact_phone' => 'nullable|string|max:20|unique:shippers,contact_phone,' . $this->route('id'),
             'tracking_url' => 'nullable|url|max:255',
             'website' => 'nullable|url|max:255',
-            //'shipping_methods' => 'nullable|json',
+            // 'shipping_methods' => 'nullable|json',
             'min_delivery_time' => 'nullable|integer|min:1',
             'max_delivery_time' => 'nullable|integer|min:1|gte:min_delivery_time',
-            //'cost_type' => 'required|in:flat,weight_based,distance_based,free',
+            // 'cost_type' => 'required|in:flat,weight_based,distance_based,free',
             'cost_type' => 'required',
             'base_shipping_cost' => 'nullable|numeric|min:0',
             'additional_cost_per_kg' => 'nullable|numeric|min:0',
             'additional_cost_per_km' => 'nullable|numeric|min:0',
-            //'coverage_countries' => 'nullable|json',
-            //'coverage_regions' => 'nullable|json',
+            // 'coverage_countries' => 'nullable|json',
+            // 'coverage_regions' => 'nullable|json',
         ];
     }
-
-
-
 
     public function messages()
     {
         return [
             'title.required' => 'The Company Name field is required.',
-            'title.string'   => 'The Company Name must be a string.',
-            'title.max'      => 'The Company Name may not be greater than 255 characters.',
-            'title.unique'   => 'This Company Name already exists.',
+            'title.string' => 'The Company Name must be a string.',
+            'title.max' => 'The Company Name may not be greater than 255 characters.',
+            'title.unique' => 'This Company Name already exists.',
         ];
     }
-
-
 }

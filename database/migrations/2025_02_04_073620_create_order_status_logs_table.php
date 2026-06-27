@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('order_status_logs', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('order_id');
+            $table->foreignId('order_id')->index();
             $table->foreignId('changed_by')->nullable();
 
             $table->string('previous_status', 50)->nullable();

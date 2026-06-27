@@ -2,30 +2,31 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\AddressType;
 use App\Http\Requests\Admin\StoreAddressTypeRequest;
 use App\Http\Requests\Admin\UpdateAddressTypeRequest;
+use App\Models\Admin\AddressType;
+use Illuminate\Support\Facades\DB;
 
 class AddressTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'address-type', // route singular name
-            'rpn' => 'address-types', // route plural name
+            'rsn' => 'address-type',  // route singular name
+            'rpn' => 'address-types',  // route plural name
         ];
     }
+
     public function index()
     {
         $this->data['rows'] = AddressType::latest()->withTrashed()->get();
@@ -37,7 +38,6 @@ class AddressTypeController extends Controller
      */
     public function create()
     {
-        
         return view($this->root . 'list', $this->data);
     }
 
@@ -67,7 +67,7 @@ class AddressTypeController extends Controller
     public function edit(AddressType $addressType, $id)
     {
         if (!$this->data['row'] = AddressType::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -82,7 +82,7 @@ class AddressTypeController extends Controller
     public function update(UpdateAddressTypeRequest $request, AddressType $addressType, $id)
     {
         AddressType::where('id', $id)->update($request->only((new AddressType())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -109,6 +109,7 @@ class AddressTypeController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -127,6 +128,7 @@ class AddressTypeController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

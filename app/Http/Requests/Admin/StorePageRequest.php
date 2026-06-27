@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StorePageRequest extends FormRequest
+class StorePageRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +23,9 @@ class StorePageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'   => 'required|unique:pages,title',
-            'slug'   => 'required|unique:pages,slug',
-            //'image' => 'required',
+            'title' => 'required|unique:pages,title',
+            'slug' => 'required|unique:pages,slug',
+            // 'banner' => 'required',
             'content' => 'nullable|string',
         ];
     }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePayrollTaxRequest extends FormRequest
+class UpdatePayrollTaxRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +27,8 @@ class UpdatePayrollTaxRequest extends FormRequest
             'tax_type' => 'required',
             'tax_rate' => 'required',
             'tax_amount' => 'required',
-            //'sort_by' => 'required',
-            //'is_active' => 'required',
+            // 'sort_by' => 'required',
+            // 'is_active' => 'required',
         ];
     }
 }

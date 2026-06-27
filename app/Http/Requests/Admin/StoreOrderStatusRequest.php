@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreOrderStatusRequest extends FormRequest
+class StoreOrderStatusRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +23,7 @@ class StoreOrderStatusRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required|unique:order_statuses'
+            'title' => 'required|unique:order_statuses'
         ];
     }
 }

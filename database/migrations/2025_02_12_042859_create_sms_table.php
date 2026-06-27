@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('sms', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('sms_category_id')->default(0)->nullable();
-            $table->foreignId('user_id')->default(0)->nullable();
+            $table->foreignId('sms_category_id')->default(0)->nullable()->index();
+            $table->foreignId('user_id')->default(0)->nullable()->index();
             $table->string('message');
             $table->string('recipient_number');
             $table->string('response')->nullable();

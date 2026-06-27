@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StorePaymentGatewayRequest extends FormRequest
+class StorePaymentGatewayRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -18,19 +19,15 @@ class StorePaymentGatewayRequest extends FormRequest
      * Get the validation rules that apply to the request.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     * 
+     *
      *     protected $fillable = [
-     * 
-     * 
-     * 
      */
     public function rules(): array
     {
-
         return [
             'title' => 'required|string|max:255|unique:payment_gateways,title',
-            //'slug' => 'required|string|max:255|unique:payment_gateways,slug',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'slug' => 'required|string|max:255|unique:payment_gateways,slug',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'description' => 'nullable|string',
             'api_key' => 'required|string|max:255',
             'secret_key' => 'required|string|max:255',

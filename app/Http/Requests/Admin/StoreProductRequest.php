@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductRequest extends FormRequest
+class StoreProductRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +23,15 @@ class StoreProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required|unique:products,title',
-            'slug'=>'required|unique:products,slug',
-            'excerpt'=>'required',
-            'category_id'=>'required',
-            //'brand_id'=>'required',
-            //'sku'=>'required|unique:products',
-            'thumbnail'=>'required',
-            'price'=>'required',
-            'sale_price'=>'required',
+            'title' => 'required|unique:products,title',
+            'slug' => 'required|unique:products,slug',
+            'excerpt' => 'required',
+            'categories' => 'required',
+            // 'brand_id'=>'required',
+            // 'sku'=>'required|unique:products',
+            'thumbnail' => 'required',
+            'price' => 'required',
+            'sale_price' => 'required',
         ];
     }
 }

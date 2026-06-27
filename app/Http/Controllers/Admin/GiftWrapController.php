@@ -2,33 +2,34 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\GiftWrap;
 use App\Http\Requests\Admin\StoreGiftWrapRequest;
 use App\Http\Requests\Admin\UpdateGiftWrapRequest;
+use App\Models\Admin\GiftWrap;
+use Illuminate\Support\Facades\DB;
 
 class GiftWrapController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/orders/gift-wraps/";
+    private $root = 'admin/orders/gift-wraps/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
-            'rows' =>0,
+            'rows' => 0,
             'row' => 0,
-            'rsn' => 'gift-wrap', // route singular name
-            'rpn' => 'gift-wraps', // route plural name
+            'rsn' => 'gift-wrap',  // route singular name
+            'rpn' => 'gift-wraps',  // route plural name
         ];
     }
+
     public function index()
     {
-        $this->data['rows']=GiftWrap::latest()->withTrashed()->get();
+        $this->data['rows'] = GiftWrap::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -45,7 +46,7 @@ class GiftWrapController extends Controller
      */
     public function store(StoreGiftWrapRequest $request)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('image')) {
@@ -75,7 +76,7 @@ class GiftWrapController extends Controller
     public function edit(GiftWrap $giftWrap, $id)
     {
         if (!$this->data['row'] = GiftWrap::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -88,12 +89,13 @@ class GiftWrapController extends Controller
      */
     public function update(UpdateGiftWrapRequest $request, GiftWrap $giftWrap, $id)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store($this->data['rpn'], 'public');
-        }else{
+            deleteImage($request->old_image);
+        } else {
             $data['image'] = $data['old_image'];
         }
 
@@ -127,6 +129,7 @@ class GiftWrapController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -145,6 +148,7 @@ class GiftWrapController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

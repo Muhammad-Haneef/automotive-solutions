@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\OrderStatus;
 use App\Http\Requests\Admin\StoreOrderStatusRequest;
 use App\Http\Requests\Admin\UpdateOrderStatusRequest;
+use App\Models\Admin\OrderStatus;
+use Illuminate\Support\Facades\DB;
 
 class OrderStatusController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data = [
-        'rows'=>[],
-        'row'=>[],
-        'rsn'=>'order-status', // route singular name
-        'rpn'=>'order-statuses', // route plural name
+        'rows' => [],
+        'row' => [],
+        'rsn' => 'order-status',  // route singular name
+        'rpn' => 'order-statuses',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = OrderStatus::withTrashed()->get();
-        return view($this->root.'list', $this->data);
+        $this->data['rows'] = OrderStatus::latest()->withTrashed()->get();
+        return view($this->root . 'list', $this->data);
     }
 
     /**
@@ -62,13 +62,13 @@ class OrderStatusController extends Controller
     public function edit(OrderStatus $orderStatus, $id)
     {
         if (!$this->data['row'] = OrderStatus::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = OrderStatus::withTrashed()->get();
-        return view($this->root.'list', $this->data);
+        $this->data['rows'] = OrderStatus::latest()->withTrashed()->get();
+        return view($this->root . 'list', $this->data);
     }
 
     /**
@@ -77,7 +77,7 @@ class OrderStatusController extends Controller
     public function update(UpdateOrderStatusRequest $request, OrderStatus $orderStatus, $id)
     {
         OrderStatus::where('id', $id)->update($request->only((new OrderStatus())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class OrderStatusController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class OrderStatusController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

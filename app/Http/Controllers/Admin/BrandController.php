@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Brand;
 use App\Http\Requests\Admin\StoreBrandRequest;
 use App\Http\Requests\Admin\UpdateBrandRequest;
+use App\Models\Admin\Brand;
+use Illuminate\Support\Facades\DB;
 
 class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/brands/";
+    private $root = 'admin/brands/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'brand', // route singular name
-        'rpn' => 'brands', // route plural name
+        'rsn' => 'brand',  // route singular name
+        'rpn' => 'brands',  // route plural name
     ];
+
     public function index()
-    {       
+    {
         $this->data['rows'] = Brand::select('id', 'title', 'slug', 'logo', 'show_on_front', 'show_description_on_front', 'sort_by', 'is_active', 'deleted_at')->latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
@@ -33,7 +33,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view($this->root.'form', $this->data);
+        return view($this->root . 'form', $this->data);
     }
 
     /**
@@ -41,7 +41,7 @@ class BrandController extends Controller
      */
     public function store(StoreBrandRequest $request)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('logo')) {
@@ -71,7 +71,7 @@ class BrandController extends Controller
     public function edit(Brand $brand, $id)
     {
         if (!$this->data['row'] = Brand::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -84,12 +84,13 @@ class BrandController extends Controller
      */
     public function update(UpdateBrandRequest $request, Brand $brand, $id)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('logo')) {
             $data['logo'] = $request->file('logo')->store($this->data['rpn'], 'public');
-        }else{
+            deleteImage($request->old_logo);
+        } else {
             $data['logo'] = $request->old_logo;
         }
 
@@ -123,6 +124,7 @@ class BrandController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -141,6 +143,7 @@ class BrandController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

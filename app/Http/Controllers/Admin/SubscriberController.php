@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Subscriber;
 use App\Http\Requests\Admin\StoreSubscriberRequest;
 use App\Http\Requests\Admin\UpdateSubscriberRequest;
+use App\Models\Admin\Subscriber;
+use Illuminate\Support\Facades\DB;
 
 class SubscriberController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/subscribers/";
+    private $root = 'admin/subscribers/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'subscriber', // route singular name
-        'rpn' => 'subscribers', // route plural name
+        'rsn' => 'subscriber',  // route singular name
+        'rpn' => 'subscribers',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = Subscriber::withTrashed()->get();
+        $this->data['rows'] = Subscriber::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -100,30 +100,28 @@ class SubscriberController extends Controller
     public function edit(Subscriber $subscriber, $id)
     {
         if (!$this->data['row'] = Subscriber::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Subscriber::withTrashed()->get();
+        $this->data['rows'] = Subscriber::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    /** Update the specified resource in storage. */
+
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdateSubscriberRequest $request, Subscriber $Subscriber, $id)
     {
         Subscriber::where('id', $id)->update($request->only((new Subscriber())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
     }
-
 
     public function trash($id)
     {
@@ -143,6 +141,7 @@ class SubscriberController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -161,6 +160,7 @@ class SubscriberController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

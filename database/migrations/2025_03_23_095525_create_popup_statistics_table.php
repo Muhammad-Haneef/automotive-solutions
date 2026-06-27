@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('popup_statistics', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('popup_id');
+            $table->foreignId('popup_id')->index();
 
             $table->bigInteger('views')->nullable()->default(0);
             $table->bigInteger('clicks')->nullable()->default(0);

@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -16,8 +15,8 @@ return new class extends Migration
 
             $table->foreignId('user_group_id')->nullable()->default(1);
             $table->foreignId('vendor_id')->nullable()->default(0);
-            
-            $table->enum('type', [1,2])->default(1);
+
+            $table->enum('type', [1, 2])->default(1);
             $table->string('name');
             $table->string('email')->unique();
             $table->string('contact')->nullable();
@@ -44,6 +43,14 @@ return new class extends Migration
             $table->boolean('is_active')->default(true)->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('user_group_id');
+            $table->index('vendor_id');
+            $table->index('type');
+            $table->index('account_status');
+            $table->index('is_active');
+            $table->index('email');
+            $table->index('contact');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

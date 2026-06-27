@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Coupon;
 use App\Http\Requests\Admin\StoreCouponRequest;
 use App\Http\Requests\Admin\UpdateCouponRequest;
+use App\Models\Admin\Coupon;
+use Illuminate\Support\Facades\DB;
 
 class CouponController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/coupons/";
+    private $root = 'admin/coupons/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'coupon', // route singular name
-        'rpn' => 'coupons', // route plural name
+        'rsn' => 'coupon',  // route singular name
+        'rpn' => 'coupons',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = Coupon::latest()->withTrashed()->get();
@@ -41,7 +41,7 @@ class CouponController extends Controller
      */
     public function store(StoreCouponRequest $request)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
         // Store the file and update the data array
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store($this->data['rpn'], 'public');
@@ -68,7 +68,7 @@ class CouponController extends Controller
     public function edit(Coupon $coupon, $id)
     {
         if (!$this->data['row'] = Coupon::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -81,10 +81,13 @@ class CouponController extends Controller
      */
     public function update(UpdateCouponRequest $request, Coupon $coupon, $id)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
         // Store the file and update the data array
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store($this->data['rpn'], 'public');
+            deleteImage($request->old_image);
+        } else {
+            $data['image'] = $request->old_image;
         }
         // Save only fillable fields in the database
         Coupon::where('id', $id)->update(array_intersect_key($data, array_flip((new Coupon())->getFillable())));
@@ -92,7 +95,6 @@ class CouponController extends Controller
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
-
     }
 
     /**
@@ -116,6 +118,7 @@ class CouponController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -134,6 +137,7 @@ class CouponController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSmsGatewayRequest extends FormRequest
+class StoreSmsGatewayRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +23,7 @@ class StoreSmsGatewayRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required|unique:sms_gateways'
+            'title' => 'required|unique:sms_gateways'
         ];
     }
 }

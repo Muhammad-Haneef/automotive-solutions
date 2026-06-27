@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserRequest extends FormRequest
+class StoreUserRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,19 +22,19 @@ class StoreUserRequest extends FormRequest
      */
     public function rules(): array
     {
-        //'title'=>'required|unique:,title,'.$this->route('id'),
+        // 'title'=>'required|unique:,title,'.$this->route('id'),
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'contact' => 'nullable|string|max:20',
             'password' => 'required|min:8',
-            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'account_status' => 'required',
+            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'dob' => 'nullable|date',
-            //'gender' => 'nullable|in:male,female,other',
+            // 'gender' => 'nullable|in:male,female,other',
             'newsletter_subscription' => 'boolean',
             'referral_code' => 'nullable|string|max:255',
             'customer_notes' => 'nullable|string',
         ];
-
     }
 }

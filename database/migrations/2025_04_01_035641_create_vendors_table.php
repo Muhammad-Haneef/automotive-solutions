@@ -4,18 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-
         Schema::create('vendors', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id');
             $table->foreignId('payment_method_id')->nullable()->default(0);
 
             $table->string('logo')->nullable();
@@ -32,6 +29,14 @@ return new class extends Migration
 
             $table->timestamps();
             $table->softDeletes();
+
+            // Indexes
+            $table->index('payment_method_id');
+            $table->index('slug');
+            $table->index('email');
+            $table->index('is_active');
+            $table->index('created_at');
+            $table->index('deleted_at');
         });
     }
 

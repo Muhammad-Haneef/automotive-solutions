@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use Carbon\Carbon;
 
 class PageSeeder extends Seeder
 {
@@ -18,49 +18,49 @@ class PageSeeder extends Seeder
 
         $pages = [
             [
-                'image' => 'about-us.jpg',
+                'banner' => 'pages/about-us.jpg',
                 'title' => 'About Us',
                 'slug' => 'about-us',
                 'content' => 'Learn more about our company, values, and mission.',
             ],
             [
-                'image' => 'contact-us.jpg',
+                'banner' => 'pages/contact-us.jpg',
                 'title' => 'Contact Us',
                 'slug' => 'contact-us',
                 'content' => 'Get in touch with our support or sales teams.',
             ],
             [
-                'image' => 'privacy-policy.jpg',
+                'banner' => 'pages/privacy-policy.jpg',
                 'title' => 'Privacy Policy',
                 'slug' => 'privacy-policy',
                 'content' => 'Read our privacy practices regarding your data.',
             ],
             [
-                'image' => 'terms-and-conditions.jpg',
+                'banner' => 'pages/terms-and-conditions.jpg',
                 'title' => 'Terms & Conditions',
                 'slug' => 'terms-conditions',
                 'content' => 'Understand the terms of using our services.',
             ],
             [
-                'image' => 'faq.jpg',
+                'banner' => 'pages/faq.jpg',
                 'title' => 'FAQs',
                 'slug' => 'faqs',
                 'content' => 'Common questions and their answers for quick help.',
             ],
             [
-                'image' => 'return-policy.jpg',
+                'banner' => 'pages/return-policy.jpg',
                 'title' => 'Return Policy',
                 'slug' => 'return-policy',
                 'content' => 'Details about product returns and refund process.',
             ],
             [
-                'image' => 'shipping-info.jpg',
+                'banner' => 'pages/shipping-info.jpg',
                 'title' => 'Shipping Information',
                 'slug' => 'shipping-info',
                 'content' => 'All you need to know about delivery and shipping.',
             ],
             [
-                'image' => 'careers.jpg',
+                'banner' => 'pages/careers.jpg',
                 'title' => 'Careers',
                 'slug' => 'careers',
                 'content' => 'Explore job opportunities and join our team.',
@@ -69,7 +69,7 @@ class PageSeeder extends Seeder
 
         foreach ($pages as $index => $page) {
             DB::table('pages')->insert([
-                'image' => $page['image'],
+                'banner' => $page['banner'],
                 'title' => $page['title'],
                 'slug' => Str::slug($page['slug']),
                 'content' => $page['content'],

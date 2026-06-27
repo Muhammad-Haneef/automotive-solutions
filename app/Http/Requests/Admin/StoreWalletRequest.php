@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreWalletRequest extends FormRequest
+class StoreWalletRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +23,11 @@ class StoreWalletRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
-            'user_id'=>'required|unique:wallets',
-            'balance'=>'required',
-            //'currency'=>'required',
-            'wallet_key'=>'required',
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
+            'user_id' => 'required|unique:wallets',
+            'balance' => 'required',
+            // 'currency'=>'required',
+            'wallet_key' => 'required',
         ];
     }
 }

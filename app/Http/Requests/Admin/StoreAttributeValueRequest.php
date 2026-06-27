@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreAttributeValueRequest extends FormRequest
+class StoreAttributeValueRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +23,8 @@ class StoreAttributeValueRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
             'attribute_id' => 'required',
-            'title' => 'required',
+            'title' => 'required|unique:attribute_values',
         ];
     }
 }

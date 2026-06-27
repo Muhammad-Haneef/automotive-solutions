@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             //$table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
-            $table->foreignId('employee_id');
+            $table->foreignId('employee_id')->index();
 
             $table->decimal('loan_amount', 10, 2);
             $table->decimal('monthly_deduction', 10, 2);

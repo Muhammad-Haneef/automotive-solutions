@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('compares', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('user_id');
-            $table->foreignId('product_id');            
+            $table->foreignId('user_id')->index();
+            $table->foreignId('product_id')->index();
 
             $table->integer('sort_by')->default(0)->nullable();
             $table->boolean('is_active')->default(true)->nullable();

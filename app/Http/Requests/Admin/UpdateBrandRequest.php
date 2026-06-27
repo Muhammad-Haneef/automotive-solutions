@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateBrandRequest extends FormRequest
+class UpdateBrandRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +23,12 @@ class UpdateBrandRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required|unique:brands,title,'.$this->route('id'),
-            'slug'=>'required|unique:brands,slug,'.$this->route('id'),
-            //'logo'=>'required',
-            //'description'=>'required',
-            //'show_on_front'=>'required',
-            //'show_description_on_front'=>'required',
+            'title' => 'required|unique:brands,title,' . $this->route('id'),
+            'slug' => 'required|unique:brands,slug,' . $this->route('id'),
+            // 'logo'=>'required',
+            // 'description'=>'required',
+            // 'show_on_front'=>'required',
+            // 'show_description_on_front'=>'required',
         ];
     }
 }

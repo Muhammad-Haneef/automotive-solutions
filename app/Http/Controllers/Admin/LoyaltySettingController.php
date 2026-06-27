@@ -2,30 +2,31 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\LoyaltySetting;
 use App\Http\Requests\Admin\StoreLoyaltySettingRequest;
 use App\Http\Requests\Admin\UpdateLoyaltySettingRequest;
+use App\Models\Admin\LoyaltySetting;
+use Illuminate\Support\Facades\DB;
 
 class LoyaltySettingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/loyalty-settings/";
+    private $root = 'admin/loyalty-settings/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'loyalty-setting', // route singular name
-            'rpn' => 'loyalty-settings', // route plural name
+            'rsn' => 'loyalty-setting',  // route singular name
+            'rpn' => 'loyalty-settings',  // route plural name
         ];
     }
+
     public function index()
     {
         $this->data['rows'] = LoyaltySetting::latest()->withTrashed()->get();
@@ -66,7 +67,7 @@ class LoyaltySettingController extends Controller
     public function edit(LoyaltySetting $loyaltySetting, $id)
     {
         if (!$this->data['row'] = LoyaltySetting::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -81,7 +82,7 @@ class LoyaltySettingController extends Controller
     public function update(UpdateLoyaltySettingRequest $request, LoyaltySetting $loyaltySetting, $id)
     {
         LoyaltySetting::where('id', $id)->update($request->only((new LoyaltySetting())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -108,6 +109,7 @@ class LoyaltySettingController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -126,6 +128,7 @@ class LoyaltySettingController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

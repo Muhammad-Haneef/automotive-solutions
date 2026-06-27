@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('designations', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('department_id');
+            $table->foreignId('department_id')->index();
 
             $table->string('title')->unique();
             $table->string('slug')->unique();

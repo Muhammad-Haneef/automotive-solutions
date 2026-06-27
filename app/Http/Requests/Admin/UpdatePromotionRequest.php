@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePromotionRequest extends FormRequest
+class UpdatePromotionRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,8 +31,8 @@ class UpdatePromotionRequest extends FormRequest
             'promotion_date' => 'required',
             'approved_by' => 'required',
             'reason' => 'required',
-            //'sort_by' => 'required',
-            //'is_active' => 'required',
+            // 'sort_by' => 'required',
+            // 'is_active' => 'required',
         ];
     }
 }

@@ -20,8 +20,8 @@ return new class extends Migration
             $table->foreignId('approved_by')->nullable()->constrained('employees')->onDelete('set null');
             */
 
-            $table->foreignId('employee_id');
-            $table->foreignId('leave_type_id');
+            $table->foreignId('employee_id')->index();
+            $table->foreignId('leave_type_id')->index();
             $table->foreignId('approved_by');
 
             $table->date('start_date');

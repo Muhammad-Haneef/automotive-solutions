@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\OrderStatusLog;
 use App\Http\Requests\Admin\StoreOrderStatusLogRequest;
 use App\Http\Requests\Admin\UpdateOrderStatusLogRequest;
+use App\Models\Admin\OrderStatusLog;
+use Illuminate\Support\Facades\DB;
 
 class OrderStatusLogController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/";
+    private $root = 'admin/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => '', // route singular name
-        'rpn' => '', // route plural name
+        'rsn' => '',  // route singular name
+        'rpn' => '',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = OrderStatusLog::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class OrderStatusLogController extends Controller
     public function edit(OrderStatusLog $orderStatusLog, $id)
     {
         if (!$this->data['row'] = OrderStatusLog::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class OrderStatusLogController extends Controller
     public function update(UpdateOrderStatusLogRequest $request, OrderStatusLog $orderStatusLog, $id)
     {
         OrderStatusLog::where('id', $id)->update($request->only((new OrderStatusLog())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class OrderStatusLogController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class OrderStatusLogController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

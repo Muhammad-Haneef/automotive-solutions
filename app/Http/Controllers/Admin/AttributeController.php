@@ -2,33 +2,34 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Attribute;
 use App\Http\Requests\Admin\StoreAttributeRequest;
 use App\Http\Requests\Admin\UpdateAttributeRequest;
+use App\Models\Admin\Attribute;
+use Illuminate\Support\Facades\DB;
 
 class AttributeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/attributes/";
+    private $root = 'admin/attributes/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'attribute', // route singular name
-            'rpn' => 'attributes', // route plural name
+            'rsn' => 'attribute',  // route singular name
+            'rpn' => 'attributes',  // route plural name
         ];
     }
+
     public function index()
     {
-        $this->data['rows'] = Attribute::latest()->withTrashed()->get();    
+        $this->data['rows'] = Attribute::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -66,12 +67,12 @@ class AttributeController extends Controller
     public function edit(Attribute $attribute, $id)
     {
         if (!$this->data['row'] = Attribute::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Attribute::latest()->withTrashed()->get();    
+        $this->data['rows'] = Attribute::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -81,7 +82,7 @@ class AttributeController extends Controller
     public function update(UpdateAttributeRequest $request, Attribute $attribute, $id)
     {
         Attribute::where('id', $id)->update($request->only((new Attribute())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -108,6 +109,7 @@ class AttributeController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -126,6 +128,7 @@ class AttributeController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

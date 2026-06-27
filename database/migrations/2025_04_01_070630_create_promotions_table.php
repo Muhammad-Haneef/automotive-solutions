@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('employee_id')->constrained()->onDelete('cascade');
             $table->foreignId('approved_by')->constrained('employees')->onDelete('cascade');
             */
-            $table->foreignId('employee_id');
+            $table->foreignId('employee_id')->index();
             $table->foreignId('approved_by');
 
             $table->string('old_position');

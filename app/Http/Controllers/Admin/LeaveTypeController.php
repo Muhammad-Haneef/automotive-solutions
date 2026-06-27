@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\LeaveType;
 use App\Http\Requests\Admin\StoreLeaveTypeRequest;
 use App\Http\Requests\Admin\UpdateLeaveTypeRequest;
+use App\Models\Admin\LeaveType;
+use Illuminate\Support\Facades\DB;
 
 class LeaveTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/leave-types/";
+    private $root = 'admin/leave-types/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'leave-type', // route singular name
-        'rpn' => 'leave-types', // route plural name
+        'rsn' => 'leave-type',  // route singular name
+        'rpn' => 'leave-types',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = LeaveType::withTrashed()->get();
+        $this->data['rows'] = LeaveType::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class LeaveTypeController extends Controller
     public function edit(LeaveType $leaveType, $id)
     {
         if (!$this->data['row'] = LeaveType::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = LeaveType::withTrashed()->get();
+        $this->data['rows'] = LeaveType::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class LeaveTypeController extends Controller
     public function update(UpdateLeaveTypeRequest $request, LeaveType $leaveType, $id)
     {
         LeaveType::where('id', $id)->update($request->only((new LeaveType())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class LeaveTypeController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class LeaveTypeController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

@@ -2,41 +2,42 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\SmsApiIntegration;
-use App\Models\Admin\SmsGateway;
 use App\Http\Requests\Admin\StoreSmsApiIntegrationRequest;
 use App\Http\Requests\Admin\UpdateSmsApiIntegrationRequest;
+use App\Models\Admin\SmsApiIntegration;
+use App\Models\Admin\SmsGateway;
+use Illuminate\Support\Facades\DB;
 
 class SmsApiIntegrationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/sms/api-integration/";
+    private $root = 'admin/sms/api-integration/';
+
     /*
-    private $data = [
-        'rows' => [],
-        'row' => [],
-        'rsn' => 'sms-api-integration', // route singular name
-        'rpn' => 'sms-api-integrations', // route plural name
-        'gateways' => SmsGateway::all(), // route plural name
-    ];
-*/
+     * private $data = [
+     *     'rows' => [],
+     *     'row' => [],
+     *     'rsn' => 'sms-api-integration', // route singular name
+     *     'rpn' => 'sms-api-integrations', // route plural name
+     *     'gateways' => SmsGateway::all(), // route plural name
+     * ];
+     */
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'sms-api-integration', // route singular name
-            'rpn' => 'sms-api-integrations', // route plural name
-            'gateways' => SmsGateway::all(), // Fetch gateways properly
+            'rsn' => 'sms-api-integration',  // route singular name
+            'rpn' => 'sms-api-integrations',  // route plural name
+            'gateways' => SmsGateway::all(),  // Fetch gateways properly
         ];
     }
+
     public function index()
     {
         $this->data['rows'] = SmsApiIntegration::select('id', 'sms_gateway_id', 'api_user_name', 'mask', 'is_default_gateway', 'sort_by', 'is_active', 'deleted_at')->latest()->withTrashed()->get();
@@ -57,10 +58,10 @@ class SmsApiIntegrationController extends Controller
     public function store(StoreSmsApiIntegrationRequest $request)
     {
         /*
-        tap(new SmsApiIntegration(), function ($model) use ($request) {
-            $model->fill($request->only($model->getFillable()))->save();
-        });
-        */
+         * tap(new SmsApiIntegration(), function ($model) use ($request) {
+         *     $model->fill($request->only($model->getFillable()))->save();
+         * });
+         */
         SmsApiIntegration::create($request->only((new SmsApiIntegration())->getFillable()));
         return back()->with([
             'message' => 'Saved successfully.',
@@ -82,7 +83,7 @@ class SmsApiIntegrationController extends Controller
     public function edit(SmsApiIntegration $smsApiIntegration, $id)
     {
         if (!$this->data['row'] = SmsApiIntegration::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -99,7 +100,7 @@ class SmsApiIntegrationController extends Controller
         if ($request->is_default_gateway) {
             SmsApiIntegration::where('id', '!=', $id)->update(['is_default_gateway' => 0]);
         }
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -126,6 +127,7 @@ class SmsApiIntegrationController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -144,6 +146,7 @@ class SmsApiIntegrationController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

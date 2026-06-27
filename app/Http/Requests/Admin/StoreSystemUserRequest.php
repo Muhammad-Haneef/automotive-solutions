@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSystemUserRequest extends FormRequest
+class StoreSystemUserRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +23,13 @@ class StoreSystemUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'title'=>'required|unique:,title,'.$this->route('id'),
-            'system_user_role_id'=>'required',
-            'name'=>'required',
-            'email'=>'required|unique:system_users',
-            'password'=>'required',
-            //'sort_by',
-            //'is_active',
+            // 'title'=>'required|unique:,title,'.$this->route('id'),
+            'system_user_role_id' => 'required',
+            'name' => 'required',
+            'email' => 'required|unique:system_users',
+            'password' => 'required',
+            // 'sort_by',
+            // 'is_active',
         ];
     }
 }

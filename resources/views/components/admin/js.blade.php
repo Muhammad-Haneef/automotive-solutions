@@ -37,7 +37,7 @@ $jss = [
 'config.js',
 'script.js',
 'script1.js',
-'theme-customizer/customizer.js',
+//'theme-customizer/customizer.js',
 'general.js'
 
 

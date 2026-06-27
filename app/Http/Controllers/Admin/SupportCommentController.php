@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\SupportComment;
 use App\Http\Requests\Admin\StoreSupportCommentRequest;
 use App\Http\Requests\Admin\UpdateSupportCommentRequest;
+use App\Models\Admin\SupportComment;
+use Illuminate\Support\Facades\DB;
 
 class SupportCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/support-comments/";
+    private $root = 'admin/support-comments/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'support-comment', // route singular name
-        'rpn' => 'support-comments', // route plural name
+        'rsn' => 'support-comment',  // route singular name
+        'rpn' => 'support-comments',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = SupportComment::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class SupportCommentController extends Controller
     public function edit(SupportComment $supportComment, $id)
     {
         if (!$this->data['row'] = SupportComment::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class SupportCommentController extends Controller
     public function update(UpdateSupportCommentRequest $request, SupportComment $supportComment, $id)
     {
         SupportComment::where('id', $id)->update($request->only((new SupportComment())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class SupportCommentController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class SupportCommentController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

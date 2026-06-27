@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBrandRequest extends FormRequest
+class StoreBrandRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,16 +20,15 @@ class StoreBrandRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-
     public function rules(): array
     {
         return [
-            'title'=>'required|unique:brands',
-            'slug'=>'required|unique:brands',
-            'logo'=>'required',
-            //'description'=>'required',
-            //'show_on_front'=>'required',
-            //'show_description_on_front'=>'required',
+            'title' => 'required|unique:brands',
+            'slug' => 'required|unique:brands',
+            'logo' => 'required',
+            // 'description'=>'required',
+            // 'show_on_front'=>'required',
+            // 'show_description_on_front'=>'required',
         ];
     }
 }

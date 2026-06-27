@@ -2,39 +2,37 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\User;
-use App\Models\Admin\UserGroup;
 use App\Http\Requests\Admin\StoreUserRequest;
 use App\Http\Requests\Admin\UpdateUserRequest;
+use App\Models\Admin\User;
+use App\Models\Admin\UserGroup;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    
-    private $root = "admin/customers/";
+    private $root = 'admin/customers/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
             'userGroups' => [],
-            'rsn' => 'customer', // route singular name
-            'rpn' => 'customers', // route plural name
+            'rsn' => 'customer',  // route singular name
+            'rpn' => 'customers',  // route plural name
         ];
     }
 
     public function index()
     {
-        $this->data['userGroups'] = UserGroup::withTrashed()->get();
-        $this->data['rows'] = User::withTrashed()->get();
-        return view($this->root.'list', $this->data);
+        $this->data['rows'] = User::latest()->withTrashed()->get();
+        return view($this->root . 'list', $this->data);
     }
 
     /**
@@ -42,6 +40,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->data['userGroups'] = UserGroup::latest()->withTrashed()->get();
         return view($this->root . 'form', $this->data);
     }
 
@@ -62,7 +61,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view($this->root.'profile');
+        return view($this->root . 'profile');
     }
 
     /**
@@ -71,12 +70,12 @@ class UserController extends Controller
     public function edit(User $user, $id)
     {
         if (!$this->data['row'] = User::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['userGroups'] = UserGroup::withTrashed()->get();
+        $this->data['userGroups'] = UserGroup::latest()->withTrashed()->get();
         return view($this->root . 'form', $this->data);
     }
 
@@ -87,15 +86,15 @@ class UserController extends Controller
     {
         $data = $request->only((new User())->getFillable());
 
-        if(!$request->password){
+        if (!$request->password) {
             $user = User::find($id);
-            if($user){
-                $data['password']=$user->password;
+            if ($user) {
+                $data['password'] = $user->password;
             }
         }
 
         User::where('id', $id)->update($data);
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -122,6 +121,7 @@ class UserController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -140,6 +140,7 @@ class UserController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

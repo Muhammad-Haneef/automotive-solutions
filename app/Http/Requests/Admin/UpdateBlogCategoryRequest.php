@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateBlogCategoryRequest extends FormRequest
+class UpdateBlogCategoryRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +23,7 @@ class UpdateBlogCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required|unique:blog_categories,title,'.$this->route('id')
+            'title' => 'required|unique:blog_categories,title,' . $this->route('id')
         ];
     }
 }

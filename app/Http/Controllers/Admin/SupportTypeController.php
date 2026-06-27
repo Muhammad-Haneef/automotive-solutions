@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\SupportType;
 use App\Http\Requests\Admin\StoreSupportTypeRequest;
 use App\Http\Requests\Admin\UpdateSupportTypeRequest;
+use App\Models\Admin\SupportType;
+use Illuminate\Support\Facades\DB;
 
 class SupportTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'support-type', // route singular name
-        'rpn' => 'support-types', // route plural name
+        'rsn' => 'support-type',  // route singular name
+        'rpn' => 'support-types',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = SupportType::withTrashed()->get();
+        $this->data['rows'] = SupportType::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class SupportTypeController extends Controller
     public function edit(SupportType $supportType, $id)
     {
         if (!$this->data['row'] = SupportType::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = SupportType::withTrashed()->get();
+        $this->data['rows'] = SupportType::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class SupportTypeController extends Controller
     public function update(UpdateSupportTypeRequest $request, SupportType $supportType, $id)
     {
         SupportType::where('id', $id)->update($request->only((new SupportType())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class SupportTypeController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class SupportTypeController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

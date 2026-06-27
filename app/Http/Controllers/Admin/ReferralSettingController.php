@@ -2,35 +2,35 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\ReferralSetting;
 use App\Http\Requests\Admin\StoreReferralSettingRequest;
 use App\Http\Requests\Admin\UpdateReferralSettingRequest;
+use App\Models\Admin\ReferralSetting;
+use Illuminate\Support\Facades\DB;
 
 class ReferralSettingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/referrals/";
+    private $root = 'admin/referrals/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'referral-setting', // route singular name
-            'rpn' => 'referral-setting', // route plural name
+            'rsn' => 'referral-setting',  // route singular name
+            'rpn' => 'referral-setting',  // route plural name
         ];
     }
+
     public function index()
     {
         return view($this->root . 'setting', $this->data);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -66,7 +66,7 @@ class ReferralSettingController extends Controller
     public function edit(ReferralSetting $referralSetting, $id)
     {
         if (!$this->data['row'] = ReferralSetting::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -80,7 +80,7 @@ class ReferralSettingController extends Controller
     public function update(UpdateReferralSettingRequest $request, ReferralSetting $referralSetting, $id)
     {
         ReferralSetting::where('id', $id)->update($request->only((new ReferralSetting())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -107,6 +107,7 @@ class ReferralSettingController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -125,6 +126,7 @@ class ReferralSettingController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

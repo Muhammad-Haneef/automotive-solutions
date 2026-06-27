@@ -2,33 +2,31 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Product; 
-
-use App\Models\Admin\ProductVideoSection;
 use App\Http\Requests\Admin\StoreProductVideoSectionRequest;
 use App\Http\Requests\Admin\UpdateProductVideoSectionRequest;
+use App\Models\Admin\Product;
+use App\Models\Admin\ProductVideoSection;
+use Illuminate\Support\Facades\DB;
 
 class ProductVideoSectionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/product-video-sections/";
-    private $data ;
+    private $root = 'admin/product-video-sections/';
+
+    private $data;
+
     function __construct()
     {
         $this->data = [
             'rows' => 0,
             'row' => 0,
             'active' => 'product-videos',
-            'rsn' => 'product-video-section', // route singular name
-            'rpn' => 'product-video-sections', // route plural name
+            'rsn' => 'product-video-section',  // route singular name
+            'rpn' => 'product-video-sections',  // route plural name
         ];
-        
     }
 
     public function index($pid)
@@ -41,8 +39,9 @@ class ProductVideoSectionController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($pid)
     {
+        $this->data['pid'] = $pid;
         return view($this->root . 'list', $this->data);
     }
 
@@ -69,35 +68,35 @@ class ProductVideoSectionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ProductVideoSection $productVideoSection, $id)
+    public function edit(ProductVideoSection $productVideoSection, $pid, $id)
     {
         if (!$this->data['row'] = ProductVideoSection::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        //$this->data['row'] = ProductVideoSection::find($id);
-        $this->data['rows'] = ProductVideoSection::withTrashed()->get();
+        $this->data['pid'] = $pid;
+        // $this->data['row'] = ProductVideoSection::find($id);
+        $this->data['rows'] = ProductVideoSection::where('product_id', $pid)->latest()->withTrashed()->with('videos')->get();
+
         return view($this->root . 'list', $this->data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductVideoSectionRequest $request, ProductVideoSection $productVideoSection, $id)
+    public function update(UpdateProductVideoSectionRequest $request, ProductVideoSection $productVideoSection, $pid, $id)
     {
-        ProductVideoSection::where('id', $id)->update($request->only('title', 'description', 'sort_by', 'is_active'));
+        ProductVideoSection::where('id', $id)->update($request->only((new ProductVideoSection())->getFillable()));
         $alert = array(
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         );
-        return redirect()->route($this->data['rpn'])->with($alert);
-
-
+        return redirect()->route('admin.' . $this->data['rpn'], $pid)->with($alert);
 
         ProductVideoSection::where('id', $id)->update($request->only((new ProductVideoSection())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -124,6 +123,7 @@ class ProductVideoSectionController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -142,6 +142,7 @@ class ProductVideoSectionController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\OrderSource;
 use App\Http\Requests\Admin\StoreOrderSourceRequest;
 use App\Http\Requests\Admin\UpdateOrderSourceRequest;
+use App\Models\Admin\OrderSource;
+use Illuminate\Support\Facades\DB;
 
 class OrderSourceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data = [
-        'rows'=>[],
-        'row'=>[],
-        'rsn'=>'order-source', // route singular name
-        'rpn'=>'order-sources', // route plural name
+        'rows' => [],
+        'row' => [],
+        'rsn' => 'order-source',  // route singular name
+        'rpn' => 'order-sources',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = OrderSource::withTrashed()->get();
-        return view($this->root.'list', $this->data);
+        $this->data['rows'] = OrderSource::latest()->withTrashed()->get();
+        return view($this->root . 'list', $this->data);
     }
 
     /**
@@ -62,13 +62,13 @@ class OrderSourceController extends Controller
     public function edit(OrderSource $orderSource, $id)
     {
         if (!$this->data['row'] = OrderSource::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = OrderSource::withTrashed()->get();
-        return view($this->root.'list', $this->data);
+        $this->data['rows'] = OrderSource::latest()->withTrashed()->get();
+        return view($this->root . 'list', $this->data);
     }
 
     /**
@@ -77,7 +77,7 @@ class OrderSourceController extends Controller
     public function update(UpdateOrderSourceRequest $request, OrderSource $orderSource, $id)
     {
         OrderSource::where('id', $id)->update($request->only((new OrderSource())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class OrderSourceController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class OrderSourceController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();
@@ -139,5 +141,5 @@ class OrderSourceController extends Controller
                 'alert-type' => 'error'
             ]);
         }
-    } 
+    }
 }

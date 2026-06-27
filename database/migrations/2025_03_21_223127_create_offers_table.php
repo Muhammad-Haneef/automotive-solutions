@@ -38,7 +38,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('offer_id')->constrained()->onDelete('cascade');
             
-            $table->unsignedBigInteger('item_id'); // Product/Category/Brand ID
+            $table->unsignedBigInteger('item_id')->index();// Product/Category/Brand ID
 
             $table->integer('sort_by')->default(0);
             $table->boolean('is_active')->default(true);

@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePaymentMethodRequest extends FormRequest
+class UpdatePaymentMethodRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,7 +32,7 @@ class UpdatePaymentMethodRequest extends FormRequest
                     }
                 },
             ],
-            'title' => 'required|unique:payment_methods,title,'.$this->route('id').',id',
+            'title' => 'required|unique:payment_methods,title,' . $this->route('id') . ',id',
             'description' => [
                 'required_if:payment_gateway_id,null',
                 function ($attribute, $value, $fail) {
@@ -41,6 +42,5 @@ class UpdatePaymentMethodRequest extends FormRequest
                 },
             ],
         ];
-
     }
 }

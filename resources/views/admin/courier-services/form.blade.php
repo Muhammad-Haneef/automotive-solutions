@@ -75,7 +75,7 @@
               </div>
             </div>
             <x-admin.card-footer>
-              <a href="{{route('admin.shippers')}}" class="btn btn-secondary align-self-start">View All</a>
+              <a href="{{route('admin.'.$rpn)}}" class="btn btn-secondary align-self-start">View All</a>
             </x-admin.card-footer>
           </div>
         </div>

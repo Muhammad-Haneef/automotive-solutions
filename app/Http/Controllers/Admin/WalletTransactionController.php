@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\WalletTransaction;
 use App\Http\Requests\Admin\StoreWalletTransactionRequest;
 use App\Http\Requests\Admin\UpdateWalletTransactionRequest;
+use App\Models\Admin\WalletTransaction;
+use Illuminate\Support\Facades\DB;
 
 class WalletTransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/wallets-transactions/";
+    private $root = 'admin/wallets-transactions/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'wallets-transaction', // route singular name
-        'rpn' => 'wallets-transactions', // route plural name
+        'rsn' => 'wallets-transaction',  // route singular name
+        'rpn' => 'wallets-transactions',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = WalletTransaction::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class WalletTransactionController extends Controller
     public function edit(WalletTransaction $walletTransaction, $id)
     {
         if (!$this->data['row'] = WalletTransaction::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class WalletTransactionController extends Controller
     public function update(UpdateWalletTransactionRequest $request, WalletTransaction $walletTransaction, $id)
     {
         WalletTransaction::where('id', $id)->update($request->only((new WalletTransaction())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class WalletTransactionController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class WalletTransactionController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

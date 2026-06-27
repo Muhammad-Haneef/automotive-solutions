@@ -8,3 +8,5 @@
         </div>
     </div>
 </footer>
+<x-admin.delete-confirmation-modal />
+<x-admin.confirmation-modal />

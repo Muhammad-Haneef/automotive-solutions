@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreReferralRequest extends FormRequest
+class StoreReferralRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +23,10 @@ class StoreReferralRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'referrer_id'=>'required',
-            'referred_id'=>'required',
+            'referrer_id' => 'required',
+            'referred_id' => 'required',
             'referral_code' => 'required|string|exists:referrals,referral_code',
-            'rewarded'=>'required',
+            'rewarded' => 'required',
         ];
     }
 }

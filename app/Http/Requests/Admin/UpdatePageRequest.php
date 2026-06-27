@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePageRequest extends FormRequest
+class UpdatePageRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +23,10 @@ class UpdatePageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'   => 'required|unique:pages,title,'.$this->route('id'),
-            'slug'   => 'required|unique:pages,slug,'.$this->route('id'),
+            'title' => 'required|unique:pages,title,' . $this->route('id'),
+            'slug' => 'required|unique:pages,slug,' . $this->route('id'),
             'content' => 'nullable|string',
-            //'image' => 'required',
+            // 'banner' => 'required',
         ];
     }
 }

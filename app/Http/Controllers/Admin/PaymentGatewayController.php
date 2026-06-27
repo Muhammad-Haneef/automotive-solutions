@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\PaymentGateway;
 use App\Http\Requests\Admin\StorePaymentGatewayRequest;
 use App\Http\Requests\Admin\UpdatePaymentGatewayRequest;
+use App\Models\Admin\PaymentGateway;
+use Illuminate\Support\Facades\DB;
 
 class PaymentGatewayController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/payment-gateways/";
+    private $root = 'admin/payment-gateways/';
+
     private $data = [
-        'rows'=>[],
-        'row'=>[],
-        'rsn'=>'payment-gateway', // route singular name
-        'rpn'=>'payment-gateways', // route plural name
+        'rows' => [],
+        'row' => [],
+        'rsn' => 'payment-gateway',  // route singular name
+        'rpn' => 'payment-gateways',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = PaymentGateway::withTrashed()->get();
-        return view($this->root.'list', $this->data);
+        $this->data['rows'] = PaymentGateway::latest()->withTrashed()->get();
+        return view($this->root . 'list', $this->data);
     }
 
     /**
@@ -41,7 +41,7 @@ class PaymentGatewayController extends Controller
      */
     public function store(StorePaymentGatewayRequest $request)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('logo')) {
@@ -71,13 +71,13 @@ class PaymentGatewayController extends Controller
     public function edit(PaymentGateway $paymentGateway, $id)
     {
         if (!$this->data['row'] = PaymentGateway::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = PaymentGateway::withTrashed()->get();
-        return view($this->root.'form', $this->data);
+        $this->data['rows'] = PaymentGateway::latest()->withTrashed()->get();
+        return view($this->root . 'form', $this->data);
     }
 
     /**
@@ -85,11 +85,14 @@ class PaymentGatewayController extends Controller
      */
     public function update(UpdatePaymentGatewayRequest $request, PaymentGateway $paymentGateway, $id)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('logo')) {
             $data['logo'] = $request->file('logo')->store('shippers', 'public');
+            deleteImage($request->old_logo);
+        } else {
+            $data['logo'] = $request->old_logo;
         }
 
         // Save only fillable fields in the database
@@ -121,6 +124,7 @@ class PaymentGatewayController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -139,6 +143,7 @@ class PaymentGatewayController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

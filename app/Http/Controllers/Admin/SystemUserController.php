@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\SystemUser;
 use App\Http\Requests\Admin\StoreSystemUserRequest;
 use App\Http\Requests\Admin\UpdateSystemUserRequest;
+use App\Models\Admin\SystemUser;
+use Illuminate\Support\Facades\DB;
 
 class SystemUserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/system-users/";
+    private $root = 'admin/system-users/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'system-user', // route singular name
-        'rpn' => 'system-users', // route plural name
+        'rsn' => 'system-user',  // route singular name
+        'rpn' => 'system-users',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = SystemUser::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class SystemUserController extends Controller
     public function edit(SystemUser $systemUser, $id)
     {
         if (!$this->data['row'] = SystemUser::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class SystemUserController extends Controller
     public function update(UpdateSystemUserRequest $request, SystemUser $systemUser, $id)
     {
         SystemUser::where('id', $id)->update($request->only((new SystemUser())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class SystemUserController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class SystemUserController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();
@@ -139,5 +141,4 @@ class SystemUserController extends Controller
             ]);
         }
     }
-
 }

@@ -2,32 +2,31 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\NotificationType;
 use App\Http\Requests\Admin\StoreNotificationTypeRequest;
 use App\Http\Requests\Admin\UpdateNotificationTypeRequest;
+use App\Models\Admin\NotificationType;
+use Illuminate\Support\Facades\DB;
 
 class NotificationTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'notification-type', // route singular name
-        'rpn' => 'notification-types', // route plural name
+        'rsn' => 'notification-type',  // route singular name
+        'rpn' => 'notification-types',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = NotificationType::withTrashed()->get();
+        $this->data['rows'] = NotificationType::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -63,13 +62,13 @@ class NotificationTypeController extends Controller
     public function edit(NotificationType $notificationType, $id)
     {
         if (!$this->data['row'] = NotificationType::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        //$this->data['row'] = NotificationType::find($id);
-        $this->data['rows'] = NotificationType::withTrashed()->get();
+        // $this->data['row'] = NotificationType::find($id);
+        $this->data['rows'] = NotificationType::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -79,7 +78,7 @@ class NotificationTypeController extends Controller
     public function update(UpdateNotificationTypeRequest $request, NotificationType $notificationType, $id)
     {
         NotificationType::where('id', $id)->update($request->only((new NotificationType())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -106,6 +105,7 @@ class NotificationTypeController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -124,6 +124,7 @@ class NotificationTypeController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

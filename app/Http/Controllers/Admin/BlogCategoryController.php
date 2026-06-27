@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\BlogCategory;
 use App\Http\Requests\Admin\StoreBlogCategoryRequest;
 use App\Http\Requests\Admin\UpdateBlogCategoryRequest;
+use App\Models\Admin\BlogCategory;
+use Illuminate\Support\Facades\DB;
 
 class BlogCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'blog-category', // route singular name
-        'rpn' => 'blog-categories', // route plural name
+        'rsn' => 'blog-category',  // route singular name
+        'rpn' => 'blog-categories',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = BlogCategory::withTrashed()->get();
+        $this->data['rows'] = BlogCategory::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class BlogCategoryController extends Controller
     public function edit(BlogCategory $blogCategory, $id)
     {
         if (!$this->data['row'] = BlogCategory::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = BlogCategory::withTrashed()->get();
+        $this->data['rows'] = BlogCategory::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class BlogCategoryController extends Controller
     public function update(UpdateBlogCategoryRequest $request, BlogCategory $blogCategory, $id)
     {
         BlogCategory::where('id', $id)->update($request->only((new BlogCategory())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class BlogCategoryController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class BlogCategoryController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

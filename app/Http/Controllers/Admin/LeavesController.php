@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Leaves;
 use App\Http\Requests\Admin\StoreLeavesRequest;
 use App\Http\Requests\Admin\UpdateLeavesRequest;
+use App\Models\Admin\Leaves;
+use Illuminate\Support\Facades\DB;
 
 class LeavesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/leaves/";
+    private $root = 'admin/leaves/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'leave', // route singular name
-        'rpn' => 'leaves', // route plural name
+        'rsn' => 'leave',  // route singular name
+        'rpn' => 'leaves',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = Leaves::withTrashed()->get();
+        $this->data['rows'] = Leaves::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class LeavesController extends Controller
     public function edit(Leaves $leaves, $id)
     {
         if (!$this->data['row'] = Leaves::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Leaves::withTrashed()->get();
+        $this->data['rows'] = Leaves::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class LeavesController extends Controller
     public function update(UpdateLeavesRequest $request, Leaves $leaves, $id)
     {
         Leaves::where('id', $id)->update($request->only((new Leaves())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class LeavesController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class LeavesController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('product_video_section_id')->constrained()->onDelete('cascade');
 */
 
-            $table->foreignId('product_id');
-            $table->foreignId('product_video_section_id');
+            $table->foreignId('product_id')->index();
+            $table->foreignId('product_video_section_id')->index();
 
             $table->string('title')->nullable();
             $table->string('url');

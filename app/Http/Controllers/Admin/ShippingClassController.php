@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\ShippingClass;
 use App\Http\Requests\Admin\StoreShippingClassRequest;
 use App\Http\Requests\Admin\UpdateShippingClassRequest;
+use App\Models\Admin\ShippingClass;
+use Illuminate\Support\Facades\DB;
 
 class ShippingClassController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'shipping-class', // route singular name
-        'rpn' => 'shipping-classes', // route plural name
+        'rsn' => 'shipping-class',  // route singular name
+        'rpn' => 'shipping-classes',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = ShippingClass::withTrashed()->get();
+        $this->data['rows'] = ShippingClass::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,13 +62,13 @@ class ShippingClassController extends Controller
     public function edit(ShippingClass $shippingClass, $id)
     {
         if (!$this->data['row'] = ShippingClass::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        //$this->data['row'] = ShippingClass::find($id);
-        $this->data['rows'] = ShippingClass::withTrashed()->get();
+        // $this->data['row'] = ShippingClass::find($id);
+        $this->data['rows'] = ShippingClass::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -78,7 +78,7 @@ class ShippingClassController extends Controller
     public function update(UpdateShippingClassRequest $request, ShippingClass $shippingClass, $id)
     {
         ShippingClass::where('id', $id)->update($request->only((new ShippingClass())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -105,6 +105,7 @@ class ShippingClassController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -123,6 +124,7 @@ class ShippingClassController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

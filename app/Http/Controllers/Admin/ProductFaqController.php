@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\ProductFaq;
 use App\Http\Requests\Admin\StoreProductFaqRequest;
 use App\Http\Requests\Admin\UpdateProductFaqRequest;
+use App\Models\Admin\ProductFaq;
+use Illuminate\Support\Facades\DB;
 use Laravel\Pail\ValueObjects\Origin\Console;
 
 class ProductFaqController extends Controller
@@ -16,14 +14,16 @@ class ProductFaqController extends Controller
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/product-faqs/";
+    private $root = 'admin/product-faqs/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'product-faq', // route singular name
-        'active' => 'product-faqs', // route plural name
-        'rpn' => 'product-faqs', // route plural name
+        'rsn' => 'product-faq',  // route singular name
+        'active' => 'product-faqs',  // route plural name
+        'rpn' => 'product-faqs',  // route plural name
     ];
+
     public function index($pid)
     {
         $this->data['rows'] = ProductFaq::where('product_id', $pid)->latest()->withTrashed()->get();
@@ -65,7 +65,7 @@ class ProductFaqController extends Controller
     public function edit(ProductFaq $productFaq, $pid, $id)
     {
         if (!$this->data['row'] = ProductFaq::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -78,10 +78,10 @@ class ProductFaqController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductFaqRequest $request, ProductFaq $productFaq,  $pid, $id)
+    public function update(UpdateProductFaqRequest $request, ProductFaq $productFaq, $pid, $id)
     {
         ProductFaq::where('id', $id)->update($request->only((new ProductFaq())->getFillable()));
-        return redirect()->route($this->data['rpn'], [$pid])->with([
+        return redirect()->route('admin.' . $this->data['rpn'], [$pid])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -90,7 +90,7 @@ class ProductFaqController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function trash( $pid, $id)
+    public function trash($pid, $id)
     {
         DB::beginTransaction();
         try {
@@ -108,7 +108,8 @@ class ProductFaqController extends Controller
             ]);
         }
     }
-    public function restore( $pid, $id)
+
+    public function restore($pid, $id)
     {
         DB::beginTransaction();
         try {
@@ -126,7 +127,8 @@ class ProductFaqController extends Controller
             ]);
         }
     }
-    public function destroy( $pid, $id)
+
+    public function destroy($pid, $id)
     {
         DB::beginTransaction();
         try {

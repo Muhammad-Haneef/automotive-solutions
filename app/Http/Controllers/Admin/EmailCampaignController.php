@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\EmailCampaign;
 use App\Http\Requests\Admin\StoreEmailCampaignRequest;
 use App\Http\Requests\Admin\UpdateEmailCampaignRequest;
+use App\Models\Admin\EmailCampaign;
+use Illuminate\Support\Facades\DB;
 
 class EmailCampaignController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/email-campaigns/";
+    private $root = 'admin/email-campaigns/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'email-campaign', // route singular name
-        'rpn' => 'email-campaigns', // route plural name
+        'rsn' => 'email-campaign',  // route singular name
+        'rpn' => 'email-campaigns',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = EmailCampaign::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class EmailCampaignController extends Controller
     public function edit(EmailCampaign $emailCampaign, $id)
     {
         if (!$this->data['row'] = EmailCampaign::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class EmailCampaignController extends Controller
     public function update(UpdateEmailCampaignRequest $request, EmailCampaign $emailCampaign, $id)
     {
         EmailCampaign::where('id', $id)->update($request->only((new EmailCampaign())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class EmailCampaignController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class EmailCampaignController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

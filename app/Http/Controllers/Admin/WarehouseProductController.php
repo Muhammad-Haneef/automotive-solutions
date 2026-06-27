@@ -2,30 +2,31 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\WarehouseProduct;
 use App\Http\Requests\Admin\StoreWarehouseProductRequest;
 use App\Http\Requests\Admin\UpdateWarehouseProductRequest;
+use App\Models\Admin\WarehouseProduct;
+use Illuminate\Support\Facades\DB;
 
 class WarehouseProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/attributes/";
+    private $root = 'admin/attributes/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
             'rows' => [],
             'row' => [],
-            'rsn' => 'attribute', // route singular name
-            'rpn' => 'attributes', // route plural name
+            'rsn' => 'attribute',  // route singular name
+            'rpn' => 'attributes',  // route plural name
         ];
     }
+
     public function index()
     {
         $this->data['rows'] = WarehouseProduct::latest()->withTrashed()->get();
@@ -66,7 +67,7 @@ class WarehouseProductController extends Controller
     public function edit(WarehouseProduct $warehouseProduct, $id)
     {
         if (!$this->data['row'] = WarehouseProduct::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -81,7 +82,7 @@ class WarehouseProductController extends Controller
     public function update(UpdateWarehouseProductRequest $request, WarehouseProduct $warehouseProduct, $id)
     {
         WarehouseProduct::where('id', $id)->update($request->only((new WarehouseProduct())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -108,6 +109,7 @@ class WarehouseProductController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -126,6 +128,7 @@ class WarehouseProductController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

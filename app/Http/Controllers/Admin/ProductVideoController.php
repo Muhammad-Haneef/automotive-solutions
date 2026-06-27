@@ -2,38 +2,40 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\ProductVideo;
 use App\Http\Requests\Admin\StoreProductVideoRequest;
 use App\Http\Requests\Admin\UpdateProductVideoRequest;
+use App\Models\Admin\ProductVideo;
+use Illuminate\Support\Facades\DB;
 
 class ProductVideoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/product-videos/";
+    private $root = 'admin/product-videos/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'product-video', // route singular name
-        'rpn' => 'product-videos', // route plural name
+        'rsn' => 'product-video',  // route singular name
+        'rpn' => 'product-videos',  // route plural name
     ];
-    public function index()
+
+    public function index($pid)
     {
         $this->data['rows'] = ProductVideo::latest()->withTrashed()->get();
+        $this->data['pid'] = $pid;
         return view($this->root . 'list', $this->data);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($pid)
     {
-        return view($this->root . 'form');
+        $this->data['pid'] = $pid;
+        return view($this->root . 'form', $this->data);
     }
 
     /**
@@ -62,11 +64,12 @@ class ProductVideoController extends Controller
     public function edit(ProductVideo $productVideo, $pid, $id)
     {
         if (!$this->data['row'] = ProductVideo::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
+        $this->data['pid'] = $pid;
         return view($this->root . 'form', $this->data);
     }
 
@@ -80,12 +83,13 @@ class ProductVideoController extends Controller
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
+
         /*
-        return redirect()->route($this->data['rpn'], [$pid])->with([
-            'message' => 'Saved successfully.',
-            'alert-type' => 'success'
-        ]);
-        */
+         * return redirect()->route('admin.'.$this->data['rpn'], [$pid])->with([
+         *     'message' => 'Saved successfully.',
+         *     'alert-type' => 'success'
+         * ]);
+         */
     }
 
     /**
@@ -109,7 +113,8 @@ class ProductVideoController extends Controller
             ]);
         }
     }
-    public function restore( $pid, $id)
+
+    public function restore($pid, $id)
     {
         DB::beginTransaction();
         try {
@@ -127,7 +132,8 @@ class ProductVideoController extends Controller
             ]);
         }
     }
-    public function destroy( $pid, $id)
+
+    public function destroy($pid, $id)
     {
         DB::beginTransaction();
         try {

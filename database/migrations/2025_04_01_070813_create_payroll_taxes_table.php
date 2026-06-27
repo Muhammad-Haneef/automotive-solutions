@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             //$table->foreignId('payroll_id')->constrained('payrolls')->onDelete('cascade');
-            $table->foreignId('payroll_id');
+            $table->foreignId('payroll_id')->index();
 
             $table->string('tax_type');
             $table->decimal('tax_rate', 5, 2);

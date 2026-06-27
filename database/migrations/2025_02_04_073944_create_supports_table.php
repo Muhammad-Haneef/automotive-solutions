@@ -15,9 +15,9 @@ return new class extends Migration
         Schema::create('supports', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('support_type_id');
-            $table->foreignId('support_status_id');
-            $table->foreignId('order_id')->nullable()->default(0);
+            $table->foreignId('support_type_id')->index();
+            $table->foreignId('support_status_id')->index();
+            $table->foreignId('order_id')->nullable()->default(0)->index();
 
             $table->string('code');
             $table->string('name');

@@ -2,32 +2,31 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Resignation;
 use App\Http\Requests\Admin\StoreResignationRequest;
 use App\Http\Requests\Admin\UpdateResignationRequest;
+use App\Models\Admin\Resignation;
+use Illuminate\Support\Facades\DB;
 
 class ResignationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/resignations/";
+    private $root = 'admin/resignations/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'resignation', // route singular name
-        'rpn' => 'resignations', // route plural name
+        'rsn' => 'resignation',  // route singular name
+        'rpn' => 'resignations',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = Resignation::withTrashed()->get();
+        $this->data['rows'] = Resignation::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -63,12 +62,12 @@ class ResignationController extends Controller
     public function edit(Resignation $resignation, $id)
     {
         if (!$this->data['row'] = Resignation::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Resignation::withTrashed()->get();
+        $this->data['rows'] = Resignation::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -78,7 +77,7 @@ class ResignationController extends Controller
     public function update(UpdateResignationRequest $request, Resignation $resignation, $id)
     {
         Resignation::where('id', $id)->update($request->only((new Resignation())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -105,6 +104,7 @@ class ResignationController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -123,6 +123,7 @@ class ResignationController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

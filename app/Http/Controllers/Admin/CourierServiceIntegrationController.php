@@ -2,38 +2,37 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\CourierServiceIntegration;
-use App\Models\Admin\CourierService;
 use App\Http\Requests\Admin\StoreCourierServiceIntegrationRequest;
 use App\Http\Requests\Admin\UpdateCourierServiceIntegrationRequest;
+use App\Models\Admin\CourierService;
+use App\Models\Admin\CourierServiceIntegration;
+use Illuminate\Support\Facades\DB;
 
 class CourierServiceIntegrationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/courier-services-integrations/";
-    
+    private $root = 'admin/courier-services-integrations/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
-            'rows' =>  [],
+            'rows' => [],
             'row' => [],
             'courierServices' => [],
-            'rsn' => 'courier-services-integration', // route singular name
-            'rpn' => 'courier-services-integrations', // route plural name
+            'rsn' => 'courier-services-integration',  // route singular name
+            'rpn' => 'courier-services-integrations',  // route plural name
         ];
     }
 
     public function index()
     {
         $this->data['courierServices'] = CourierService::all();
-        $this->data['rows'] = CourierServiceIntegration::withTrashed()->get();
+        $this->data['rows'] = CourierServiceIntegration::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -71,13 +70,13 @@ class CourierServiceIntegrationController extends Controller
     public function edit(CourierServiceIntegration $courierServiceIntegration, $id)
     {
         if (!$this->data['row'] = CourierServiceIntegration::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
         $this->data['courierServices'] = CourierService::all();
-        $this->data['rows'] = CourierServiceIntegration::withTrashed()->get();
+        $this->data['rows'] = CourierServiceIntegration::latest()->withTrashed()->get();
         return view($this->root . 'form', $this->data);
     }
 
@@ -87,7 +86,7 @@ class CourierServiceIntegrationController extends Controller
     public function update(UpdateCourierServiceIntegrationRequest $request, CourierServiceIntegration $courierServiceIntegration, $id)
     {
         CourierServiceIntegration::where('id', $id)->update($request->only((new CourierServiceIntegration())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -114,6 +113,7 @@ class CourierServiceIntegrationController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -132,6 +132,7 @@ class CourierServiceIntegrationController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

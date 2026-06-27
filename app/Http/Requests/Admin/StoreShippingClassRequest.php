@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreShippingClassRequest extends FormRequest
+class StoreShippingClassRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,14 +20,13 @@ class StoreShippingClassRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-
     public function rules(): array
     {
         return [
-            'title'=>'required|unique:shipping_classes',
-            'description'=>'required',
-            'base_rate'=>'required',
-            'per_weight_rate'=>'required'
+            'title' => 'required|unique:shipping_classes',
+            'description' => 'required',
+            'base_rate' => 'required',
+            'per_weight_rate' => 'required'
         ];
     }
 }

@@ -5,7 +5,6 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
 use Illuminate\Support\Str;
 
 class Blog extends Model
@@ -17,6 +16,7 @@ class Blog extends Model
         'blog_category_id',
         'title',
         'slug',
+        'tags',
         'content',
         'image',
         'sort_by',
@@ -45,5 +45,4 @@ class Blog extends Model
     {
         return $this->belongsTo(Tag::class, 'tags');
     }
-
 }

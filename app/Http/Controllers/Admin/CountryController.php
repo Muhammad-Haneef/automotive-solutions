@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Country;
 use App\Http\Requests\Admin\StoreCountryRequest;
 use App\Http\Requests\Admin\UpdateCountryRequest;
+use App\Models\Admin\Country;
+use Illuminate\Support\Facades\DB;
 
 class CountryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/listing-titles/";
+    private $root = 'admin/listing-titles/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'country', // route singular name
-        'rpn' => 'countries', // route plural name
+        'rsn' => 'country',  // route singular name
+        'rpn' => 'countries',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = Country::latest()->withTrashed()->get();
@@ -33,7 +33,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-       // return view($this->root . 'form');
+        // return view($this->root . 'form');
     }
 
     /**
@@ -62,12 +62,12 @@ class CountryController extends Controller
     public function edit(Country $country, $id)
     {
         if (!$this->data['row'] = Country::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = Country::withTrashed()->get();
+        $this->data['rows'] = Country::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class CountryController extends Controller
     public function update(UpdateCountryRequest $request, Country $country, $id)
     {
         Country::where('id', $id)->update($request->only((new Country())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class CountryController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class CountryController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

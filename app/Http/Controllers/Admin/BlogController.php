@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\Admin\StoreBlogRequest;
+use App\Http\Requests\Admin\UpdateBlogRequest;
 use App\Models\Admin\Blog;
 use App\Models\Admin\BlogCategory;
 use App\Models\Admin\Tag;
-use App\Http\Requests\Admin\StoreBlogRequest;
-use App\Http\Requests\Admin\UpdateBlogRequest;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/blogs/";
+    private $root = 'admin/blogs/';
+
     private $data;
+
     public function __construct()
     {
         $this->data = [
@@ -26,8 +26,8 @@ class BlogController extends Controller
             'row' => [],
             'categories' => [],
             'tags' => [],
-            'rsn' => 'blog', // route singular name
-            'rpn' => 'blogs', // route plural name
+            'rsn' => 'blog',  // route singular name
+            'rpn' => 'blogs',  // route plural name
         ];
     }
 
@@ -44,6 +44,8 @@ class BlogController extends Controller
      */
     public function create()
     {
+        $this->data['categories'] = BlogCategory::select('id', 'title')->where('is_active', 1)->get();
+        $this->data['tags'] = Tag::select('id', 'title')->where('is_active', 1)->get();
         return view($this->root . 'form', $this->data);
     }
 
@@ -52,15 +54,15 @@ class BlogController extends Controller
      */
     public function store(StoreBlogRequest $request)
     {
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('blogs', 'public');
+            $data['image'] = $request->file('image')->store($this->data['rpn'], 'public');
         } else {
             $data['image'] = $request->old_image;
         }
-        if (count($request->tags) > 0) {
+        if (isset($request->tags) && count($request->tags) > 0) {
             $data['tags'] = implode(',', $request->tags);
         }
 
@@ -87,14 +89,13 @@ class BlogController extends Controller
     public function edit(Blog $blog, $id)
     {
         if (!$this->data['row'] = Blog::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
         $this->data['categories'] = BlogCategory::select('id', 'title')->where('is_active', 1)->get();
         $this->data['tags'] = Tag::select('id', 'title')->where('is_active', 1)->get();
-        $this->data['rows'] = Blog::latest()->withTrashed()->get();
         return view($this->root . 'form', $this->data);
     }
 
@@ -103,21 +104,21 @@ class BlogController extends Controller
      */
     public function update(UpdateBlogRequest $request, Blog $blog, $id)
     {
-
-        $data = $request->all(); // Get validated data
+        $data = $request->all();  // Get validated data
 
         // Store the file and update the data array
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('blogs', 'public');
+            $data['image'] = $request->file('image')->store($this->data['rpn'], 'public');
+            deleteImage($request->old_image);
         } else {
             $data['image'] = $request->old_image;
         }
-        if (count($request->tags) > 0) {
+        if (isset($request->tags) && count($request->tags) > 0) {
             $data['tags'] = implode(',', $request->tags);
         }
 
         // Save only fillable fields in the database
-        Blog::where('id', $id)->update($request->only((new Blog())->getFillable()));
+        Blog::where('id', $id)->update(array_intersect_key($data, array_flip((new Blog())->getFillable())));
 
         return back()->with([
             'message' => 'Saved successfully.',
@@ -146,6 +147,7 @@ class BlogController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -164,6 +166,7 @@ class BlogController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

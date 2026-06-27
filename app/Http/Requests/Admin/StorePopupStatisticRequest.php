@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StorePopupStatisticRequest extends FormRequest
+class StorePopupStatisticRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,6 +14,7 @@ class StorePopupStatisticRequest extends FormRequest
     {
         return true;
     }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -21,7 +23,8 @@ class StorePopupStatisticRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'popup_id','required',
+            'popup_id',
+            'required',
         ];
     }
 }

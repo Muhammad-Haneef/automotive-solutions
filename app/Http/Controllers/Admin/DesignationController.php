@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Designation;
-use App\Models\Admin\Department;
 use App\Http\Requests\Admin\StoreDesignationRequest;
 use App\Http\Requests\Admin\UpdateDesignationRequest;
+use App\Models\Admin\Department;
+use App\Models\Admin\Designation;
+use Illuminate\Support\Facades\DB;
 
 class DesignationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/designations/";
+    private $root = 'admin/designations/';
+
     private $data;
 
     public function __construct()
@@ -25,15 +24,15 @@ class DesignationController extends Controller
             'rows' => [],
             'row' => [],
             'departments' => [],
-            'rsn' => 'designation', // route singular name
-            'rpn' => 'designations', // route plural name
+            'rsn' => 'designation',  // route singular name
+            'rpn' => 'designations',  // route plural name
         ];
     }
 
     public function index()
     {
         $this->data['departments'] = Department::all();
-        $this->data['rows'] = Designation::withTrashed()->get();
+        $this->data['rows'] = Designation::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -71,13 +70,13 @@ class DesignationController extends Controller
     public function edit(Designation $designation, $id)
     {
         if (!$this->data['row'] = Designation::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
         $this->data['departments'] = Department::all();
-        $this->data['rows'] = Designation::withTrashed()->get();
+        $this->data['rows'] = Designation::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -87,7 +86,7 @@ class DesignationController extends Controller
     public function update(UpdateDesignationRequest $request, Designation $designation, $id)
     {
         Designation::where('id', $id)->update($request->only((new Designation())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -114,6 +113,7 @@ class DesignationController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -132,6 +132,7 @@ class DesignationController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

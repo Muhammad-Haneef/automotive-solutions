@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreGiftWrapRequest extends FormRequest
+class StoreGiftWrapRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +23,9 @@ class StoreGiftWrapRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required',
-            'description'=>'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'price' => 'required|numeric|min:0',
         ];
     }

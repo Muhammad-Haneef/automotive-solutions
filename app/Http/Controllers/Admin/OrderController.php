@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Order;
 use App\Http\Requests\Admin\StoreOrderRequest;
 use App\Http\Requests\Admin\UpdateOrderRequest;
+use App\Models\Admin\Order;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/orders/";
+    private $root = 'admin/orders/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'order', // route singular name
-        'rpn' => 'orders', // route plural name
+        'rsn' => 'order',  // route singular name
+        'rpn' => 'orders',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = Order::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class OrderController extends Controller
     public function edit(Order $order, $id)
     {
         if (!$this->data['row'] = Order::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class OrderController extends Controller
     public function update(UpdateOrderRequest $request, Order $order, $id)
     {
         Order::where('id', $id)->update($request->only((new Order())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class OrderController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class OrderController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

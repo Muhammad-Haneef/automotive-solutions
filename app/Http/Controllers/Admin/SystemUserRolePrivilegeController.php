@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\SystemUserRolePrivilege;
 use App\Http\Requests\Admin\StoreSystemUserRolePrivilegeRequest;
 use App\Http\Requests\Admin\UpdateSystemUserRolePrivilegeRequest;
+use App\Models\Admin\SystemUserRolePrivilege;
+use Illuminate\Support\Facades\DB;
 
 class SystemUserRolePrivilegeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/system-user-role-privileges/";
+    private $root = 'admin/system-user-role-privileges/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'system-user-role-privilege', // route singular name
-        'rpn' => 'system-user-role-privileges', // route plural name
+        'rsn' => 'system-user-role-privilege',  // route singular name
+        'rpn' => 'system-user-role-privileges',  // route plural name
     ];
+
     public function index()
     {
-        $this->data['rows'] = SystemUserRolePrivilege::withTrashed()->get();
+        $this->data['rows'] = SystemUserRolePrivilege::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -62,12 +62,12 @@ class SystemUserRolePrivilegeController extends Controller
     public function edit(SystemUserRolePrivilege $systemUserRolePrivilege, $id)
     {
         if (!$this->data['row'] = SystemUserRolePrivilege::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
         }
-        $this->data['rows'] = SystemUserRolePrivilege::withTrashed()->get();
+        $this->data['rows'] = SystemUserRolePrivilege::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
 
@@ -77,7 +77,7 @@ class SystemUserRolePrivilegeController extends Controller
     public function update(UpdateSystemUserRolePrivilegeRequest $request, SystemUserRolePrivilege $systemUserRolePrivilege, $id)
     {
         SystemUserRolePrivilege::where('id', $id)->update($request->only((new SystemUserRolePrivilege())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -104,6 +104,7 @@ class SystemUserRolePrivilegeController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -122,6 +123,7 @@ class SystemUserRolePrivilegeController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

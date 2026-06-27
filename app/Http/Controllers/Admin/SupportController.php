@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Http\Controllers\Controller;
-
-use App\Models\Admin\Support;
 use App\Http\Requests\Admin\StoreSupportRequest;
 use App\Http\Requests\Admin\UpdateSupportRequest;
+use App\Models\Admin\Support;
+use Illuminate\Support\Facades\DB;
 
 class SupportController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private $root = "admin/supports/";
+    private $root = 'admin/supports/';
+
     private $data = [
         'rows' => [],
         'row' => [],
-        'rsn' => 'support', // route singular name
-        'rpn' => 'supports', // route plural name
+        'rsn' => 'support',  // route singular name
+        'rpn' => 'supports',  // route plural name
     ];
+
     public function index()
     {
         $this->data['rows'] = Support::latest()->withTrashed()->get();
@@ -62,7 +62,7 @@ class SupportController extends Controller
     public function edit(Support $support, $id)
     {
         if (!$this->data['row'] = Support::find($id)) {
-            return redirect()->route($this->data['rpn'])->with([
+            return redirect()->route('admin.' . $this->data['rpn'])->with([
                 'message' => 'Record not found.',
                 'alert-type' => 'error'
             ]);
@@ -76,7 +76,7 @@ class SupportController extends Controller
     public function update(UpdateSupportRequest $request, Support $support, $id)
     {
         Support::where('id', $id)->update($request->only((new Support())->getFillable()));
-        return redirect()->route($this->data['rpn'])->with([
+        return redirect()->route('admin.' . $this->data['rpn'])->with([
             'message' => 'Saved successfully.',
             'alert-type' => 'success'
         ]);
@@ -103,6 +103,7 @@ class SupportController extends Controller
             ]);
         }
     }
+
     public function restore($id)
     {
         DB::beginTransaction();
@@ -121,6 +122,7 @@ class SupportController extends Controller
             ]);
         }
     }
+
     public function destroy($id)
     {
         DB::beginTransaction();

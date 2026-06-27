@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
+// use Illuminate\Foundation\Http\FormRequest;
 
-class StoreAddressBookRequest extends FormRequest
+class StoreAddressBookRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,6 +14,7 @@ class StoreAddressBookRequest extends FormRequest
     {
         return true;
     }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -21,18 +23,18 @@ class StoreAddressBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id'=>'required',
-            'title'=>'required|unique:address_books',
-            'phone'=>'required',
-            'email'=>'required',
-            'address_line_1'=>'required',
-            'address_line_2'=>'required',
-            'city'=>'required',
-            'state'=>'required',
-            'country'=>'required',
-            'postal_code'=>'required',
-            'type'=>'required',
-            'is_default'=>'required',
+            'user_id' => 'required',
+            'title' => 'required|unique:address_books',
+            'phone' => 'required',
+            'email' => 'required',
+            'address_line_1' => 'required',
+            'address_line_2' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'country' => 'required',
+            'postal_code' => 'required',
+            'type' => 'required',
+            'is_default' => 'required',
         ];
     }
 }
