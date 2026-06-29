@@ -247,7 +247,9 @@ function initBlogSwiper() {
 initBlogSwiper();
 
 window.addEventListener("resize", function () {
-  location.reload(); // simple fix for demo
+  if (window.innerWidth < 992) {
+    initBlogSwiper();
+  }
 });
 
 
