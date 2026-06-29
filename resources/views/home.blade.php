@@ -1,2332 +1,2219 @@
 <x-layouts.frontend>
 
+    <x-home-slider />
 
-    <x-slider />
+    <x-brand-marquee />
 
-    <section class="Best-seller py-4">
+   <x-product-values />
+
+   <x-category-cards />
+
+   <x-product-cards-slider />
+   
+    <x-find-auto-parts-form />
+
+    <section class="py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-3 col-lg-3">
-                    <h3 class="font-weight-bold">Best Seller</h3>
-                </div>
-                <div class="col-12 col-md-7 col-lg-8">
-                    <ul class="nav nav-tabs justify-content-end border-0"
-                        id="bestSeller" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active border-0"
-                                id="electronics-tab" data-bs-toggle="tab"
-                                data-bs-target="#electronics-tab-pane"
-                                type="button" role="tab"
-                                aria-controls="electronics-tab-pane"
-                                aria-selected="true">Electronics</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="fashion-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#fashion-tab-pane"
-                                type="button" role="tab"
-                                aria-controls="fashion-tab-pane"
-                                aria-selected="false">fashion</button>
-                        </li>
-
-                    </ul>
-                </div>
-                <div
-                    class="col-12 col-md-2 col-lg-1 d-none d-sm-block"></div>
-            </div>
-
-            <div class="tab-content" id="bestSellerContent">
-                <div class="tab-pane fade show active"
-                    id="electronics-tab-pane" role="tabpanel"
-                    aria-labelledby="electronics-tab" tabindex="0">
-                    <div class="best-seller-pro-active owl-carousel ">
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/18.jpg')}}"
-                                        alt="single-product">
+            <div class="row g-4">
+                <!-- Banner 1 -->
+                <div class="col-12 col-lg-6 my-2">
+                    <div class="site-banner position-relative overflow-hidden rounded text-white h-100">
+                        <img src="front/images/banner-05.jpg" class="img-fluid w-100" alt="Banner">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center p-4">
+                            <div class="w-50">
+                                <small class="text-uppercase text-white">
+                                    Refreshin spring deals
+                                </small>
+                                <h2 class="fw-bold h2 text-white">
+                                    Solid Parts. Good Performance.
+                                </h2>
+                                <p class="text-white">
+                                    Adat ontosion och parasport exosts.
+                                </p>
+                                <a href="#"
+                                    class="btn btn-primary bg-white text-white rounded-pill border-secondary">
+                                    Shop Now
                                 </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/21.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/19.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/20.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/24.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/27.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="fashion-tab-pane"
-                    role="tabpanel" aria-labelledby="fashion-tab"
-                    tabindex="0">
-                    <div class="best-seller-pro-active owl-carousel ">
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/1.jpg')}}"
-                                        alt="single-product">
+                <!-- Banner 2 -->
+                <div class="col-12 col-lg-6 my-2">
+                    <div class="site-banner position-relative overflow-hidden rounded text-white h-100">
+                        <img src="front/images/banner-06.webp" class="img-fluid w-100" alt="Banner">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center p-4">
+                            <div class="w-50">
+                                <small class="text-uppercase text-dark">
+                                    Refreshin spring deals
+                                </small>
+                                <h2 class="fw-bold h2 text-dark">
+                                    Automotive Solutions Quality. Aftermarket Price.
+                                </h2>
+                                <p class="text-dark">
+                                    Adat ontosion och parasport exosts.
+                                </p>
+                                <a href="#"
+                                    class="btn btn-primary bg-white text-white rounded-pill border-secondary">
+                                    Shop Now
                                 </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
                             </div>
                         </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/2.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/3.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/3.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/5.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/6.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="hot-Deal py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-3 col-lg-3">
-                    <h3 class="font-weight-bold">Hot Deal</h3>
-                </div>
-                <div class="col-12 col-md-7 col-lg-8">
-                    <ul class="nav nav-tabs justify-content-end border-0"
-                        id="bestSeller" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active border-0"
-                                id="baby-kids-tab" data-bs-toggle="tab"
-                                data-bs-target="#baby-kids-tab-pane"
-                                type="button" role="tab"
-                                aria-controls="baby-kids-tab-pane"
-                                aria-selected="true">Baby/Kids</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="living-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#living-tab-pane"
-                                type="button" role="tab"
-                                aria-controls="living-tab-pane"
-                                aria-selected="false">Living</button>
-                        </li>
-
-                    </ul>
-                </div>
-                <div
-                    class="col-12 col-md-2 col-lg-1 d-none d-sm-block"></div>
-            </div>
-
-            <div class="tab-content" id="hotdealContent">
-                <div class="tab-pane fade show active"
-                    id="baby-kids-tab-pane" role="tabpanel"
-                    aria-labelledby="baby-kids-tab" tabindex="0">
-                    <div class="hot-deal owl-carousel ">
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/38.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/39.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/40.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/41.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/41.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/42.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="living-tab-pane"
-                    role="tabpanel" aria-labelledby="living-tab"
-                    tabindex="0">
-                    <div class="best-seller-pro-active owl-carousel ">
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/31.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/32.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/33.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/34.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/35.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="card product-itembox bg-white my-2">
-                                <a href="product.html"
-                                    class="position-relative">
-                                    <img class="primary-img card-img-top"
-                                        src="{{asset('front/img/products/36.jpg')}}"
-                                        alt="single-product">
-                                </a>
-                                <div
-                                    class="card-body product-content p-3 position-relative bg-white">
-                                    <div class="pro-info">
-                                        <p class="card-title mb-1"><a
-                                                href="product.html"
-                                                class=" text-secondary">Flos
-                                                Chasen S2 Suspension</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <p
-                                                    class="card-text mb-0"><span
-                                                        class=" price text-secondary fw-bold h5">$84.45</span>
-                                                    <span
-                                                        class="discount-price h6 text-muted d-block">$300.50</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div
-                                                    class="product-discount fw-bold  text-primary text-end">25<span
-                                                        class="symbol-percent">%
-                                                        OFF</span><i
-                                                        class="fa fa-arrow-down pl-1"
-                                                        aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="product-details  position-absolute px-2 w-100">
-                                        <div class="actions-primary">
-                                            <a href="cart.html"
-                                                class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                                + Add To Cart</a>
-                                        </div>
-                                        <div
-                                            class="product-cart d-flex justify-content-between">
-                                            <a href="compare.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    To Compare</span></a>
-                                            <a href="wishlist.html"
-                                                class="d-flex align-items-center"><i
-                                                    class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                                <span
-                                                    class="text-secondary d-inline-block pl-1">Add
-                                                    to WishList</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="all-products py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-12">
-                    <h3 class="font-weight-bold">Just For You</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 col-md-4 col-lg-3 mb-2">
-                    <div class="card product-itembox bg-white my-2">
-                        <a href="product.html" class="position-relative">
-                            <img class="primary-img card-img-top"
-                                src="{{asset('front/img/products/35.jpg')}}"
-                                alt="single-product">
-                        </a>
-                        <div
-                            class="card-body product-content p-3 position-relative bg-white">
-                            <div class="pro-info">
-                                <p class="card-title mb-1"><a
-                                        href="product.html"
-                                        class=" text-secondary">Flos Chasen
-                                        S2 Suspension</a></p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="card-text mb-0"><span
-                                                class=" price text-secondary fw-bold h5">$84.45</span>
-                                            <span
-                                                class="discount-price h6 text-muted d-block">$300.50</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div
-                                            class="product-discount fw-bold  text-primary text-end">25<span
-                                                class="symbol-percent">%
-                                                OFF</span><i
-                                                class="fa fa-arrow-down pl-1"
-                                                aria-hidden="true"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="product-details  position-absolute px-2 w-100">
-                                <div class="actions-primary">
-                                    <a href="cart.html"
-                                        class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                        + Add To Cart</a>
-                                </div>
-                                <div
-                                    class="product-cart d-flex justify-content-between">
-                                    <a href="compare.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            To Compare</span></a>
-                                    <a href="wishlist.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            to WishList</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <span
-                            class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 mb-2">
-                    <div class="card product-itembox bg-white my-2">
-                        <a href="product.html" class="position-relative">
-                            <img class="primary-img card-img-top"
-                                src="{{asset('front/img/products/18.jpg')}}"
-                                alt="single-product">
-                        </a>
-                        <div
-                            class="card-body product-content p-3 position-relative bg-white">
-                            <div class="pro-info">
-                                <p class="card-title mb-1"><a
-                                        href="product.html"
-                                        class=" text-secondary">Flos Chasen
-                                        S2 Suspension</a></p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="card-text mb-0"><span
-                                                class=" price text-secondary fw-bold h5">$84.45</span>
-                                            <span
-                                                class="discount-price h6 text-muted d-block">$300.50</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div
-                                            class="product-discount fw-bold  text-primary text-end">25<span
-                                                class="symbol-percent">%
-                                                OFF</span><i
-                                                class="fa fa-arrow-down pl-1"
-                                                aria-hidden="true"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="product-details  position-absolute px-2 w-100">
-                                <div class="actions-primary">
-                                    <a href="cart.html"
-                                        class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                        + Add To Cart</a>
-                                </div>
-                                <div
-                                    class="product-cart d-flex justify-content-between">
-                                    <a href="compare.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            To Compare</span></a>
-                                    <a href="wishlist.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            to WishList</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <span
-                            class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 mb-2">
-                    <div class="card product-itembox bg-white my-2">
-                        <a href="product.html" class="position-relative">
-                            <img class="primary-img card-img-top"
-                                src="{{asset('front/img/products/26.jpg')}}"
-                                alt="single-product">
-                        </a>
-                        <div
-                            class="card-body product-content p-3 position-relative bg-white">
-                            <div class="pro-info">
-                                <p class="card-title mb-1"><a
-                                        href="product.html"
-                                        class=" text-secondary">Flos Chasen
-                                        S2 Suspension</a></p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="card-text mb-0"><span
-                                                class=" price text-secondary fw-bold h5">$84.45</span>
-                                            <span
-                                                class="discount-price h6 text-muted d-block">$300.50</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div
-                                            class="product-discount fw-bold  text-primary text-end">25<span
-                                                class="symbol-percent">%
-                                                OFF</span><i
-                                                class="fa fa-arrow-down pl-1"
-                                                aria-hidden="true"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="product-details  position-absolute px-2 w-100">
-                                <div class="actions-primary">
-                                    <a href="cart.html"
-                                        class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                        + Add To Cart</a>
-                                </div>
-                                <div
-                                    class="product-cart d-flex justify-content-between">
-                                    <a href="compare.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            To Compare</span></a>
-                                    <a href="wishlist.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            to WishList</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <span
-                            class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 mb-2">
-                    <div class="card product-itembox bg-white my-2">
-                        <a href="product.html" class="position-relative">
-                            <img class="primary-img card-img-top"
-                                src="{{asset('front/img/products/11.jpg')}}"
-                                alt="single-product">
-                        </a>
-                        <div
-                            class="card-body product-content p-3 position-relative bg-white">
-                            <div class="pro-info">
-                                <p class="card-title mb-1"><a
-                                        href="product.html"
-                                        class=" text-secondary">Flos Chasen
-                                        S2 Suspension</a></p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="card-text mb-0"><span
-                                                class=" price text-secondary fw-bold h5">$84.45</span>
-                                            <span
-                                                class="discount-price h6 text-muted d-block">$300.50</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div
-                                            class="product-discount fw-bold  text-primary text-end">25<span
-                                                class="symbol-percent">%
-                                                OFF</span><i
-                                                class="fa fa-arrow-down pl-1"
-                                                aria-hidden="true"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="product-details  position-absolute px-2 w-100">
-                                <div class="actions-primary">
-                                    <a href="cart.html"
-                                        class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                        + Add To Cart</a>
-                                </div>
-                                <div
-                                    class="product-cart d-flex justify-content-between">
-                                    <a href="compare.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            To Compare</span></a>
-                                    <a href="wishlist.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            to WishList</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <span
-                            class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 mb-2">
-                    <div class="card product-itembox bg-white my-2">
-                        <a href="product.html" class="position-relative">
-                            <img class="primary-img card-img-top"
-                                src="{{asset('front/img/products/12.jpg')}}"
-                                alt="single-product">
-                        </a>
-                        <div
-                            class="card-body product-content p-3 position-relative bg-white">
-                            <div class="pro-info">
-                                <p class="card-title mb-1"><a
-                                        href="product.html"
-                                        class=" text-secondary">Flos Chasen
-                                        S2 Suspension</a></p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="card-text mb-0"><span
-                                                class=" price text-secondary fw-bold h5">$84.45</span>
-                                            <span
-                                                class="discount-price h6 text-muted d-block">$300.50</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div
-                                            class="product-discount fw-bold  text-primary text-end">25<span
-                                                class="symbol-percent">%
-                                                OFF</span><i
-                                                class="fa fa-arrow-down pl-1"
-                                                aria-hidden="true"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="product-details  position-absolute px-2 w-100">
-                                <div class="actions-primary">
-                                    <a href="cart.html"
-                                        class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                        + Add To Cart</a>
-                                </div>
-                                <div
-                                    class="product-cart d-flex justify-content-between">
-                                    <a href="compare.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            To Compare</span></a>
-                                    <a href="wishlist.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            to WishList</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <span
-                            class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 mb-2">
-                    <div class="card product-itembox bg-white my-2">
-                        <a href="product.html" class="position-relative">
-                            <img class="primary-img card-img-top"
-                                src="{{asset('front/img/products/38.jpg')}}"
-                                alt="single-product">
-                        </a>
-                        <div
-                            class="card-body product-content p-3 position-relative bg-white">
-                            <div class="pro-info">
-                                <p class="card-title mb-1"><a
-                                        href="product.html"
-                                        class=" text-secondary">Flos Chasen
-                                        S2 Suspension</a></p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="card-text mb-0"><span
-                                                class=" price text-secondary fw-bold h5">$84.45</span>
-                                            <span
-                                                class="discount-price h6 text-muted d-block">$300.50</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div
-                                            class="product-discount fw-bold  text-primary text-end">25<span
-                                                class="symbol-percent">%
-                                                OFF</span><i
-                                                class="fa fa-arrow-down pl-1"
-                                                aria-hidden="true"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="product-details  position-absolute px-2 w-100">
-                                <div class="actions-primary">
-                                    <a href="cart.html"
-                                        class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                        + Add To Cart</a>
-                                </div>
-                                <div
-                                    class="product-cart d-flex justify-content-between">
-                                    <a href="compare.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            To Compare</span></a>
-                                    <a href="wishlist.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            to WishList</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <span
-                            class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 mb-2">
-                    <div class="card product-itembox bg-white my-2">
-                        <a href="product.html" class="position-relative">
-                            <img class="primary-img card-img-top"
-                                src="{{asset('front/img/products/26.jpg')}}"
-                                alt="single-product">
-                        </a>
-                        <div
-                            class="card-body product-content p-3 position-relative bg-white">
-                            <div class="pro-info">
-                                <p class="card-title mb-1"><a
-                                        href="product.html"
-                                        class=" text-secondary">Flos Chasen
-                                        S2 Suspension</a></p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="card-text mb-0"><span
-                                                class=" price text-secondary fw-bold h5">$84.45</span>
-                                            <span
-                                                class="discount-price h6 text-muted d-block">$300.50</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div
-                                            class="product-discount fw-bold  text-primary text-end">25<span
-                                                class="symbol-percent">%
-                                                OFF</span><i
-                                                class="fa fa-arrow-down pl-1"
-                                                aria-hidden="true"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="product-details  position-absolute px-2 w-100">
-                                <div class="actions-primary">
-                                    <a href="cart.html"
-                                        class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                        + Add To Cart</a>
-                                </div>
-                                <div
-                                    class="product-cart d-flex justify-content-between">
-                                    <a href="compare.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            To Compare</span></a>
-                                    <a href="wishlist.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            to WishList</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <span
-                            class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 mb-2">
-                    <div class="card product-itembox bg-white my-2">
-                        <a href="product.html" class="position-relative">
-                            <img class="primary-img card-img-top"
-                                src="{{asset('front/img/products/15.jpg')}}"
-                                alt="single-product">
-                        </a>
-                        <div
-                            class="card-body product-content p-3 position-relative bg-white">
-                            <div class="pro-info">
-                                <p class="card-title mb-1"><a
-                                        href="product.html"
-                                        class=" text-secondary">Flos Chasen
-                                        S2 Suspension</a></p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="card-text mb-0"><span
-                                                class=" price text-secondary fw-bold h5">$84.45</span>
-                                            <span
-                                                class="discount-price h6 text-muted d-block">$300.50</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div
-                                            class="product-discount fw-bold  text-primary text-end">25<span
-                                                class="symbol-percent">%
-                                                OFF</span><i
-                                                class="fa fa-arrow-down pl-1"
-                                                aria-hidden="true"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="product-details  position-absolute px-2 w-100">
-                                <div class="actions-primary">
-                                    <a href="cart.html"
-                                        class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                        + Add To Cart</a>
-                                </div>
-                                <div
-                                    class="product-cart d-flex justify-content-between">
-                                    <a href="compare.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            To Compare</span></a>
-                                    <a href="wishlist.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            to WishList</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <span
-                            class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 mb-2">
-                    <div class="card product-itembox bg-white my-2">
-                        <a href="product.html" class="position-relative">
-                            <img class="primary-img card-img-top"
-                                src="{{asset('front/img/products/22.jpg')}}"
-                                alt="single-product">
-                        </a>
-                        <div
-                            class="card-body product-content p-3 position-relative bg-white">
-                            <div class="pro-info">
-                                <p class="card-title mb-1"><a
-                                        href="product.html"
-                                        class=" text-secondary">Flos Chasen
-                                        S2 Suspension</a></p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="card-text mb-0"><span
-                                                class=" price text-secondary fw-bold h5">$84.45</span>
-                                            <span
-                                                class="discount-price h6 text-muted d-block">$300.50</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div
-                                            class="product-discount fw-bold  text-primary text-end">25<span
-                                                class="symbol-percent">%
-                                                OFF</span><i
-                                                class="fa fa-arrow-down pl-1"
-                                                aria-hidden="true"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="product-details  position-absolute px-2 w-100">
-                                <div class="actions-primary">
-                                    <a href="cart.html"
-                                        class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                        + Add To Cart</a>
-                                </div>
-                                <div
-                                    class="product-cart d-flex justify-content-between">
-                                    <a href="compare.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            To Compare</span></a>
-                                    <a href="wishlist.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            to WishList</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <span
-                            class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 mb-2">
-                    <div class="card product-itembox bg-white my-2">
-                        <a href="product.html" class="position-relative">
-                            <img class="primary-img card-img-top"
-                                src="{{asset('front/img/products/18.jpg')}}"
-                                alt="single-product">
-                        </a>
-                        <div
-                            class="card-body product-content p-3 position-relative bg-white">
-                            <div class="pro-info">
-                                <p class="card-title mb-1"><a
-                                        href="product.html"
-                                        class=" text-secondary">Flos Chasen
-                                        S2 Suspension</a></p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="card-text mb-0"><span
-                                                class=" price text-secondary fw-bold h5">$84.45</span>
-                                            <span
-                                                class="discount-price h6 text-muted d-block">$300.50</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div
-                                            class="product-discount fw-bold  text-primary text-end">25<span
-                                                class="symbol-percent">%
-                                                OFF</span><i
-                                                class="fa fa-arrow-down pl-1"
-                                                aria-hidden="true"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="product-details  position-absolute px-2 w-100">
-                                <div class="actions-primary">
-                                    <a href="cart.html"
-                                        class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                        + Add To Cart</a>
-                                </div>
-                                <div
-                                    class="product-cart d-flex justify-content-between">
-                                    <a href="compare.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            To Compare</span></a>
-                                    <a href="wishlist.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            to WishList</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <span
-                            class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 mb-2">
-                    <div class="card product-itembox bg-white my-2">
-                        <a href="product.html" class="position-relative">
-                            <img class="primary-img card-img-top"
-                                src="{{asset('front/img/products/38.jpg')}}"
-                                alt="single-product">
-                        </a>
-                        <div
-                            class="card-body product-content p-3 position-relative bg-white">
-                            <div class="pro-info">
-                                <p class="card-title mb-1"><a
-                                        href="product.html"
-                                        class=" text-secondary">Flos Chasen
-                                        S2 Suspension</a></p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="card-text mb-0"><span
-                                                class=" price text-secondary fw-bold h5">$84.45</span>
-                                            <span
-                                                class="discount-price h6 text-muted d-block">$300.50</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div
-                                            class="product-discount fw-bold  text-primary text-end">25<span
-                                                class="symbol-percent">%
-                                                OFF</span><i
-                                                class="fa fa-arrow-down pl-1"
-                                                aria-hidden="true"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="product-details  position-absolute px-2 w-100">
-                                <div class="actions-primary">
-                                    <a href="cart.html"
-                                        class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                        + Add To Cart</a>
-                                </div>
-                                <div
-                                    class="product-cart d-flex justify-content-between">
-                                    <a href="compare.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            To Compare</span></a>
-                                    <a href="wishlist.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            to WishList</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <span
-                            class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 mb-2">
-                    <div class="card product-itembox bg-white my-2">
-                        <a href="product.html" class="position-relative">
-                            <img class="primary-img card-img-top"
-                                src="{{asset('front/img/products/30.jpg')}}"
-                                alt="single-product">
-                        </a>
-                        <div
-                            class="card-body product-content p-3 position-relative bg-white">
-                            <div class="pro-info">
-                                <p class="card-title mb-1"><a
-                                        href="product.html"
-                                        class=" text-secondary">Flos Chasen
-                                        S2 Suspension</a></p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="card-text mb-0"><span
-                                                class=" price text-secondary fw-bold h5">$84.45</span>
-                                            <span
-                                                class="discount-price h6 text-muted d-block">$300.50</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div
-                                            class="product-discount fw-bold  text-primary text-end">25<span
-                                                class="symbol-percent">%
-                                                OFF</span><i
-                                                class="fa fa-arrow-down pl-1"
-                                                aria-hidden="true"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="product-details  position-absolute px-2 w-100">
-                                <div class="actions-primary">
-                                    <a href="cart.html"
-                                        class="btn w-100 btn-sm bg-secondary text-white mb-2">
-                                        + Add To Cart</a>
-                                </div>
-                                <div
-                                    class="product-cart d-flex justify-content-between">
-                                    <a href="compare.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa fa-refresh text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            To Compare</span></a>
-                                    <a href="wishlist.html"
-                                        class="d-flex align-items-center"><i
-                                            class="fa-regular fa-heart text-secondary fa-lg me-1"></i>
-                                        <span
-                                            class="text-secondary d-inline-block pl-1">Add
-                                            to WishList</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <span
-                            class="product-label bg-primary text-white px-2 text-center text-uppercase rounded-circle position-absolute font-weight-bold">new</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <!-- Left Content -->
+                <div class="col-lg-4">
+                    <h6 class="text-uppercase text-secondary fw-bold mb-3">
+                        Duis commodo at risus
+                    </h6>
+                    <h2 class="fw-extrabold display-6 mb-4">
+                        Poskapet pred det vill säga polyliga
+                        <span class="text-secondary">
+                            dekavin eura
+                        </span>
+                    </h2>
+                    <p class="text-muted mb-3">
+                        Vestibulum condimentum libero elit, at pretium purus molestie ornare.
+                        Sed turpis justo, facilisis cursus elit in, lobortis molestie.
+                    </p>
+                    <p class="text-muted mb-4">
+                        Morbi sed rhoncus erat. Aenean quis lacus tellus. Duis commodo at risus
+                        sit amet maximus molestie.
+                    </p>
+                    <a href="#" class="text-decoration-underline fw-semibold text-dark">
+                        Read and Shop Now
+                    </a>
+                </div>
+                <!-- Center Image -->
+                <div class="col-lg-4 text-center">
+                    <img src="{{asset('front/images/banner-02-1.jpg')}}" alt=""
+                        class="img-fluid">
+                </div>
+                <!-- Right Content -->
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-2">
+                        Reliable Parts for Unstoppable Rides.
+                    </h5>
+                    <p class="text-muted mb-5">
+                        Vestibulum condimentum libero elit, at pretium purus molestie ornare.
+                    </p>
+                    <!-- Item 1 -->
+                    <div class="d-flex mb-4 border-bottom pb-3">
+                        <div class="me-3">
+                            <span class="point-count">
+                                01
+                            </span>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold">
+                                Maecenas tristique, tellus non tempor
+                            </h6>
+                            <p class="text-muted mb-0">
+                                Cras porttitor non diam at fringilla. Mauris aliquam nulla et libero iaculis,
+                                vitae sagittis.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="d-flex mb-4 border-bottom pb-3">
+                        <div class="me-3">
+                            <span class="point-count">
+                                02
+                            </span>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold">
+                                Maecenas tristique, tellus non tempor
+                            </h6>
+                            <p class="text-muted mb-0">
+                                Cras porttitor non diam at fringilla. Mauris aliquam nulla et libero iaculis,
+                                vitae sagittis.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="d-flex ">
+                        <div class="me-3">
+                            <span class="point-count">
+                                03
+                            </span>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold">
+                                Maecenas tristique, tellus non tempor
+                            </h6>
+                            <p class="text-muted mb-0">
+                                Cras porttitor non diam at fringilla. Mauris aliquam nulla et libero iaculis,
+                                vitae sagittis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     
-    <x-category-cards />
-    <x-footer-banner />
-    <x-news-letter-signup />
+    <x-discount-banner />
+
+    <section class="new-arrivals py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+                <div class="d-flex align-items-center gap-4 flex-wrap">
+                    <h2 class="section-title mb-0">
+                        New Arrivals
+                    </h2>
+                    <ul class="nav nav-tabs arrivals-tabs border-0" id="arrivalTabs">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#headlights">
+                                Headlights & Lighting
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tires">
+                                Tires & Wheels
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tools">
+                                Tools & Equipment
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#" class="text-decoration-none fw-semibold text-primary-background fs-14">
+                    View All
+                </a>
+            </div>
+            <div class="tab-content">
+                <!-- TAB 1 -->
+                <div class="tab-pane fade show active" id="headlights">
+                    <div class="swiper headlightsSwiper">
+                        <div class="swiper-wrapper">
+                            <!-- Product -->
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -13%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-56.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">3.68</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Vauxhall Zafira MK2 2008-2014 Tail Back Rear Light Lamp Lens Right Side
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                64.95
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                89.15
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/15">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -25%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-55.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.00</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        TYPE S – Remote-Controlled 194_T10 Multicolor LED Mini Bulb Set
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                7.55
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                9.99
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/15">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -28%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-52.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.00</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Sylvania H11 SilverStar ULTRA Halogen Headlight Bulb, 2 Pack, Compatible with
+                                        Multiple Cars
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                20.19
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                28.66
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/16">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -13%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-51.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.33</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Sylvania 9005 XtraVision Halogen Headlight Bulb, 1 Pack
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                19.50
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                20.40
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/17">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -22%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-50.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.33</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Spyder BMW E90 3-Series 06-08 4DR Headlights – Halogen Model Only – Black PRO
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                186.99
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                236.75
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/14">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -13%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-49.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.33</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Spyder 15-17 Chevy Colorado Projector Headlights – Light Bar LED – Black
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                224.56
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                260.90
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/17">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="swiper-button-next head-next">
+              </div>
+              <div class="swiper-button-prev head-prev">
+              </div> -->
+                        <div class="swiper-pagination head-pagination">
+                        </div>
+
+                    </div>
+                </div>
+                <!-- TAB 2 -->
+                <div class="tab-pane fade" id="tires">
+                    <div class="swiper tiresSwiper">
+                        <div class="swiper-wrapper">
+                            <!-- Product -->
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -13%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-56.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">3.68</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Vauxhall Zafira MK2 2008-2014 Tail Back Rear Light Lamp Lens Right Side
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                64.95
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                89.15
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/15">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -25%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-55.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.00</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        TYPE S – Remote-Controlled 194_T10 Multicolor LED Mini Bulb Set
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                7.55
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                9.99
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/15">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -28%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-52.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.00</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Sylvania H11 SilverStar ULTRA Halogen Headlight Bulb, 2 Pack, Compatible with
+                                        Multiple Cars
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                20.19
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                28.66
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/16">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -13%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-51.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.33</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Sylvania 9005 XtraVision Halogen Headlight Bulb, 1 Pack
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                19.50
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                20.40
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/17">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -22%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-50.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.33</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Spyder BMW E90 3-Series 06-08 4DR Headlights – Halogen Model Only – Black PRO
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                186.99
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                236.75
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/14">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -13%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-49.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.33</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Spyder 15-17 Chevy Colorado Projector Headlights – Light Bar LED – Black
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                224.56
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                260.90
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/17">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="swiper-button-next tire-next">
+              </div>
+              <div class="swiper-button-prev tire-prev">
+              </div> -->
+                    </div>
+                </div>
+                <!-- TAB 3 -->
+                <div class="tab-pane fade" id="tools">
+                    <div class="swiper toolsSwiper">
+                        <div class="swiper-wrapper">
+                            <!-- Product -->
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -13%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-56.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">3.68</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Vauxhall Zafira MK2 2008-2014 Tail Back Rear Light Lamp Lens Right Side
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                64.95
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                89.15
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/15">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -25%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-55.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.00</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        TYPE S – Remote-Controlled 194_T10 Multicolor LED Mini Bulb Set
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                7.55
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                9.99
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/15">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -28%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-52.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.00</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Sylvania H11 SilverStar ULTRA Halogen Headlight Bulb, 2 Pack, Compatible with
+                                        Multiple Cars
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                20.19
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                28.66
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/16">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -13%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-51.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.33</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Sylvania 9005 XtraVision Halogen Headlight Bulb, 1 Pack
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                19.50
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                20.40
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/17">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -22%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-50.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.33</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Spyder BMW E90 3-Series 06-08 4DR Headlights – Halogen Model Only – Black PRO
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                186.99
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                236.75
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/14">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="product-card">
+                                    <span class="product-badge">
+                                        -13%
+                                    </span>
+                                    <span class="product-wishlist position-absolute">
+                                        <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                    </span>
+                                    <div class="product-img">
+                                        <img src="front/images/products/01-49.webp" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <div class="product-rating d-flex align-item-center mb-2">
+                                        <div class="rating small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-score small">
+                                            <span class="score fw-semibold ms-2">4.33</span>
+                                            <span class="total-rating">(3)</span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title fw-medium">
+                                        Spyder 15-17 Chevy Colorado Projector Headlights – Light Bar LED – Black
+                                    </h2>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="">
+                                            <bdi class="fw-bold product-price oswald">
+                                                224.56
+                                            </bdi>
+                                            <del class="product-price-discount oswald ms-1">
+                                                260.90
+                                            </del>
+                                        </div>
+                                        <button class="btn btn-primary cart-btn py-1 px-2 font-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                                                <circle cx="8" cy="21" r="1"></circle>
+                                                <circle cx="19" cy="21" r="1"></circle>
+                                                <path
+                                                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="product-countdown bordered klb-countdown">
+                                        <div class="site-countdown" data-date="2026/09/17">
+                                            <p class="site-countdown-message">
+                                                Time remaining in the campaign:
+                                            </p>
+                                            <div class="site-countdown-block">
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-days">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        d
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-hours">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        h
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item">
+                                                    <span class="countdown-time countdown-time-minutes">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        m
+                                                    </span>
+                                                </div>
+                                                <div class="countdown-item seconds">
+                                                    <span class="countdown-time countdown-time-seconds">
+                                                        00
+                                                    </span>
+                                                    <span class="countdown-text">
+                                                        s
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="countdown-expired">
+                                                The campaign is over!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next tool-next">
+                        </div>
+                        <div class="swiper-button-prev tool-prev">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <x-call-back-request-banner />
+
+
+    <section class="py-4">
+        <div class="container">
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap">
+                <div>
+                    <h2 class="fw-bold mb-1 section-title">
+                        Featured Products
+                    </h2>
+                    <p class="text-muted mb-0">
+                        Our most ordered products.
+                    </p>
+                </div>
+                <a href="#" class="text-decoration-none fw-semibold text-primary-background fs-14">
+                    View All
+                </a>
+            </div>
+            <!-- Slider -->
+            <div class="swiper featuredSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Product 1 -->
+                    <div class="swiper-slide">
+                        <div class="card p-3 mb-3 hot-products">
+                            <div class="row g-0 ">
+                                <!-- Image -->
+                                <div class="col-5 col-md-5 position-relative">
+                                    <div class="border rounded">
+                                        <img src="front/images/products/01-41.webp" class="img-fluid rounded-start"
+                                            alt="Product">
+                                    </div>
+                                    <!-- Badge -->
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-2">
+                                        -100%
+                                    </span>
+                                </div>
+                                <!-- Content -->
+                                <div class="col-7 col-md-7">
+                                    <div class="card-body pt-1">
+                                        <h6 class="card-title fw-bold mb-2">
+                                            Scott Drake C5ZZ-13A805-B Standard Wheel Horn Button Alternator
+                                        </h6>
+                                        <!-- Price -->
+                                        <p class="card-text mb-2">
+                                            <del class="text-muted">
+                                                17.40
+                                            </del>
+                                            <span class="fw-bold text-danger ms-2">
+                                                2,210.00
+                                            </span>
+                                        </p>
+                                        <!-- Progress -->
+                                        <div class="progress mb-2" style="height:5px;">
+                                            <div class="progress-bar bg-danger" style="width:54%">
+                                            </div>
+                                        </div>
+                                        <!-- Stock -->
+                                        <div class="d-flex justify-content-between small text-muted">
+                                            <span>
+                                                Available:
+                                                <b>14</b>
+                                            </span>
+                                            <span>
+                                                Sold:
+                                                <b>19</b>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="swiper-slide">
+                        <div class="card p-3 mb-3 hot-products">
+                            <div class="row g-0 ">
+                                <!-- Image -->
+                                <div class="col-5 col-md-5 position-relative">
+                                    <div class="border rounded">
+                                        <img src="front/images/products/01-29.webp" class="img-fluid rounded-start"
+                                            alt="Product">
+                                    </div>
+                                    <!-- Badge -->
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-2">
+                                        -34%
+                                    </span>
+                                </div>
+                                <!-- Content -->
+                                <div class="col-7 col-md-7">
+                                    <div class="card-body pt-1">
+                                        <h6 class="card-title fw-bold mb-2">
+                                            JBL Clip 3 Portable Bluetooth Speaker with Carabiner – Gray
+                                        </h6>
+                                        <!-- Price -->
+                                        <p class="card-text mb-2">
+                                            <del class="text-muted">
+                                                $19.99
+                                            </del>
+                                            <span class="fw-bold text-danger ms-2">
+                                                $22.55
+                                            </span>
+                                        </p>
+                                        <!-- Progress -->
+                                        <div class="progress mb-2" style="height:5px;">
+                                            <div class="progress-bar bg-danger" style="width:54%">
+                                            </div>
+                                        </div>
+                                        <!-- Stock -->
+                                        <div class="d-flex justify-content-between small text-muted">
+                                            <span>
+                                                Available:
+                                                <b>17</b>
+                                            </span>
+                                            <span>
+                                                Sold:
+                                                <b> 20</b>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="swiper-slide">
+                        <div class="card p-3 mb-3 hot-products">
+                            <div class="row g-0 ">
+                                <!-- Image -->
+                                <div class="col-5 col-md-5 position-relative">
+                                    <div class="border rounded">
+                                        <img src="front/images/products/01-20.webp" class="img-fluid rounded-start"
+                                            alt="Product">
+                                    </div>
+                                    <!-- Badge -->
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-2">
+                                        -34%
+                                    </span>
+                                </div>
+                                <!-- Content -->
+                                <div class="col-7 col-md-7">
+                                    <div class="card-body pt-1">
+                                        <h6 class="card-title fw-bold mb-2">
+                                            Garmin Edge 1050, Premium Cycling Computer, Vivid Color Touchscreen Display,
+                                            Built-in Speaker
+                                        </h6>
+                                        <!-- Price -->
+                                        <p class="card-text mb-2">
+                                            <del class="text-muted">
+                                                401.11
+                                            </del>
+                                            <span class="fw-bold text-danger ms-2">
+                                                $599.99
+                                            </span>
+                                        </p>
+                                        <!-- Progress -->
+                                        <div class="progress mb-2" style="height:5px;">
+                                            <div class="progress-bar bg-danger" style="width:54%">
+                                            </div>
+                                        </div>
+                                        <!-- Stock -->
+                                        <div class="d-flex justify-content-between small text-muted">
+                                            <span>
+                                                Available:
+                                                <b>
+                                                    17
+                                                </b>
+                                            </span>
+                                            <span>
+                                                Sold:
+                                                <b>
+                                                    20
+                                                </b>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="swiper-slide">
+                        <div class="card p-3 mb-3 hot-products">
+                            <div class="row g-0 ">
+                                <!-- Image -->
+                                <div class="col-5 col-md-5 position-relative">
+                                    <div class="border rounded">
+                                        <img src="front/images/products/01-25.webp" class="img-fluid rounded-start"
+                                            alt="Product">
+                                    </div>
+                                    <!-- Badge -->
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-2">
+                                        -34%
+                                    </span>
+                                </div>
+                                <!-- Content -->
+                                <div class="col-7 col-md-7">
+                                    <div class="card-body pt-1">
+                                        <h6 class="card-title fw-bold mb-2">
+                                            JBL Clip 3 Portable Bluetooth Speaker
+                                        </h6>
+                                        <!-- Price -->
+                                        <p class="card-text mb-2">
+                                            <del class="text-muted">
+                                                $22.55
+                                            </del>
+                                            <span class="fw-bold text-danger ms-2">
+                                                $14.99
+                                            </span>
+                                        </p>
+                                        <!-- Progress -->
+                                        <div class="progress mb-2" style="height:5px;">
+                                            <div class="progress-bar bg-danger" style="width:54%">
+                                            </div>
+                                        </div>
+                                        <!-- Stock -->
+                                        <div class="d-flex justify-content-between small text-muted">
+                                            <span>
+                                                Available:
+                                                <b>
+                                                    17
+                                                </b>
+                                            </span>
+                                            <span>
+                                                Sold:
+                                                <b>
+                                                    20
+                                                </b>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <x-home-faqs />
+
+    <x-blog-cards />
+
+    <x-subscriber-form />
+
+    
 
 </x-layouts.frontend>

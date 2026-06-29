@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Ignavo Clone Starter
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+  </head>
+  
+  <body>
+
+    
+    <header class="bg-light">
+
+      <!-- TOP BAR -->
+      <div class="d-none d-sm-block ">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center border-bottom">
+            <div class="d-flex gap-3 top-strip">
+              <a href="#" class="text-decoration-none">
+                About Us
+              </a>
+              <a href="#" class="text-decoration-none">
+                FAQ
+              </a>
+              <a href="#" class="text-decoration-none">
+                Order Tracking
+              </a>
+            </div>
+            <div class="d-flex gap-4 text-secondary">
+
+              <div class="dropdown lang ">
+                  <div class="dropdown-toggle  lh-40 small pointer" id="currency">
+                    English
+                  </div>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Spanish</a></li>
+                    <li><a class="dropdown-item" href="#">French</a></li>
+                    <li><a class="dropdown-item" href="#">German</a></li>
+                  </ul>
+
+                </div>
+                <div class="dropdown currency">
+                  <div class="dropdown-toggle  lh-40 small pointer" id="currency">
+                    USD
+                  </div>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">EUR</a></li>
+                    <li><a class="dropdown-item" href="#">INR</a></li>
+                    <li><a class="dropdown-item" href="#">GBP</a></li>
+                  </ul>
+
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- MAIN Mobile HEADER -->
+      <div class=" bg-light py-2 d-block d-sm-none">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-2 col-md-2">
+              <a class="nav-link fw-semibold"
+                     data-bs-toggle="offcanvas"
+                      data-bs-target="#mobileDrawer">
+                      <div class="rounded-circle site-action-icon justify-content-center align-items-center d-flex justify-content-center">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M4 6H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M4 18H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                  </a>
+            </div>
+            <!-- LOGO -->
+            <div class="col-8 col-md-8 siteLogo">
+              <a href="#" class="mx-auto">
+                <img src="assets/images/logo-dark.webp" alt="Ignavo" class="img-fluid logo-img mx-auto d-block">
+              </a>
+            </div>
+
+            <!-- ICONS -->
+            <div class="col-2 col-md-2">
+                <div class="dropdown d-inline-block ">
+
+                <a class="text-dark position-relative"
+                   href="#"
+                   role="button"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">
+
+                  <div class="rounded-circle site-action-icon align-items-center d-flex justify-content-center">
+                      <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.16666 18.8334C7.6269 18.8334 7.99999 18.4603 7.99999 18C7.99999 17.5398 7.6269 17.1667 7.16666 17.1667C6.70642 17.1667 6.33333 17.5398 6.33333 18C6.33333 18.4603 6.70642 18.8334 7.16666 18.8334Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16.3333 18.8334C16.7936 18.8334 17.1667 18.4603 17.1667 18C17.1667 17.5398 16.7936 17.1667 16.3333 17.1667C15.8731 17.1667 15.5 17.5398 15.5 18C15.5 18.4603 15.8731 18.8334 16.3333 18.8334Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M2.20833 2.20831H3.875L6.09166 12.8751C6.17298 13.2542 6.38389 13.593 6.68809 13.8333C6.99229 14.0736 7.37075 14.2004 7.75833 14.1918H15.9083C16.2876 14.1912 16.6554 14.0612 16.9509 13.8233C17.2463 13.5854 17.4518 13.2539 17.5333 12.8834L19.25 5.91666H4.66921" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                                <span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger">
+                                  0
+                                </span>
+                                </div>
+
+                </a>
+
+                <!-- Dropdown -->
+                <div class="cart dropdown-menu dropdown-menu-end py-4 px-3" >
+
+                  <!-- Empty Cart -->
+                  <div class="text-center py-2">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="70" height="70" viewBox="0 0 231.523 231.523" fill="currentColor">
+                      <path d="M107.415 145.798a7.502 7.502 0 0 0 8.231 6.69 7.5 7.5 0 0 0 6.689-8.231l-3.459-33.468a7.5 7.5 0 0 0-14.92 1.542l3.459 33.467zM154.351 152.488a7.501 7.501 0 0 0 8.231-6.69l3.458-33.468a7.499 7.499 0 0 0-6.689-8.231c-4.123-.421-7.806 2.57-8.232 6.689l-3.458 33.468a7.5 7.5 0 0 0 6.69 8.232zM96.278 185.088c-12.801 0-23.215 10.414-23.215 23.215 0 12.804 10.414 23.221 23.215 23.221s23.216-10.417 23.216-23.221c0-12.801-10.415-23.215-23.216-23.215zm0 31.435c-4.53 0-8.215-3.688-8.215-8.221 0-4.53 3.685-8.215 8.215-8.215 4.53 0 8.216 3.685 8.216 8.215 0 4.533-3.686 8.221-8.216 8.221zM173.719 185.088c-12.801 0-23.216 10.414-23.216 23.215 0 12.804 10.414 23.221 23.216 23.221 12.802 0 23.218-10.417 23.218-23.221 0-12.801-10.416-23.215-23.218-23.215zm0 31.435c-4.53 0-8.216-3.688-8.216-8.221 0-4.53 3.686-8.215 8.216-8.215 4.531 0 8.218 3.685 8.218 8.215 0 4.533-3.686 8.221-8.218 8.221z"></path>
+                      <path d="M218.58 79.08a7.5 7.5 0 0 0-5.933-2.913H63.152l-6.278-24.141a7.5 7.5 0 0 0-7.259-5.612H18.876a7.5 7.5 0 0 0 0 15h24.94l6.227 23.946c.031.134.066.267.104.398l23.157 89.046a7.5 7.5 0 0 0 7.259 5.612h108.874a7.5 7.5 0 0 0 7.259-5.612l23.21-89.25a7.502 7.502 0 0 0-1.326-6.474zm-34.942 86.338H86.362l-19.309-74.25h135.895l-19.31 74.25zM105.556 52.851a7.478 7.478 0 0 0 5.302 2.195 7.5 7.5 0 0 0 5.302-12.805L92.573 18.665a7.501 7.501 0 0 0-10.605 10.609l23.588 23.577zM159.174 55.045c1.92 0 3.841-.733 5.306-2.199l23.552-23.573a7.5 7.5 0 0 0-.005-10.606 7.5 7.5 0 0 0-10.606.005l-23.552 23.573a7.5 7.5 0 0 0 5.305 12.8zM135.006 48.311h.002a7.5 7.5 0 0 0 7.5-7.498l.008-33.311A7.5 7.5 0 0 0 135.018 0h-.001a7.5 7.5 0 0 0-7.501 7.498l-.008 33.311a7.5 7.5 0 0 0 7.498 7.502z"></path>
+                    </svg>
+                    <h6 class="mt-3">No products in the cart</h6>
+                    <p class="small text-muted">
+                      You don’t have any products in your cart yet.
+                    </p>
+
+                  </div>
+
+                  <hr>
+
+                  <!-- Free Shipping Progress -->
+                  <div class="mt-2 text-center">
+                    <p class="small mb-2">
+                      Add <strong>$500.00</strong> to get free shipping!
+                    </p>
+
+                    <div class="progress" style="height: 6px;">
+                      <div class="progress-bar bg-warning" style="width: 0%"></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN HEADER -->
+      <div class=" bg-light py-3 d-none d-sm-block">
+        <div class="container">
+          <div class="row align-items-center">
+            <!-- LOGO -->
+            <div class="col-lg-2 siteLogo">
+              <a href="#">
+                <img src="assets/images/logo-dark.webp" alt="Ignavo" class="img-fluid logo-img">
+              </a>
+            </div>
+            
+            <div class="col-lg-2 garage icon_text_wraper">
+              <div class=" d-flex align-items-center gap-2 Garagepop" data-bs-toggle="modal" data-bs-target="#garageModal">
+                <div class="rounded-circle site-action-icon align-items-center d-flex justify-content-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"> <path fill="currentColor" fill-rule="evenodd" d="M28,2.25 C29.4625318,2.25 30.6584043,3.3917046 30.7449812,4.83247767 L30.75,5 L30.75,29 C30.75,29.4142136 30.4142136,29.75 30,29.75 C29.6203042,29.75 29.306509,29.4678461 29.2568466,29.1017706 L29.25,29 L29.25,5 C29.25,4.35279131 28.7581253,3.8204661 28.1278052,3.75645361 L28,3.75 L4,3.75 C3.35279131,3.75 2.8204661,4.24187466 2.75645361,4.87219476 L2.75,5 L2.75,29 C2.75,29.4142136 2.41421356,29.75 2,29.75 C1.62030423,29.75 1.30650904,29.4678461 1.25684662,29.1017706 L1.25,29 L1.25,5 C1.25,3.53746816 2.3917046,2.34159572 3.83247767,2.25501879 L4,2.25 L28,2.25 Z M18,27.25 C18.4142136,27.25 18.75,27.5857864 18.75,28 C18.75,28.3796958 18.4678461,28.693491 18.1017706,28.7431534 L18,28.75 L14,28.75 C13.5857864,28.75 13.25,28.4142136 13.25,28 C13.25,27.6203042 13.5321539,27.306509 13.8982294,27.2568466 L14,27.25 L18,27.25 Z M26,22.25 C26.4142136,22.25 26.75,22.5857864 26.75,23 C26.75,23.3796958 26.4678461,23.693491 26.1017706,23.7431534 L26,23.75 L6,23.75 C5.58578644,23.75 5.25,23.4142136 5.25,23 C5.25,22.6203042 5.53215388,22.306509 5.89822944,22.2568466 L6,22.25 L26,22.25 Z M26,17.25 C26.4142136,17.25 26.75,17.5857864 26.75,18 C26.75,18.3796958 26.4678461,18.693491 26.1017706,18.7431534 L26,18.75 L6,18.75 C5.58578644,18.75 5.25,18.4142136 5.25,18 C5.25,17.6203042 5.53215388,17.306509 5.89822944,17.2568466 L6,17.25 L26,17.25 Z M26,12.25 C26.4142136,12.25 26.75,12.5857864 26.75,13 C26.75,13.3796958 26.4678461,13.693491 26.1017706,13.7431534 L26,13.75 L6,13.75 C5.58578644,13.75 5.25,13.4142136 5.25,13 C5.25,12.6203042 5.53215388,12.306509 5.89822944,12.2568466 L6,12.25 L26,12.25 Z M26,7.25 C26.4142136,7.25 26.75,7.58578644 26.75,8 C26.75,8.37969577 26.4678461,8.69349096 26.1017706,8.74315338 L26,8.75 L6,8.75 C5.58578644,8.75 5.25,8.41421356 5.25,8 C5.25,7.62030423 5.53215388,7.30650904 5.89822944,7.25684662 L6,7.25 L26,7.25 Z"></path> </svg>
+                </div>
+            <div class="text-start pointer">
+                <small class="d-block xsmall">Add Vehicle</small>
+                <strong>My Garage</strong>
+            </div>
+
+        </div>
+            </div>
+            <!-- SEARCH -->
+            <div class="col-lg-5 searchBar px-lg-0">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search popular products...">
+                <button class="btn btn-light border">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 19C15.1944 19 19 15.1944 19 10.5C19 5.80558 15.1944 2 10.5 2C5.80558 2 2 5.80558 2 10.5C2 15.1944 5.80558 19 10.5 19Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M22 22L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+              </div>
+            </div>
+            <!-- ICONS -->
+            <div class="col-lg-3">
+              <div class="d-flex justify-content-end gap-3">
+                <div class="dropdown user">
+                  <div class="dropdown-toggle" id="user">
+                      <div class="d-flex icon_text_wraper align-items-center gap-2">
+                        <div class="rounded-circle site-action-icon align-items-center d-flex justify-content-center">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="12" cy="6" r="4" stroke="currentColor" stroke-width="1.5"></circle>
+                              <path d="M2.4 22C2.17909 22 1.99892 21.8208 2.01032 21.6001C2.12334 19.4117 3.16095 17.3333 4.92893 15.7775C6.8043 14.1271 9.34783 13.2 12 13.2C14.6522 13.2 17.1957 14.1271 19.0711 15.7775C20.8391 17.3333 21.8767 19.4117 21.9897 21.6001C22.0011 21.8208 21.8209 22 21.6 22L12 22L2.4 22Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <div class="">
+                          <small class="d-block xsmall">Sign In</small>
+                                <strong> Account </strong>
+                        </div>
+                      </div>
+                  </div>
+                  
+                  <div class="dropdown-menu  p-3 shadow border-0" >
+                    <ul class="list-unstyled my-2 mb-3">
+
+                      <!-- ITEM 1 -->
+                      <li class="mb-3 border-bottom pb-3">
+                        <div class="d-flex align-items-start gap-3">
+
+                          <!-- ICON -->
+                          <div class="flex-shrink-0">
+                            <img src="assets/images/login-svg.svg"
+                                 width="24" height="24" alt="">
+                          </div>
+
+                          <!-- CONTENT -->
+                          <div class="safe">
+                            <div class="label mb-1 fw-semibold">Safe payment options</div>
+                            <p class="mb-0 ">
+                              We only work with the most secure payment systems.
+                            </p>
+                          </div>
+
+                        </div>
+                      </li>
+
+                      <!-- ITEM 2 -->
+                      <li>
+                        <div class="d-flex align-items-start gap-3">
+
+                          <div class="flex-shrink-0">
+                            <img src="assets/images/login-svg2.svg"
+                                 width="24" height="24" alt="">
+                          </div>
+
+                          <div class="return">
+                            <div class="label mb-1 fw-semibold">Product return within 30 days</div>
+                            <p class="mb-0 ">
+                              We do our very best to keep our customers happy.
+                            </p>
+                          </div>
+
+                        </div>
+                      </li>
+
+                    </ul>
+                    <a href="/my-account/" class="btn btn-primary w-100">
+                      Log In
+                    </a>
+
+                  </div>
+                </div>
+
+
+                
+                <a href="#" class="text-dark position-relative">
+                  <div class="rounded-circle site-action-icon align-items-center d-flex justify-content-center">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 21C11.7143 21 11.5238 20.9016 11.2381 20.7049C9.61905 19.918 8.19048 18.9344 6.85714 17.8525C4.47619 15.8852 2 12.8361 2 8.70492C2 5.55738 4.47619 3.09836 7.42857 3.09836C9.2381 3.09836 10.9524 4.08197 12 5.45902C13.0476 3.98361 14.6667 3 16.5714 3C19.619 3 22 5.55738 22 8.60656C22 12.7377 19.5238 15.8852 17.1429 17.7541C15.9048 18.8361 14.4762 19.7213 12.9524 20.5082H12.8571C12.2857 21 12.0952 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+
+                    </div>
+                  <span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger">
+                    0
+                  </span>
+                </a>
+
+                <a href="#" class="text-dark position-relative">
+                  <div class="rounded-circle site-action-icon align-items-center d-flex justify-content-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat-icon lucide-repeat">
+                      <path d="m17 2 4 4-4 4"></path>
+                      <path d="M3 11v-1a4 4 0 0 1 4-4h14"></path>
+                      <path d="m7 22-4-4 4-4"></path>
+                      <path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
+                      </svg>
+
+                    </div>
+                </a>
+
+              <div class="dropdown d-inline-block ">
+
+                <a class="text-dark position-relative"
+                   href="#"
+                   role="button"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">
+
+                  <div class="rounded-circle site-action-icon align-items-center d-flex justify-content-center">
+                      <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.16666 18.8334C7.6269 18.8334 7.99999 18.4603 7.99999 18C7.99999 17.5398 7.6269 17.1667 7.16666 17.1667C6.70642 17.1667 6.33333 17.5398 6.33333 18C6.33333 18.4603 6.70642 18.8334 7.16666 18.8334Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M16.3333 18.8334C16.7936 18.8334 17.1667 18.4603 17.1667 18C17.1667 17.5398 16.7936 17.1667 16.3333 17.1667C15.8731 17.1667 15.5 17.5398 15.5 18C15.5 18.4603 15.8731 18.8334 16.3333 18.8334Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M2.20833 2.20831H3.875L6.09166 12.8751C6.17298 13.2542 6.38389 13.593 6.68809 13.8333C6.99229 14.0736 7.37075 14.2004 7.75833 14.1918H15.9083C16.2876 14.1912 16.6554 14.0612 16.9509 13.8233C17.2463 13.5854 17.4518 13.2539 17.5333 12.8834L19.25 5.91666H4.66921" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                          <span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger">
+                            0
+                          </span>
+                      </div>
+
+                </a>
+
+                <!-- Dropdown -->
+                <div class="cart dropdown-menu dropdown-menu-end py-4 px-3" >
+
+                  <!-- Empty Cart -->
+                  <div class="text-center py-2">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="70" height="70" viewBox="0 0 231.523 231.523" fill="currentColor">
+                      <path d="M107.415 145.798a7.502 7.502 0 0 0 8.231 6.69 7.5 7.5 0 0 0 6.689-8.231l-3.459-33.468a7.5 7.5 0 0 0-14.92 1.542l3.459 33.467zM154.351 152.488a7.501 7.501 0 0 0 8.231-6.69l3.458-33.468a7.499 7.499 0 0 0-6.689-8.231c-4.123-.421-7.806 2.57-8.232 6.689l-3.458 33.468a7.5 7.5 0 0 0 6.69 8.232zM96.278 185.088c-12.801 0-23.215 10.414-23.215 23.215 0 12.804 10.414 23.221 23.215 23.221s23.216-10.417 23.216-23.221c0-12.801-10.415-23.215-23.216-23.215zm0 31.435c-4.53 0-8.215-3.688-8.215-8.221 0-4.53 3.685-8.215 8.215-8.215 4.53 0 8.216 3.685 8.216 8.215 0 4.533-3.686 8.221-8.216 8.221zM173.719 185.088c-12.801 0-23.216 10.414-23.216 23.215 0 12.804 10.414 23.221 23.216 23.221 12.802 0 23.218-10.417 23.218-23.221 0-12.801-10.416-23.215-23.218-23.215zm0 31.435c-4.53 0-8.216-3.688-8.216-8.221 0-4.53 3.686-8.215 8.216-8.215 4.531 0 8.218 3.685 8.218 8.215 0 4.533-3.686 8.221-8.218 8.221z"></path>
+                      <path d="M218.58 79.08a7.5 7.5 0 0 0-5.933-2.913H63.152l-6.278-24.141a7.5 7.5 0 0 0-7.259-5.612H18.876a7.5 7.5 0 0 0 0 15h24.94l6.227 23.946c.031.134.066.267.104.398l23.157 89.046a7.5 7.5 0 0 0 7.259 5.612h108.874a7.5 7.5 0 0 0 7.259-5.612l23.21-89.25a7.502 7.502 0 0 0-1.326-6.474zm-34.942 86.338H86.362l-19.309-74.25h135.895l-19.31 74.25zM105.556 52.851a7.478 7.478 0 0 0 5.302 2.195 7.5 7.5 0 0 0 5.302-12.805L92.573 18.665a7.501 7.501 0 0 0-10.605 10.609l23.588 23.577zM159.174 55.045c1.92 0 3.841-.733 5.306-2.199l23.552-23.573a7.5 7.5 0 0 0-.005-10.606 7.5 7.5 0 0 0-10.606.005l-23.552 23.573a7.5 7.5 0 0 0 5.305 12.8zM135.006 48.311h.002a7.5 7.5 0 0 0 7.5-7.498l.008-33.311A7.5 7.5 0 0 0 135.018 0h-.001a7.5 7.5 0 0 0-7.501 7.498l-.008 33.311a7.5 7.5 0 0 0 7.498 7.502z"></path>
+                    </svg>
+                    <h6 class="mt-3">No products in the cart</h6>
+                    <p class="small text-muted">
+                      You don’t have any products in your cart yet.
+                    </p>
+
+                  </div>
+
+                  <hr>
+
+                  <!-- Free Shipping Progress -->
+                  <div class="mt-2 text-center">
+                    <p class="small mb-2">
+                      Add <strong>$500.00</strong> to get free shipping!
+                    </p>
+
+                    <div class="progress" style="height: 6px;">
+                      <div class="progress-bar bg-warning" style="width: 0%"></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- NAVBAR -->
+      <nav class="navbar navbar-expand-lg p-0 d-none d-sm-block border-top border-bottom bg-white">
+        <div class="container px-0">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon">
+            </span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav align-items-center">
+              <li class="nav-item">
+                  <a class="nav-link fw-semibold"
+                     data-bs-toggle="offcanvas"
+                      data-bs-target="#categoryDrawer">
+                      <svg class="me-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M4 6H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M4 18H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg> All Categories
+                  </a>
+
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Home
+                </a>
+              </li>
+              <li class="nav-item dropdown position-static">
+                <a class="nav-link dropdown-toggle" href="#" id="shopMegaMenu" role="button">
+                  Shop
+                </a>
+
+                <div class="dropdown-menu mega-menu border-0 shadow-lg p-4">
+                  <div class="container">
+                    <div class="row">
+
+                      <!-- Column 1 -->
+                      <div class="col">
+                        <a href="#" class="mega-title lightgray-text">Shop List</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Shop Default</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shop Right Sidebar</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shop Wide</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Filters Area</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">List Left Sidebar</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Load More Button</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Infinite Scrolling</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Image Hover – Zoom</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Image Hover – Slider</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Image Hover – Flip</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Stock Progress Bar</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sale Countdown</a></li>
+                          </ul>
+                      </div>
+
+                      <!-- Column 2 -->
+                      <div class="col">
+                        <a href="#" class="mega-title lightgray-text">Product Detail</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Product Default</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product Variable</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product Grouped</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product External</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product Zoom Image</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product With Video</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Thumbnails Left</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Gallery 1 Column</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Gallery 2 Columns</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Carousel 2 Columns</a></li>
+                          </ul>
+                      </div>
+
+                      <!-- Column 3 -->
+                      <div class="col">
+                        <a href="#" class="mega-title lightgray-text">Product Features</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Buy Now Button</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Order on WhatsApp</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Stock Progress Bar</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sale Countdown</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sticky Add to Cart</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sticky Tab Titles</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Reviews Without Tab</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product Full Width</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sticky Description</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Vertical Tabs</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Accordion Tabs</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Accordion in Content</a></li>
+                          </ul>
+                      </div>
+
+                      <!-- Column 4 -->
+                      <div class="col">
+                        <a href="#" class="mega-title lightgray-text">Shop Pages</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Checkout</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Compare</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">My Account</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Order Tracking</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Catalog Mode</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Featured Products</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Best Selling Products</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Stock Status</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shipping Class</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shop by Brand</a></li>
+                          </ul>
+                      </div>
+                      <!-- Column 4 -->
+                      <div class="col">
+                        <a href="#" class="mega-title lightgray-text">Shop Layout</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Checkout</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Compare</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">My Account</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Order Tracking</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Catalog Mode</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Featured Products</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Best Selling Products</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Stock Status</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shipping Class</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shop by Brand</a></li>
+                          </ul>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Tires & Wheels
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Headlights & Lighting
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Blog
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Contact
+                </a>
+              </li>
+            </ul>
+            <ul class="navbar-nav right-navbar ms-auto">
+
+              <li class="nav-item dropdown best-seller-dropdown">
+                <a class="fw-semibold  nav-link best-seller-toggle" href="#">
+                  <img src="assets/images/discount.svg" alt="" width="20">
+                    Best Seller
+                    <span class="badge bg-danger ms-2">Sale</span>
+                </a>
+
+                <div class="best-seller-mega-menu">
+
+                  <div class="container">
+                    <div class="row py-4">
+
+                      <!-- Col 1 -->
+                      <div class="col  best-seller-col">
+                        <div class="product-card">
+                            <span class="product-badge">
+                              -17%
+                            </span>
+                            <span class="product-wishlist position-absolute">
+                              <img src="assets/images/wishlist.svg" alt="" class="img-fluid">
+                            </span>
+                            <div class="product-img">
+                              <img src="assets/images/products/01-59.webp" alt="" class="img-fluid">
+                            </div>
+
+                            <div class="product-rating d-flex align-item-center mb-2">
+                              <div class="rating small">
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="far fa-star"></i>
+                              </div>
+                              <div class="rating-score small">
+                                <span class="score fw-semibold ms-2 text-black">3.33</span>
+                                <span class="total-rating">(3)</span>
+                              </div>
+                            </div>
+
+                            <h2 class="product-title fw-medium">
+                              Zerex G05 Phosphate Free Antifreeze Coolant
+                            </h2>
+                            <div class="mb-3">
+                              <bdi class="fw-bold product-price oswald">
+                                $33.43
+                              </bdi>
+                              <del class="product-price-discount oswald ms-1">
+                                $40.00
+                              </del>
+                            </div>
+                            <button class="btn btn-primary py-1 font-small w-100">
+                              Add To Cart
+                            </button>
+                          </div>
+                      </div>
+                      <div class="col">
+                        <div class="product-card">
+                            <span class="product-badge">
+                              -13%
+                            </span>
+                            <span class="product-wishlist position-absolute">
+                              <img src="assets/images/wishlist.svg" alt="" class="img-fluid">
+                            </span>
+                            <div class="product-img">
+                              <img src="assets/images/products/01-22.webp" alt="" class="img-fluid">
+                            </div>
+
+                            <div class="product-rating d-flex align-item-center mb-2">
+                              <div class="rating small">
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="far fa-star"></i>
+                              </div>
+                              <div class="rating-score small">
+                                <span class="score fw-semibold ms-2 text-black">3.68</span>
+                                <span class="total-rating">(3)</span>
+                              </div>
+                            </div>
+
+                            <h2 class="product-title fw-medium">
+                              Goodyear Eagle Exhilarate UHP All Season 245_45ZR17 99Y XL Passenger Tire
+                            </h2>
+                            <div class="mb-3">
+                              <bdi class="fw-bold product-price oswald">
+                                198.55
+                              </bdi>
+                              <del class="product-price-discount oswald ms-1">
+                                299.88
+                              </del>
+                            </div>
+                            <button class="btn btn-primary py-1 font-small w-100">
+                              Add To Cart
+                            </button>
+                          </div>
+                      </div>
+                      <div class="col">
+                        <div class="product-card">
+                            <span class="product-badge">
+                              -13%
+                            </span>
+                            <span class="product-wishlist position-absolute">
+                              <img src="assets/images/wishlist.svg" alt="" class="img-fluid">
+                            </span>
+                            <div class="product-img">
+                              <img src="assets/images/products/01-57.webp" alt="" class="img-fluid">
+                            </div>
+
+                            <div class="product-rating d-flex align-item-center mb-2">
+                              <div class="rating small">
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="far fa-star"></i>
+                              </div>
+                              <div class="rating-score small">
+                                <span class="score fw-semibold ms-2 text-black">3.68</span>
+                                <span class="total-rating">(3)</span>
+                              </div>
+                            </div>
+
+                            <h2 class="product-title fw-medium">
+                              YADA 1080P Roadcam, Full-HD Day or Night, Smart G-sensor Recording 24_7, Motion Detection, SD Card Included, BT533146
+                            </h2>
+                            <div class="mb-3">
+                              <bdi class="fw-bold product-price oswald">
+                                75.55
+                              </bdi>
+                              <del class="product-price-discount oswald ms-1">
+                                89.88
+                              </del>
+                            </div>
+                            <button class="btn btn-primary py-1 font-small w-100">
+                              Add To Cart
+                            </button>
+                          </div>
+                      </div>
+                      <div class="col">
+                        <div class="product-card">
+                            <span class="product-badge">
+                              -13%
+                            </span>
+                            <span class="product-wishlist position-absolute">
+                              <img src="assets/images/wishlist.svg" alt="" class="img-fluid">
+                            </span>
+                            <div class="product-img">
+                                  <img src="assets/images/products/01-56.webp" alt="" class="img-fluid">
+                                </div>
+
+                            <div class="product-rating d-flex align-item-center mb-2">
+                              <div class="rating small">
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="far fa-star"></i>
+                              </div>
+                              <div class="rating-score small">
+                                <span class="score fw-semibold ms-2 text-black">3.68</span>
+                                <span class="total-rating">(3)</span>
+                              </div>
+                            </div>
+
+                            <h2 class="product-title fw-medium">
+                                  Vauxhall Zafira MK2 2008-2014 Tail Back Rear Light Lamp Lens Right Side
+                                </h2>
+                            <div class="mb-3">
+                              <bdi class="fw-bold product-price oswald">
+                                75.55
+                              </bdi>
+                              <del class="product-price-discount oswald ms-1">
+                                89.15
+                              </del>
+                            </div>
+                            <button class="btn btn-primary py-1 font-small w-100">
+                              Add To Cart
+                            </button>
+                          </div>
+                      </div>
+                      <div class="col">
+                        <div class="product-card">
+                            <span class="product-badge">
+                              -13%
+                            </span>
+                            <span class="product-wishlist position-absolute">
+                              <img src="assets/images/wishlist.svg" alt="" class="img-fluid">
+                            </span>
+                            <div class="product-img">
+                                  <img src="assets/images/products/01-55.webp" alt="" class="img-fluid">
+                                </div>
+
+                            <div class="product-rating d-flex align-item-center mb-2">
+                              <div class="rating small">
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="far fa-star"></i>
+                              </div>
+                              <div class="rating-score small">
+                                <span class="score fw-semibold ms-2 text-black">3.68</span>
+                                <span class="total-rating">(3)</span>
+                              </div>
+                            </div>
+
+                            <h2 class="product-title fw-medium">
+                                  TYPE S – Remote-Controlled 194_T10 Multicolor LED Mini Bulb Set
+                                </h2>
+                            <div class="mb-3">
+                              <bdi class="fw-bold product-price oswald">
+                                 7.55
+                              </bdi>
+                              <del class="product-price-discount oswald ms-1">
+                               9.99
+                              </del>
+                            </div>
+                            <button class="btn btn-primary py-1 font-small w-100">
+                              Add To Cart
+                            </button>
+                          </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </li>
+
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+      <div class=" d-block d-sm-none">
+      <div class="row border border-bottem mx-0">
+          <div class="col-6 garage text-center py-2  border-right">
+              <div class=" d-flex align-items-center justify-content-center gap-2 Garagepop" data-bs-toggle="modal" data-bs-target="#garageModal">
+                
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32"> <path fill="currentColor" fill-rule="evenodd" d="M28,2.25 C29.4625318,2.25 30.6584043,3.3917046 30.7449812,4.83247767 L30.75,5 L30.75,29 C30.75,29.4142136 30.4142136,29.75 30,29.75 C29.6203042,29.75 29.306509,29.4678461 29.2568466,29.1017706 L29.25,29 L29.25,5 C29.25,4.35279131 28.7581253,3.8204661 28.1278052,3.75645361 L28,3.75 L4,3.75 C3.35279131,3.75 2.8204661,4.24187466 2.75645361,4.87219476 L2.75,5 L2.75,29 C2.75,29.4142136 2.41421356,29.75 2,29.75 C1.62030423,29.75 1.30650904,29.4678461 1.25684662,29.1017706 L1.25,29 L1.25,5 C1.25,3.53746816 2.3917046,2.34159572 3.83247767,2.25501879 L4,2.25 L28,2.25 Z M18,27.25 C18.4142136,27.25 18.75,27.5857864 18.75,28 C18.75,28.3796958 18.4678461,28.693491 18.1017706,28.7431534 L18,28.75 L14,28.75 C13.5857864,28.75 13.25,28.4142136 13.25,28 C13.25,27.6203042 13.5321539,27.306509 13.8982294,27.2568466 L14,27.25 L18,27.25 Z M26,22.25 C26.4142136,22.25 26.75,22.5857864 26.75,23 C26.75,23.3796958 26.4678461,23.693491 26.1017706,23.7431534 L26,23.75 L6,23.75 C5.58578644,23.75 5.25,23.4142136 5.25,23 C5.25,22.6203042 5.53215388,22.306509 5.89822944,22.2568466 L6,22.25 L26,22.25 Z M26,17.25 C26.4142136,17.25 26.75,17.5857864 26.75,18 C26.75,18.3796958 26.4678461,18.693491 26.1017706,18.7431534 L26,18.75 L6,18.75 C5.58578644,18.75 5.25,18.4142136 5.25,18 C5.25,17.6203042 5.53215388,17.306509 5.89822944,17.2568466 L6,17.25 L26,17.25 Z M26,12.25 C26.4142136,12.25 26.75,12.5857864 26.75,13 C26.75,13.3796958 26.4678461,13.693491 26.1017706,13.7431534 L26,13.75 L6,13.75 C5.58578644,13.75 5.25,13.4142136 5.25,13 C5.25,12.6203042 5.53215388,12.306509 5.89822944,12.2568466 L6,12.25 L26,12.25 Z M26,7.25 C26.4142136,7.25 26.75,7.58578644 26.75,8 C26.75,8.37969577 26.4678461,8.69349096 26.1017706,8.74315338 L26,8.75 L6,8.75 C5.58578644,8.75 5.25,8.41421356 5.25,8 C5.25,7.62030423 5.53215388,7.30650904 5.89822944,7.25684662 L6,7.25 L26,7.25 Z"></path> </svg>
+          
+            <div class="text-start">
+                <strong>My Garage</strong>
+            </div>
+          </div>
+        </div>
+          <div class="col-6 px-0">
+            <div class="column d-inline-flex align-items-center justify-content-center flex-fill">
+                <button type="button"
+                  class="btn btn-link text-dark text-decoration-none search-trigger"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#searchOffcanvas">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M10.5 19C15.1944 19 19 15.1944 19 10.5C19 5.80558 15.1944 2 10.5 2C5.80558 2 2 5.80558 2 10.5C2 15.1944 5.80558 19 10.5 19Z"
+                        stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M22 22L17 17"
+                        stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              <strong>Search Product</strong>
+          </button>
+            </div>
+          </div>
+      </div>
+    </div>
+    </header>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="searchOffcanvas"
+    aria-labelledby="searchOffcanvasLabel">
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="searchOffcanvasLabel">
+          Search
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+        </button>
+      </div>
+      <div class="offcanvas-body">
+        <form action="/" method="get" class="searchBars">
+          <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search popular products...">
+                <button class="btn btn-light border">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 19C15.1944 19 19 15.1944 19 10.5C19 5.80558 15.1944 2 10.5 2C5.80558 2 2 5.80558 2 10.5C2 15.1944 5.80558 19 10.5 19Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M22 22L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+              </div>
+          <input type="hidden" name="post_type" value="product">
+        </form>
+      </div>
+      <div class="border-top p-3 text-center">
+        <small>
+          Copyright © 2026 All Rights Reserved
+        </small>
+      </div>
+    </div>
+    <div class="offcanvas offcanvas-start category-drawer"
+         tabindex="-1"
+         id="categoryDrawer">
+      <div class="site-drawer-inner position-absolute">
+        <div class="offcanvas-header site-drawer-header">
+          <h4 class="entry-title">Categories</h4>
+
+          <button type="button" class="btn-close mt-1" data-bs-dismiss="offcanvas"></button>
+        </div>
+
+        <div class="offcanvas-body site-drawer-body p-0">
+
+          <div class="site-navigation navigation-vertical categories-menu">
+
+            <ul id="menu">
+              
+
+                <div class="dropdown-menu mega-menu border-0 shadow-lg p-4">
+                  <div class="container">
+                    <div class="row">
+
+                      <!-- Column 1 -->
+                      <div class="col">
+                        <a href="#" class="mega-title lightgray-text">Shop List</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Shop Default</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shop Right Sidebar</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shop Wide</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Filters Area</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">List Left Sidebar</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Load More Button</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Infinite Scrolling</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Image Hover – Zoom</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Image Hover – Slider</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Image Hover – Flip</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Stock Progress Bar</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sale Countdown</a></li>
+                          </ul>
+                      </div>
+
+                      <!-- Column 2 -->
+                      <div class="col">
+                        <a href="#" class="mega-title lightgray-text">Product Detail</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Product Default</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product Variable</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product Grouped</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product External</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product Zoom Image</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product With Video</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Thumbnails Left</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Gallery 1 Column</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Gallery 2 Columns</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Carousel 2 Columns</a></li>
+                          </ul>
+                      </div>
+
+                      <!-- Column 3 -->
+                      <div class="col">
+                        <a href="#" class="mega-title lightgray-text">Product Features</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Buy Now Button</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Order on WhatsApp</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Stock Progress Bar</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sale Countdown</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sticky Add to Cart</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sticky Tab Titles</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Reviews Without Tab</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product Full Width</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sticky Description</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Vertical Tabs</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Accordion Tabs</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Accordion in Content</a></li>
+                          </ul>
+                      </div>
+
+                      <!-- Column 4 -->
+                      <div class="col">
+                        <a href="#" class="mega-title lightgray-text">Shop Pages</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Checkout</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Compare</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">My Account</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Order Tracking</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Catalog Mode</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Featured Products</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Best Selling Products</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Stock Status</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shipping Class</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shop by Brand</a></li>
+                          </ul>
+                      </div>
+                      <!-- Column 4 -->
+                      <div class="col">
+                        <a href="#" class="mega-title lightgray-text">Shop Layout</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Checkout</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Compare</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">My Account</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Order Tracking</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Catalog Mode</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Featured Products</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Best Selling Products</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Stock Status</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shipping Class</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shop by Brand</a></li>
+                          </ul>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- ENGINE OIL -->
+              <li>
+                <a href="#">
+                  <span class="menu-item-icon">
+                    <img src="assets/images/sidebar-icon.svg" alt="">
+                  </span>
+
+                  Engine oil
+                </a>
+              </li>
+
+              <!-- HEADLIGHTS -->
+              <li class="menu-item-has-children">
+
+                <div class="menu-item-wrapper">
+
+                  <a href="#">
+                    <span class="menu-item-icon">
+                      <img src="assets/images/lighting.svg" alt="">
+                    </span>
+                    Headlights & Lighting
+                  </a>
+
+                  <div class="dropdown-icon-wrapper">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8L12 16L20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  </div>
+
+                </div>
+
+                <ul class="sub-menu">
+                  <li><a href="#">Daytime Running Lights</a></li>
+                  <li><a href="#">Fog Lights</a></li>
+                  <li><a href="#">Interior Lights</a></li>
+                  <li><a href="#">Reflectors</a></li>
+                </ul>
+
+              </li>
+
+              <!-- TIRES -->
+              <li class="menu-item-has-children">
+
+                <div class="menu-item-wrapper">
+
+                  <a href="#">
+                    <span class="menu-item-icon">
+                      <img src="assets/images/tyres.svg" alt="">
+                    </span>
+                    Tires & Wheels
+                  </a>
+
+                  <div class="dropdown-icon-wrapper">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M4 8L12 16L20 8" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  </div>
+
+                </div>
+
+                <ul class="sub-menu">
+                  <li><a href="#">All Season</a></li>
+                  <li><a href="#">Alloy wheels</a></li>
+                  <li><a href="#">Competition Tire</a></li>
+                  <li><a href="#">Summer Tires</a></li>
+                </ul>
+
+              </li>
+
+              <!-- SIMPLE ITEMS -->
+              <li><a href="#">
+                  <span class="menu-item-icon">
+                    <img src="assets/images/breaks.svg" alt="">
+                  </span>
+              Brakes</a></li>
+              <li><a href="#">
+                  <span class="menu-item-icon">
+                    <img src="assets/images/oils.svg" alt="">
+                  </span>
+              Oils and fluids</a></li>
+              <li><a href="#">
+                <span class="menu-item-icon">
+                    <img src="assets/images/engine.svg" alt="">
+                  </span>
+              Engine</a></li>
+              <li><a href="#">
+              <span class="menu-item-icon">
+                    <img src="assets/images/repair-kits.svg" alt="">
+                  </span>
+              Repair Kits</a></li>
+              <li><a href="#">
+              <span class="menu-item-icon">
+                    <img src="assets/images/car-accessories.svg" alt="">
+                  </span>
+               Car Accessories</a></li>
+              <li><a href="#">
+              <span class="menu-item-icon">
+                    <img src="assets/images/steering.svg" alt="">
+                  </span>
+              Steering</a></li>
+              <li><a href="#">
+              <span class="menu-item-icon">
+                    <img src="assets/images/body.svg" alt="">
+                  </span>
+              Body</a></li>
+              <li><a href="#">
+              <span class="menu-item-icon">
+                    <img src="assets/images/air-condition.svg" alt="">
+                  </span>
+              Air Condition</a></li>
+
+
+            </ul>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas offcanvas-start category-drawer" tabindex="-1" id="mobileDrawer">
+      <div class="site-drawer-inner ">
+        <div class="offcanvas-header site-drawer-header">
+          <h4 class="entry-title">Menu</h4>
+
+          <button type="button" class="btn-close mt-1" data-bs-dismiss="offcanvas"></button>
+        </div>
+
+        <div class="offcanvas-body site-drawer-body p-0">
+
+          <div class="site-navigation navigation-vertical categories-menu">
+
+            <ul id="menu">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Home
+                </a>
+              </li>
+              <li class="nav-item dropdown mobileShop">
+                
+                <a class="nav-link  dropdown-toggle" href="#" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                  Shop
+                  <div class="ms-auto">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8L12 16L20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  </div>
+                </a>
+
+                <ul class="dropdown-menu mega-menu border-0 shadow-lg p-4" aria-labelledby="dropdownMenuButton2">
+                      <!-- Column 1 -->
+                      <li class="">
+                        <a href="#" class="mega-title lightgray-text">Shop List</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Shop Default</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shop Right Sidebar</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shop Wide</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Filters Area</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">List Left Sidebar</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Load More Button</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Infinite Scrolling</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Image Hover – Zoom</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Image Hover – Slider</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Image Hover – Flip</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Stock Progress Bar</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sale Countdown</a></li>
+                          </ul>
+                      </li>
+
+                      <!-- Column 2 -->
+                      <li class="">
+                        <a href="#" class="mega-title lightgray-text">Product Detail</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Product Default</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product Variable</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product Grouped</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product External</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product Zoom Image</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product With Video</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Thumbnails Left</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Gallery 1 Column</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Gallery 2 Columns</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Carousel 2 Columns</a></li>
+                          </ul>
+                      </li>
+
+                      <!-- Column 3 -->
+                      <li class="">
+                        <a href="#" class="mega-title lightgray-text">Product Features</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Buy Now Button</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Order on WhatsApp</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Stock Progress Bar</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sale Countdown</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sticky Add to Cart</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sticky Tab Titles</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Reviews Without Tab</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Product Full Width</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Sticky Description</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Vertical Tabs</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Accordion Tabs</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Accordion in Content</a></li>
+                          </ul>
+                      </li>
+
+                      <!-- Column 4 -->
+                      <li class="">
+                        <a href="#" class="mega-title lightgray-text">Shop Pages</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Checkout</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Compare</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">My Account</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Order Tracking</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Catalog Mode</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Featured Products</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Best Selling Products</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Stock Status</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shipping Class</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shop by Brand</a></li>
+                          </ul>
+                      </li>
+                      <!-- Column 4 -->
+                      <li class="">
+                        <a href="#" class="mega-title lightgray-text">Shop Layout</a>
+                          <ul class="nav  flex-column">
+                              <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Checkout</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Compare</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">My Account</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Order Tracking</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Catalog Mode</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Featured Products</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Best Selling Products</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Stock Status</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shipping Class</a></li>
+                              <li class="nav-item"><a href="#" class="nav-link">Shop by Brand</a></li>
+                          </ul>
+                      </li>
+
+                 
+                  </ul>
+                
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Tires & Wheels
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Headlights & Lighting
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Blog
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="contact-info px-3 mt-3">
+              <ul class="list-group list-group-flush">
+
+                  <!-- Phone -->
+                  <li class="list-group-item px-0 py-3 border-bottom">
+                      <div class="d-flex align-items-start">
+
+                          <div class="me-3">
+                              <img src="https://klbtheme.com/ignavo/wp-content/uploads/2025/05/canvas-menu-contact.svg"
+                                  alt="Phone" width="22">
+                          </div>
+
+                          <div>
+                              <h6 class="fw-bold mb-1">555-555-5555</h6>
+                                              </div>
+
+                      </div>
+                      <small class="text-muted">
+                                  You can call anytime from 9 am to 6 pm.
+                              </small>
+
+                  </li>
+
+                  <!-- Email -->
+                  <li class="list-group-item px-0 py-3">
+                      <div class="d-flex align-items-start">
+
+                          <div class="me-3">
+                              <img src="https://klbtheme.com/ignavo/wp-content/uploads/2025/05/canvas-menu-contact2.svg"
+                                  alt="Email" width="22">
+                          </div>
+
+                          <div>
+                              <h6 class="fw-bold mb-1">info@example.com</h6>
+                              
+                          </div>
+
+                      </div>
+                      <small class="text-muted">
+                                  You can email anytime from 9 am to 6 pm.
+                              </small>
+                  </li>
+
+              </ul>
+          </div>
+          
+
+        </div>
+        <div class="site-drawer-footer  site-copyright small py-2 px-3">
+            Copyright [year] © Ignavo WordPress Theme. All right reserved.  Powered by <a href="">KLBTheme</a>.</div>
+      </div>
+    </div>
+
+
+
+    
+
+    <section class="py-4">
+      <div class="container">
+        <h1 class="h2 product_title display-5 mt-3 text-center">Blog</h1>
+      </div>
+    </section>
+<section class="blog-section py-5">
+    <div class="container">
+        <div class="row ">
+            <!-- Blog Posts -->
+            <div class="col-lg-9 pe-lg-5">
+                <div class="border-0 mb-5">
+                    <img src="assets/images/blog/blog-01.webp" class="img-fluid rounded" alt="">
+                    <div class="blog-content">
+                        <h2 class="blog-title h3 fw-semibold my-3">
+                            <a href="#" class="text-dark text-decoration-none">
+                                Buying cheap used transmissions isn't as risky as you think
+                            </a>
+                        </h2>
+                        <p class="text-muted">
+                            Integer mattis ultricies augue, ac bibendum arcu viverra vel. Etiam eu facilisis velit. Mauris auctor efficitur turpis feugiat laoreet. Nam ac posuere eros. Sed blandit et ipsum a porttitor. Curabitur sagittis ligula in ullamcorper vehicula. Sed consequat ipsum vitae ante ultricies tincidunt. Nulla egestas nisi non elementum semper. Aenean molestie mi purus, at commodo massa
+                        </p>
+
+                        <a href="#" class="btn btn-primary">
+                            Read More
+                        </a>
+
+                    </div>
+
+                    <div class="blog-footer bg-white mt-2">
+                      <ul class="nav text-muted">
+                        <li class=" py-1">May 20, 2025</li>
+                        <li class=" py-1">Automotive Tips</li>
+                        <li class=" py-1">Klbtheme, Themeforest</li>
+                      </ul>
+                    </div>
+
+                </div>
+
+                <!-- Blog Item -->
+                <div class="border-0 mb-5">
+                    <img src="assets/images/blog/blog-02.webp" class="img-fluid rounded" alt="">
+                    <div class="blog-content">
+                        <h2 class="blog-title h3 fw-semibold my-3">
+                            <a href="#" class="text-dark text-decoration-none">
+                                Buying cheap used transmissions isn't as risky as you think
+                            </a>
+                        </h2>
+                        <p class="text-muted">
+                            Integer mattis ultricies augue, ac bibendum arcu viverra vel. Etiam eu facilisis velit. Mauris auctor efficitur turpis feugiat laoreet. Nam ac posuere eros. Sed blandit et ipsum a porttitor. Curabitur sagittis ligula in ullamcorper vehicula. Sed consequat ipsum vitae ante ultricies tincidunt. Nulla egestas nisi non elementum semper. Aenean molestie mi purus, at commodo massa
+                        </p>
+
+                        <a href="#" class="btn btn-primary">
+                            Read More
+                        </a>
+
+                    </div>
+
+                    <div class="blog-footer bg-white mt-2">
+                      <ul class="nav text-muted">
+                        <li class=" py-1">May 20, 2025</li>
+                        <li class=" py-1">Automotive Tips</li>
+                        <li class=" py-1">Klbtheme, Themeforest</li>
+                      </ul>
+                    </div>
+
+                </div>
+                <!-- Blog Item -->
+                <div class="border-0 mb-5">
+                    <img src="assets/images/blog/blog-03.webp" class="img-fluid rounded" alt="">
+                    <div class="blog-content">
+                        <h2 class="blog-title h3 fw-semibold my-3">
+                            <a href="#" class="text-dark text-decoration-none">
+                                Buying cheap used transmissions isn't as risky as you think
+                            </a>
+                        </h2>
+                        <p class="text-muted">
+                            Integer mattis ultricies augue, ac bibendum arcu viverra vel. Etiam eu facilisis velit. Mauris auctor efficitur turpis feugiat laoreet. Nam ac posuere eros. Sed blandit et ipsum a porttitor. Curabitur sagittis ligula in ullamcorper vehicula. Sed consequat ipsum vitae ante ultricies tincidunt. Nulla egestas nisi non elementum semper. Aenean molestie mi purus, at commodo massa
+                        </p>
+
+                        <a href="#" class="btn btn-primary">
+                            Read More
+                        </a>
+
+                    </div>
+
+                    <div class="blog-footer bg-white mt-2">
+                      <ul class="nav text-muted">
+                        <li class=" py-1">May 20, 2025</li>
+                        <li class=" py-1">Automotive Tips</li>
+                        <li class=" py-1">Klbtheme, Themeforest</li>
+                      </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+
+                <div class="sticky-top" style="top:30px;">
+
+                    <div class=" mb-4">
+                        <h3 class="mb-3 fw-bold">
+                            Recent Posts
+                        </h3>
+                        <div class="recent-post">
+                            <div class="d-flex mb-3">
+                              <div class="thumbnail-post">
+                                <img src="assets/images/blog/blog-01.webp" width="" class="rounded me-3">
+                              </div>
+                                <div class="content-post">
+                                    <h4 class="mb-1">
+                                        <a href="#" class="text-dark text-decoration-none">
+                                            Buying cheap used transmissions...
+                                        </a>
+                                    </h4>
+                                    <small class="text-muted">
+                                        May 20, 2025
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="d-flex mb-3">
+                              <div class="thumbnail-post">
+                                <img src="assets/images/blog/blog-02.webp" width="90" class="rounded me-3">
+                              </div>
+                                <div class="content-post">
+                                    <h4 class="mb-1">
+                                        <a href="#" class="text-dark text-decoration-none">
+                                            What to Do When Your Car Parts...
+                                        </a>
+                                    </h4>
+                                    <small class="text-muted">
+                                        May 20, 2025
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="d-flex">
+                              <div class="thumbnail-post">
+                                <img src="assets/images/blog/blog-03.webp" width="90" class="rounded me-3">
+                              </div>
+                              <div class="content-post">
+                                    <h4 class="mb-1">
+                                        <a href="#" class="text-dark text-decoration-none">
+                                            Top 10 Car Parts Every Driver...
+                                        </a>
+                                    </h4>
+                                    <small class="text-muted">
+                                        May 20, 2025
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="follow-us">
+                      <h3 class="mb-3 fw-bold">
+                            Follow Us
+                        </h3>
+
+                      <a href="#" class="social-box facebook">
+                          <div class="left">
+                              <i class="fab fa-facebook-f"></i>
+                              <span>FACEBOOK</span>
+                          </div>
+                          <span class="follow">FOLLOW</span>
+                      </a>
+
+                      <a href="#" class="social-box twitter">
+                          <div class="left">
+                              <i class="fab fa-x-twitter"></i>
+                              <span>TWITTER</span>
+                          </div>
+                          <span class="follow">FOLLOW</span>
+                      </a>
+
+                      <a href="#" class="social-box instagram">
+                          <div class="left">
+                              <i class="fab fa-instagram"></i>
+                              <span>INSTAGRAM</span>
+                          </div>
+                          <span class="follow">FOLLOW</span>
+                      </a>
+
+                      <a href="#" class="social-box youtube">
+                          <div class="left">
+                              <i class="fab fa-youtube"></i>
+                              <span>YOUTUBE</span>
+                          </div>
+                          <span class="follow">FOLLOW</span>
+                      </a>
+
+                  </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+    <section class="py-5 prefoo ">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <!-- Left Text -->
+          <div class="col-lg-5">
+            <h3 class="fw-bold mb-2">
+              Join the Ignavo VIP Club!
+            </h3>
+            <p class="text-muted mb-0">
+              Whether you’re welcoming new contacts or sharing the latest news, you
+              can make your business look good in just a few clicks.
+            </p>
+          </div>
+          <!-- Right Form -->
+          <div class="col-lg-4 ms-auto">
+            <form class="d-flex flex-column flex-sm-row gap-2 newLetter">
+              <div class="input-group">
+              <input type="email" class="form-control" placeholder="Enter your email address"
+              required>
+              <button type="submit" class="btn btn-primary px-4">
+                Subscribe
+              </button>
+            </div>
+            </form>
+            <!-- Privacy text -->
+            <p class=" subscribing text-muted mt-3 mb-0">
+              By subscribing you agree to our
+              <a href="#" class="text-primary text-decoration-none text-dark fw-semibold">
+                Terms & Conditions
+              </a>
+              and
+              <a href="#" class="text-primary text-decoration-none  text-dark  fw-semibold">
+                Privacy & Cookies Policy
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <!-- Top Footer -->
+        <div class="row gy-4">
+          <!-- Contact Us -->
+          <div class="col-lg-4 col-md-6">
+            <h5 class="footer-title">
+              Contact Us
+            </h5>
+            <div class="footer-contact-item">
+              <img src="assets/images/phone.svg" alt="">
+              <div>
+                <span class="fw-bold">
+                  Phone Number
+                </span>
+                <p>
+                  +(800) 1234 5678 90
+                </p>
+              </div>
+            </div>
+            <div class="footer-contact-item">
+              <img src="assets/images/email.svg" alt="">
+              <div>
+                <span class="fw-bold">
+                  E-Mail
+                </span>
+                <p>
+                  info@example.com
+                </p>
+              </div>
+            </div>
+            <div class="footer-contact-item">
+              <img src="assets/images/address.svg" alt="">
+              <div>
+                <span class="fw-bold">
+                  Address
+                </span>
+                <p>
+                  2972 Westheimer Rd. Santa Ana,
+                  <br>
+                  Illinois 85486
+                </p>
+              </div>
+            </div>
+            <div class="footer-contact-item">
+              <img src="assets/images/support.svg" alt="">
+              <div>
+                <span class="fw-bold">
+                  Help Guide
+                </span>
+                <p>
+                  Seek expert help for inquiries and concerns
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Let Us Help You -->
+          <div class="col-lg-2 col-md-6">
+            <h5 class="footer-title">
+              Let Us Help You
+            </h5>
+            <ul class="footer-links">
+              <li>
+                <a href="#">
+                  Accessibility Statement
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Your Orders
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Returns & Replacements
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Shipping Rates & Policies
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Refund and Returns Policy
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Terms and Conditions
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Cookie Settings
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Help Center
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- Customer Service -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">
+              Customer Service
+            </h5>
+            <ul class="footer-links">
+              <li>
+                <a href="#">
+                  Sell on Ignavo
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Sell Your Services on Ignavo
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Sell on Ignavo Business
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Sell Your Apps on Ignavo
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Become an Affiliate
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Advertise Your Products
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Self-Publish with Us
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Become an Ignavo Vendor
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- Get to Know Us -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">
+              Get to Know Us
+            </h5>
+            <ul class="footer-links">
+              <li>
+                <a href="#">
+                  Careers for Ignavo
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  About Ignavo
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Investor Relations
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Ignavo Devices
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Customer Reviews
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Social Responsibility
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Store Locations
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Middle Section -->
+        <div class="footer-middle">
+          <div class="row align-items-center">
+            <div class="col-lg-4 text-center text-lg-start mb-3 mb-lg-0">
+              <img src="assets/images/logo-light.webp" class="footer-logo" alt="">
+            </div>
+            <div class="col-lg-4 text-center mb-3 mb-lg-0">
+              <div class="social-wrapper">
+                <span>
+                  Follow Us:
+                </span>
+                <ul class="nav">
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link text-white">
+                      <i class="fa-brands fa-facebook-f">
+                      </i>
+                    </a>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link text-white">
+                      <i class="fa-brands fa-x-twitter">
+                      </i>
+                    </a>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link text-white">
+                      <i class="fa-brands fa-instagram">
+                      </i>
+                    </a>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link text-white">
+                      <i class="fa-brands fa-youtube">
+                      </i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+              <div class="app-download">
+                <span>
+                  Download App:
+                </span>
+                <a href="#">
+                  <img src="assets/images/google-white.webp" alt="">
+                </a>
+                <a href="#">
+                  <img src="assets/images/apple-white.webp" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-lg-8 text-center text-lg-start">
+              <p>
+                Copyright 2026 © Ignavo WordPress Theme. All rights reserved. Powered
+                by
+                <strong>
+                  KLBTheme
+                </strong>
+                .
+              </p>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+              <div class="payment-icons">
+                <img src="assets/images/mastercard.svg" alt="">
+                <img src="assets/images/visa.svg" alt="">
+                <img src="assets/images/paypal.svg" alt="">
+                <img src="assets/images/skrill.svg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+<div class="modal fade" id="garageModal" tabindex="-1">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content garage-modal">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body p-4 p-md-5">
+
+                <h4 class="garage-title text-center">
+                    Find the Right Parts Faster
+                </h4>
+
+                <p class="garage-desc text-center">
+                    Having the right automotive parts and car accessories will help
+                    you to boost your travel comfort and go on the long-distance
+                    journey comfortably that you have been planning.
+                </p>
+
+                <form>
+
+                    <div class="garage-field">
+                        <span class="step-badge">01</span>
+                        <select class="form-select garage-select" name="filter_make">
+                                <option selected>Select Make</option>
+                                <option value="audi">Audi</option>
+                                <option value="bmw">BMW</option>
+                                <option value="chevrolet">Chevrolet</option>
+                                <option value="dodge">Dodge</option>
+                                <option value="fiat">Fiat</option>
+                                <option value="ford">Ford</option>
+                                <option value="honda">Honda</option>
+                                <option value="hyundai">Hyundai</option>
+                                <option value="jaguar">Jaguar</option>
+                                <option value="kia">Kia</option>
+                            </select>
+                          <div class="select-dropdown ms-auto">
+                        <img src="assets/images/down-arrow.svg" alt="">
+                      </div>  
+                    </div>
+
+                    <div class="garage-field">
+                        <span class="step-badge">02</span>
+                        <select class="form-select garage-select">
+                            <option>Select make First</option>
+                        </select>
+                        <div class="select-dropdown ms-auto">
+                        <img src="assets/images/down-arrow.svg" alt="">
+                      </div>
+                    </div>
+
+                    <div class="garage-field">
+                        <span class="step-badge">03</span>
+                        <select class="form-select garage-select">
+                            <option>Select Year</option>
+                        </select>
+                        <div class="select-dropdown ms-auto">
+                        <img src="assets/images/down-arrow.svg" alt="">
+                      </div>
+                    </div>
+
+                    <div class="garage-field">
+                        <span class="step-badge">04</span>
+                        <select class="form-select garage-select">
+                            <option>Select Engine</option>
+                        </select>
+                        <div class="select-dropdown ms-auto">
+                        <img src="assets/images/down-arrow.svg" alt="">
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn garage-btn w-100">
+                        Add Vehicle
+                    </button>
+
+                </form>
+
+                <p class="garage-note text-center">
+                    Please fill in the criteria you are looking for
+                </p>
+
+                <p class="garage-empty text-center">
+                    No vehicles in your garage. Please add one.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
+    </script>
+    <script src="assets/js/script.js">
+    </script>
+
+  </body>
+
+</html>

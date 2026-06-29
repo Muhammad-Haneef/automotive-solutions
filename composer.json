@@ -51,8 +51,8 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --ansi"
         ],
-        "dev": [
-            "php artisan serve --port=8200"
+        "dev":[
+            "php  artisan serve --port=8100"
         ]
     },
     "extra": {

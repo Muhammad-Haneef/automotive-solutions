@@ -53,9 +53,9 @@
         <div class="login-card login-dark">
           <div>
             <div>
-              <a class="logo text-start" href="/">
-                <img class="img-fluid for-light" src="{{asset('assets/images/logo.png')}}" alt="looginpage">
-                <img class="img-fluid for-dark" src="{{asset('assets/images/logo_dark.png')}}" alt="looginpage">
+              <a class="logo text-center" href="/">
+                <img class=" for-light" src="{{asset('assets/images/logo.png')}}" alt="Automotive Solutions" style="max-width:300px;" />
+                <img class=" for-dark" src="{{asset('assets/images/logo_dark.png')}}" alt="Automotive Solutions" style="max-width:300px;" />
               </a>
             </div>
             <div class="login-main">
@@ -65,12 +65,12 @@
                 <p>Enter your email & password to login</p>
                 <div class="form-group">
                   <label class="col-form-label">Email Address</label>
-                  <input class="form-control" type="email" name="email" placeholder="test@gmail.com" value="admin@venta.com">
+                  <input class="form-control" type="email" name="email" placeholder="test@gmail.com" value="admin@automotivesolutions.com">
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Password</label>
                   <div class="form-input position-relative">
-                    <input class="form-control" type="password" name="password" placeholder="*********" value="Polo@1234" />
+                    <input class="form-control" type="password" name="password" placeholder="*********" value="as@1234" />
                     <div class="show-hide"><span class="show"> </span></div>
                   </div>
                 </div>

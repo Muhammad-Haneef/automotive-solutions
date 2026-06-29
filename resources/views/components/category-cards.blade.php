@@ -1,24 +1,66 @@
-@if($categories)
-<section class="Categories py-5 ">
-    <div class="container ">
-        <div class="row">
-            <div class="col-12 col-lg-12">
-                <h3 class="font-weight-bold">Browse By Categories</h3>
-            </div>
-        </div>
-        <div class="row row-cols-6 cats bg-white">
-            @if($categories)
-            @foreach ($categories as $category)
-            <a href="{{ route('category',  $category['slug']) }}"
-                class="col catBox border-end border-bottom text-dark text-center p-2">
-                <div class="catBox-img text-center ">
-                    {{getImage($category['thumbnail'], "127", "170")}}
+<section class="py-4">
+        <div class="container">
+
+            <div class="swiper categorySwiper">
+                <div class="swiper-wrapper">
+
+                    <!-- ITEM -->
+                    <div class="swiper-slide col-lg-2 col-md-4 col-6">
+                        <a href="#" class="category-card text-center d-block">
+                            <img src="front/images/categories/category-air-condition.webp" class="img-fluid mb-3"
+                                alt="">
+                            <h4 class="category-name mb-0">Air Condition</h4>
+                            <span class="category-count">1</span>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide col-lg-2 col-md-4 col-6">
+                        <a href="#" class="category-card text-center d-block">
+                            <img src="front/images/categories/category-damping.webp" class="img-fluid mb-3"
+                                alt="">
+                            <h4 class="category-name mb-0">Bearings</h4>
+                            <span class="category-count">2</span>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide col-lg-2 col-md-4 col-6">
+                        <a href="#" class="category-card text-center d-block">
+                            <img src="front/images/categories/category-brakes.webp" class="img-fluid mb-3"
+                                alt="">
+                            <h4 class="category-name mb-0">Brakes</h4>
+                            <span class="category-count">5</span>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide col-lg-2 col-md-4 col-6">
+                        <a href="#" class="category-card text-center d-block">
+                            <img src="front/images/categories/category-care.webp" class="img-fluid mb-3"
+                                alt="">
+                            <h4 class="category-name mb-0">Car Accessories</h4>
+                            <span class="category-count">8</span>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide col-lg-2 col-md-4 col-6">
+                        <a href="#" class="category-card text-center d-block">
+                            <img src="front/images/categories/category-engine.webp" class="img-fluid mb-3"
+                                alt="">
+                            <h4 class="category-name mb-0">Engine</h4>
+                            <span class="category-count">4</span>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide col-lg-2 col-md-4 col-6">
+                        <a href="#" class="category-card text-center d-block">
+                            <img src="front/images/categories/category-wiper.webp" class="img-fluid mb-3"
+                                alt="">
+                            <h4 class="category-name mb-0">Cooling System</h4>
+                            <span class="category-count">2</span>
+                        </a>
+                    </div>
+
                 </div>
-                {{ $category['title'] }}
-            </a>
-            @endforeach
-            @endif
+            </div>
+
         </div>
-    </div>
-</section>
-@endif
+    </section>

@@ -19,10 +19,11 @@ class SystemUserSeeder extends Seeder
         $users = [
             [
                 'name' => 'Super Admin',
-                'email' => 'admin@venta.com',
-                'password' => Hash::make('Polo@1234'),
+                'email' => 'admin@automotivesolutions.com',
+                'password' => Hash::make('as@1234'),
                 'system_user_role_id' => 1, // Assuming role ID 1 = Super Admin
             ],
+            /*
             [
                 'name' => 'Customer Support',
                 'email' => 'support@venta.com',
@@ -35,6 +36,7 @@ class SystemUserSeeder extends Seeder
                 'password' => Hash::make('Polo@1234'),
                 'system_user_role_id' => 5, // Assuming role ID 5 = Vendor Manager
             ],
+            */
         ];
 
         foreach ($users as $index => $user) {

@@ -70,6 +70,7 @@ function updateProductImageTitle(url, id) {
     });
 }
 function deleteProductGalleryImage(url, id) {
+
     confirmationModal("show");
 
     $("#confirmed").click(function () {
@@ -181,3 +182,98 @@ function showPreview(input) {
     }
 }
 */
+function readURL(input, index) {
+    // Check if file is selected
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+
+        // Validate file type
+        const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+
+        if (!validImageTypes.includes(file.type)) {
+            alert('Please select a valid image file (JPG, PNG, GIF, WebP)');
+            input.value = ''; // Clear the input
+            return false;
+        }
+
+        // Optional: Validate file size (e.g., max 5MB)
+        const maxSize = 5 * 1024 * 1024; // 5MB
+        if (file.size > maxSize) {
+            alert('File size must be less than 5MB');
+            input.value = ''; // Clear the input
+            return false;
+        }
+
+        // Create FileReader and preview image
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            // Update the image preview
+            document.querySelector('.update_img_' + index).src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    }
+}
+
+
+function saveFaq() {
+    if (!$('#q').val()) {
+        iziToast.error({
+            title: 'Error!',
+            message: "Please enter Question",
+            position: 'topRight'
+        });
+        return;
+    }
+    if (!$('#a').val()) {
+        iziToast.error({
+            title: 'Error!',
+            message: "Please enter Answer",
+            position: 'topRight'
+        });
+        return;
+    }
+
+    $.ajax({
+        url: '/admin/associated-faqs/add',
+        type: 'POST',
+        data: {
+            _token: $('meta[name="csrf-token"]').attr('content'),
+            q: $('#q').val(),
+            a: $('#a').val(),
+            associated_type: $('#associated_type').val(),
+            associated_id: $('#associated_id').val(),
+        },
+        success: function (response) {
+            if (response.success) {
+                $('#q').val('');
+                $('#a').val('');
+                $('#page-faqs-container').html(response.data);
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.querySelector('.faqs-modal'));
+                if (modal) modal.hide();
+
+                iziToast.success({
+                    title: 'Success!',
+                    message: "Added successfully",
+                    position: 'topRight'
+                });
+            } else {
+                iziToast.error({
+                    title: 'Error!',
+                    message: response.message,
+                    position: 'topRight'
+                });
+            }
+        },
+        error: function (error) {
+            console.error(error);
+            iziToast.error({
+                title: 'Error!',
+                message: "Something went wrong",
+                position: 'topRight'
+            });
+        }
+    });
+}

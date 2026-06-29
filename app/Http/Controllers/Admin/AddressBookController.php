@@ -46,6 +46,9 @@ class AddressBookController extends Controller
      */
     public function store(StoreAddressBookRequest $request)
     {
+
+        $data = $request->all(); print_r($data); exit();
+
         AddressBook::create($request->only((new AddressBook())->getFillable()));
         return back()->with([
             'message' => 'Saved successfully.',

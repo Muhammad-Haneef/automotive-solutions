@@ -18,7 +18,7 @@ class BannerLocationSeeder extends Seeder
         $bannerLocations = [
             [
                 // 1
-                'title' => 'Custom Location Banner',
+                'title' => 'Custom Location Banners',
                 'description' => 'This will be used by code to create custom banner locations as needed.',
                 'layout_image' => "$url/images/flash_sale_banner.jpg",
                 'sort_by' => 11,
@@ -38,7 +38,7 @@ class BannerLocationSeeder extends Seeder
             ],
             [
                 // 3
-                'title' => 'Home Page Main Slider',
+                'title' => 'Home Page Banners',
                 'description' => 'Main banner slider for the home Page.',
                 'layout_image' => "$url/images/main_slider.jpg",
                 'sort_by' => 1,
@@ -48,7 +48,7 @@ class BannerLocationSeeder extends Seeder
             ],
             [
                 // 4
-                'title' => 'Sidebar Banner',
+                'title' => 'Sidebar Banners',
                 'description' => 'Banners displayed in the sidebar.',
                 'layout_image' => "$url/images/sidebar_banner.jpg",
                 'sort_by' => 2,
@@ -58,7 +58,7 @@ class BannerLocationSeeder extends Seeder
             ],
             [
                 // 5
-                'title' => 'Sidebar banner for Category Page',
+                'title' => 'Sidebar banners for Category Page',
                 'description' => 'Appears at the sidebar of category listing pages.',
                 'layout_image' => "$url/images/category_page_sidebar_banner.jpg",
                 'sort_by' => 5,
@@ -68,7 +68,7 @@ class BannerLocationSeeder extends Seeder
             ],
             [
                 // 6
-                'title' => 'Footer Banner',
+                'title' => 'Footer Banners',
                 'description' => 'Promotional banners displayed in the footer.',
                 'layout_image' => "$url/images/footer_banner.jpg",
                 'sort_by' => 3,
@@ -78,7 +78,7 @@ class BannerLocationSeeder extends Seeder
             ],
             [
                 // 7
-                'title' => 'Product List Page Banner',
+                'title' => 'Product List Page Banners',
                 'description' => 'Shown on the product listing page.',
                 'layout_image' => "$url/images/product_list_banner.jpg",
                 'sort_by' => 6,
@@ -88,7 +88,7 @@ class BannerLocationSeeder extends Seeder
             ],
             [
                 // 8
-                'title' => 'Product Detail Banner',
+                'title' => 'Product Detail Banners',
                 'description' => 'Shown on individual product detail pages. Will be displayed after product details',
                 'layout_image' => "$url/images/product_detail_banner.jpg",
                 'sort_by' => 6,
@@ -96,6 +96,7 @@ class BannerLocationSeeder extends Seeder
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
+            /*
             [
                 // 9
                 'title' => 'Cart Page Banner',
@@ -126,6 +127,7 @@ class BannerLocationSeeder extends Seeder
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
+            */
 
         ];
 

@@ -54,7 +54,7 @@
                             <h6 class="lan-1">Sales & Marketing</h6>
                         </div>
                     </li>
-
+                    <?php /*
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="#">
                             <svg class="stroke-icon">
@@ -72,7 +72,7 @@
                         </ul>
                     </li>
 
-                    <?php /*
+
  * <li class="sidebar-list">
  *     <a class="sidebar-link sidebar-title" href="#">
  *         <svg class="stroke-icon">
@@ -349,7 +349,7 @@
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
                         </a>
                     </li>
-
+<?php /*
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.menues') }}">
                             <svg class="stroke-icon">
@@ -362,7 +362,7 @@
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
                         </a>
                     </li>
-
+*/ ?>
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.pages') }}">
                             <svg class="stroke-icon">
@@ -470,6 +470,8 @@
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
                         </a>
                     </li>
+
+<?php /*
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.wallets') }}">
                             <svg class="stroke-icon">
@@ -495,6 +497,7 @@
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
                         </a>
                     </li>
+                    */ ?>
                     <!-- CUSTOMERS - ending -->
 
 
@@ -652,13 +655,15 @@
                             <li><a href="{{ route('admin.order-sources') }}">Source Management</a></li>
                             <li><a href="{{ route('admin.shippers') }}">Shipper Management</a></li>
                             <li><a href="{{ route('admin.payment-gateways') }}">Payment Gateway</a></li>
+<?php /*
                             <li><a href="{{ route('admin.payment-methods') }}">Payment Method</a></li>
                             <li><a href="{{ route('admin.courier-services') }}">Courier Service</a></li>
                             <li><a href="{{ route('admin.courier-services-integrations') }}">Courier Service
                                     Integration</a></li>
+                            */ ?>
                         </ul>
                     </li>
-
+<?php /*
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="#">
                             <svg class="stroke-icon">
@@ -676,7 +681,7 @@
                             <li><a href="{{ route('admin.default-sms') }}">Default SMS</a></li>
                         </ul>
                     </li>
-
+*/ ?>
                     <!-- SETTINGS - ending -->
 
 
