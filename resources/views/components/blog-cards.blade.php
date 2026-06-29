@@ -23,7 +23,7 @@
                     <div class="swiper-slide col-lg-4 col-md-6">
                         <div class="card h-100 border-0 shadow-sm px-3">
                             <a href="#">
-                                <img src="front/images/blog/blog-02.webp" class="card-img-top" alt="">
+                                <img src="{{asset('front/images/blog/blog-02.webp')}}" class="card-img-top" alt="">
                             </a>
                             <div class="card-body">
                                 <h5 class="fw-bold">
@@ -47,7 +47,7 @@
                     <div class="swiper-slide col-lg-4 col-md-6">
                         <div class="card h-100 border-0 shadow-sm px-3">
                             <a href="#">
-                                <img src="front/images/blog/blog-01.webp" class="card-img-top" alt="">
+                                <img src="{{asset('front/images/blog/blog-01.webp')}}" class="card-img-top" alt="">
                             </a>
                             <div class="card-body">
                                 <h5 class="fw-bold">
@@ -71,7 +71,7 @@
                     <div class="swiper-slide col-lg-4 col-md-6">
                         <div class="card h-100 border-0 shadow-sm px-3">
                             <a href="#">
-                                <img src="front/images/blog/blog-03.webp" class="card-img-top" alt="">
+                                <img src="{{asset('front/images/blog/blog-03.webp')}}" class="card-img-top" alt="">
                             </a>
                             <div class="card-body">
                                 <h5 class="fw-bold">

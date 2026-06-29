@@ -4,7 +4,7 @@
     
     <section class="py-4 border-bottom">
       <div class="container">
-        <h1 class="h2 product_title display-5 mt-3 text-center">Shop</h1>
+        <h1 class="h2 product_title display-5 mt-3 text-center">Categories</h1>
       </div>
     </section>
 

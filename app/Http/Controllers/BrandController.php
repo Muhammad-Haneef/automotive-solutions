@@ -8,6 +8,6 @@ class BrandController extends Controller
 {
     public function index()
     {
-        return view('brands');
+        return view('brands/list');
     }
 }

@@ -1,11 +1,14 @@
 <x-layouts.frontend>
 
 
-    <section class="py-4">
+    <section class="py-4 border-bottom">
       <div class="container">
         <h1 class="h2 product_title display-5 mt-3 text-center">FAQ</h1>
       </div>
     </section>
+
+<x-product-values />
+
     <section class="box3 py-4 border-top border-bottom">
       <div class="container">
           <h2>SHOPPING INFORMATION</h2>

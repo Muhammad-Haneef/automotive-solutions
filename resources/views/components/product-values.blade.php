@@ -4,7 +4,7 @@
                 <div class="col-md-4 border-right p-lg-2">
                     <div class="d-flex align-items-start justify-content-lg-center gap-3">
                         <div class="feature-icon">
-                            <img src="front/images/iconbox.svg" class="image-fluid" alt="" width=""
+                            <img src="{{asset('front/images/iconbox.svg')}}" class="image-fluid" alt="" width=""
                                 height="">
                         </div>
                         <div>
@@ -20,7 +20,7 @@
                 <div class="col-md-4 border-right p-lg-2">
                     <div class="d-flex align-items-start justify-content-lg-center gap-3">
                         <div class="feature-icon">
-                            <img src="front/images/iconbox2.svg" class="image-fluid" alt="" width=""
+                            <img src="{{asset('front/images/iconbox2.svg')}}" class="image-fluid" alt="" width=""
                                 height="">
                         </div>
                         <div>
@@ -36,7 +36,7 @@
                 <div class="col-md-4  p-lg-2">
                     <div class="d-flex align-items-start justify-content-lg-center gap-3">
                         <div class="feature-icon">
-                            <img src="front/images/iconbox3.svg" class="image-fluid" alt="" width=""
+                            <img src="{{asset('front/images/iconbox3.svg')}}" class="image-fluid" alt="" width=""
                                 height="">
                         </div>
                         <div>

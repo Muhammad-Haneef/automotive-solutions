@@ -14,7 +14,7 @@
                 <!-- Blog Posts -->
                 <div class="col-lg-9 pe-lg-5">
                     <div class="border-0 mb-5">
-                        <img src="front/images/blog/blog-01.webp" class="img-fluid rounded" alt="">
+                        <img src="{{asset('front/images/blog/blog-01.webp')}}" class="img-fluid rounded" alt="">
                         <div class="blog-content">
                             <h2 class="blog-title h3 fw-semibold my-3">
                                 <a href="#" class="text-dark text-decoration-none">
@@ -43,7 +43,7 @@
 
                     <!-- Blog Item -->
                     <div class="border-0 mb-5">
-                        <img src="front/images/blog/blog-02.webp" class="img-fluid rounded" alt="">
+                        <img src="{{asset('front/images/blog/blog-02.webp')}}" class="img-fluid rounded" alt="">
                         <div class="blog-content">
                             <h2 class="blog-title h3 fw-semibold my-3">
                                 <a href="#" class="text-dark text-decoration-none">
@@ -71,7 +71,7 @@
                     </div>
                     <!-- Blog Item -->
                     <div class="border-0 mb-5">
-                        <img src="front/images/blog/blog-03.webp" class="img-fluid rounded" alt="">
+                        <img src="{{asset('front/images/blog/blog-03.webp')}}" class="img-fluid rounded" alt="">
                         <div class="blog-content">
                             <h2 class="blog-title h3 fw-semibold my-3">
                                 <a href="#" class="text-dark text-decoration-none">
@@ -112,7 +112,7 @@
                             <div class="recent-post">
                                 <div class="d-flex mb-3">
                                     <div class="thumbnail-post">
-                                        <img src="front/images/blog/blog-01.webp" width="" class="rounded me-3">
+                                        <img src="{{asset('front/images/blog/blog-01.webp')}}" width="" class="rounded me-3">
                                     </div>
                                     <div class="content-post">
                                         <h4 class="mb-1">
@@ -128,7 +128,7 @@
 
                                 <div class="d-flex mb-3">
                                     <div class="thumbnail-post">
-                                        <img src="front/images/blog/blog-02.webp" width="90" class="rounded me-3">
+                                        <img src="{{asset('front/images/blog/blog-02.webp')}}" width="90" class="rounded me-3">
                                     </div>
                                     <div class="content-post">
                                         <h4 class="mb-1">
@@ -144,7 +144,7 @@
 
                                 <div class="d-flex">
                                     <div class="thumbnail-post">
-                                        <img src="front/images/blog/blog-03.webp" width="90" class="rounded me-3">
+                                        <img src="{{asset('front/images/blog/blog-03.webp')}}" width="90" class="rounded me-3">
                                     </div>
                                     <div class="content-post">
                                         <h4 class="mb-1">

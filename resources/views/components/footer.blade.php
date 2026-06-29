@@ -8,29 +8,33 @@
                         Contact Us
                     </h5>
                     <div class="footer-contact-item">
-                        <img src="front/images/phone.svg" alt="">
+                        <img src="{{asset('front/images/phone.svg')}}" alt="">
                         <div>
                             <span class="fw-bold">
                                 Phone Number
                             </span>
                             <p>
-                                +(800) 1234 5678 90
+                                <a href="tel:923330138509" title="Call us between 9 AM - 6 PM">
+                                    +92 333-0138509
+                                </a>
                             </p>
                         </div>
                     </div>
                     <div class="footer-contact-item">
-                        <img src="front/images/email.svg" alt="">
+                        <img src="{{asset('front/images/email.svg')}}" alt="">
                         <div>
                             <span class="fw-bold">
                                 E-Mail
                             </span>
                             <p>
-                                info@example.com
+                                <a href="mailto:sales@automotivesolutions.pk">
+                                    sales@automotivesolutions.pk
+                                </a>
                             </p>
                         </div>
                     </div>
                     <div class="footer-contact-item">
-                        <img src="front/images/address.svg" alt="">
+                        <img src="{{asset('front/images/address.svg')}}" alt="">
                         <div>
                             <span class="fw-bold">
                                 Address
@@ -43,7 +47,7 @@
                         </div>
                     </div>
                     <div class="footer-contact-item">
-                        <img src="front/images/support.svg" alt="">
+                        <img src="{{asset('front/images/support.svg')}}" alt="">
                         <div>
                             <span class="fw-bold">
                                 Help Guide
@@ -203,7 +207,7 @@
             <div class="footer-middle">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-center text-lg-start mb-3 mb-lg-0">
-                        <img src="front/images/logo-white.png" class="footer-logo" alt="">
+                        <img src="{{asset('front/images/logo-white.png')}}" class="footer-logo" alt="">
                     </div>
                     <div class="col-lg-4 text-center mb-3 mb-lg-0">
                         <div class="social-wrapper">
@@ -244,10 +248,10 @@
                                 Download App:
                             </span>
                             <a href="#">
-                                <img src="front/images/google-white.webp" alt="">
+                                <img src="{{asset('front/images/google-white.webp')}}" alt="">
                             </a>
                             <a href="#">
-                                <img src="front/images/apple-white.webp" alt="">
+                                <img src="{{asset('front/images/apple-white.webp')}}" alt="">
                             </a>
                         </div>
                     </div>
@@ -258,113 +262,23 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 text-center text-lg-start">
                         <p>
-                            Copyright 2026 © Automotive Solutions WordPress Theme. All rights reserved. Powered
+                            Copyright 2026 © Automotive Solutions. All rights reserved. Powered
                             by
                             <strong>
-                                KLBTheme
+                                Automotive Solutions
                             </strong>
                             .
                         </p>
                     </div>
                     <div class="col-lg-4 text-center text-lg-end">
                         <div class="payment-icons">
-                            <img src="front/images/mastercard.svg" alt="">
-                            <img src="front/images/visa.svg" alt="">
-                            <img src="front/images/paypal.svg" alt="">
-                            <img src="front/images/skrill.svg" alt="">
+                            <img src="{{asset('front/images/mastercard.svg')}}" alt="">
+                            <img src="{{asset('front/images/visa.svg')}}" alt="">
+                            <img src="{{asset('front/images/paypal.svg')}}" alt="">
+                            <img src="{{asset('front/images/skrill.svg')}}" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
-
-
-    <div class="modal fade" id="garageModal" tabindex="-1">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content garage-modal">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <div class="modal-body p-4 p-md-5">
-
-                    <h4 class="garage-title text-center">
-                        Find the Right Parts Faster
-                    </h4>
-
-                    <p class="garage-desc text-center">
-                        Having the right automotive parts and car accessories will help
-                        you to boost your travel comfort and go on the long-distance
-                        journey comfortably that you have been planning.
-                    </p>
-
-                    <form>
-
-                        <div class="garage-field">
-                            <span class="step-badge">01</span>
-                            <select class="form-select garage-select" name="filter_make">
-                                <option selected>Select Make</option>
-                                <option value="audi">Audi</option>
-                                <option value="bmw">BMW</option>
-                                <option value="chevrolet">Chevrolet</option>
-                                <option value="dodge">Dodge</option>
-                                <option value="fiat">Fiat</option>
-                                <option value="ford">Ford</option>
-                                <option value="honda">Honda</option>
-                                <option value="hyundai">Hyundai</option>
-                                <option value="jaguar">Jaguar</option>
-                                <option value="kia">Kia</option>
-                            </select>
-                            <div class="select-dropdown ms-auto">
-                                <img src="front/images/down-arrow.svg" alt="">
-                            </div>
-                        </div>
-
-                        <div class="garage-field">
-                            <span class="step-badge">02</span>
-                            <select class="form-select garage-select">
-                                <option>Select make First</option>
-                            </select>
-                            <div class="select-dropdown ms-auto">
-                                <img src="front/images/down-arrow.svg" alt="">
-                            </div>
-                        </div>
-
-                        <div class="garage-field">
-                            <span class="step-badge">03</span>
-                            <select class="form-select garage-select">
-                                <option>Select Year</option>
-                            </select>
-                            <div class="select-dropdown ms-auto">
-                                <img src="front/images/down-arrow.svg" alt="">
-                            </div>
-                        </div>
-
-                        <div class="garage-field">
-                            <span class="step-badge">04</span>
-                            <select class="form-select garage-select">
-                                <option>Select Engine</option>
-                            </select>
-                            <div class="select-dropdown ms-auto">
-                                <img src="front/images/down-arrow.svg" alt="">
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn garage-btn w-100">
-                            Add Vehicle
-                        </button>
-
-                    </form>
-
-                    <p class="garage-note text-center">
-                        Please fill in the criteria you are looking for
-                    </p>
-
-                    <p class="garage-empty text-center">
-                        No vehicles in your garage. Please add one.
-                    </p>
-
-                </div>
-
-            </div>
-        </div>
-    </div>

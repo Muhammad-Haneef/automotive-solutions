@@ -42,7 +42,7 @@
                                         Total discount for campaign
                                     </small>
                                 </div>
-                                <img src="front/images/hero-oil.webp" alt="" class="img-fluid hero-image">
+                                <img src="{{asset('front/images/hero-oil.webp')}}" alt="" class="img-fluid hero-image">
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-6 text-center">
-                                <img src="front/images/banner-04.webp" alt="" class="img-fluid hero-image">
+                                <img src="{{asset('front/images/banner-04.webp')}}" alt="" class="img-fluid hero-image">
                             </div>
                         </div>
                     </div>

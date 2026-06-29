@@ -18,7 +18,7 @@ Route::middleware(['web'])->group(function () {
 
 
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/about-us', [HomeController::class, 'about'])->name('home');
+    Route::get('/about-us', [HomeController::class, 'about'])->name('about-us');
 
     Route::get('/faqs', [FrontendFaqController::class, 'index'])->name('faqs');
 

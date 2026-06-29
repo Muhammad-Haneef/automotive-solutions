@@ -6,7 +6,7 @@
                 <div class="col-lg-5">
                     <div class="card bg-light rounded-4  h-100 position-relative overflow-hidden">
                         <!-- Optional image -->
-                        <img src="front/images/banner-03.png" class="img-fluidcard-img" alt="...">
+                        <img src="{{asset('front/images/banner-03.png')}}" class="img-fluidcard-img" alt="...">
                         <div class="card-img-overlay">
                             <h2 class=" mb-3">
                                 Questions you may be curious about.

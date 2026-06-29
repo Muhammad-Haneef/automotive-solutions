@@ -60,12 +60,15 @@ body{
   
 }
 
+.mx-w-300{
+    max-width: 300px;
+}
 .user .dropdown-toggle::after{display: none;}
 .user{cursor: pointer;}
 
 .badge.rounded-pill.bg-danger{top:8px;}
 .logo-img {
-    width: 156px;
+    /* width: 156px; */
 }
 
 .navbar .nav-link{
@@ -1236,7 +1239,7 @@ Checked Color
 
 .garage-desc{
     max-width:650px;
-    margin:0 auto 40px;
+    margin:0 auto 10px;
     color:#777;
     font-size: 14px;
     line-height:1.8;

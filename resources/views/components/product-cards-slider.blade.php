@@ -23,10 +23,10 @@
                                 -17%
                             </span>
                             <span class="product-wishlist position-absolute">
-                                <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                <img src="{{asset('front/images/wishlist.svg')}}" alt="" class="img-fluid">
                             </span>
                             <div class="product-img">
-                                <img src="front/images/products/01-59.webp" alt="" class="img-fluid">
+                                <img src="{{asset('front/images/products/01-59.webp')}}" alt="" class="img-fluid">
                             </div>
 
                             <div class="product-rating d-flex align-item-center mb-2">
@@ -76,10 +76,10 @@
                                 -32%
                             </span>
                             <span class="product-wishlist position-absolute">
-                                <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                <img src="{{asset('front/images/wishlist.svg')}}" alt="" class="img-fluid">
                             </span>
                             <div class="product-img">
-                                <img src="front/images/products/01-2.webp" alt="" class="img-fluid">
+                                <img src="{{asset('front/images/products/01-2.webp')}}" alt="" class="img-fluid">
                             </div>
 
                             <div class="product-rating d-flex align-item-center mb-2">
@@ -129,10 +129,10 @@
                                 -17%
                             </span>
                             <span class="product-wishlist position-absolute">
-                                <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                <img src="{{asset('front/images/wishlist.svg')}}" alt="" class="img-fluid">
                             </span>
                             <div class="product-img">
-                                <img src="front/images/products/01-43.webp" alt="" class="img-fluid">
+                                <img src="{{asset('front/images/products/01-43.webp')}}" alt="" class="img-fluid">
                             </div>
 
                             <div class="product-rating d-flex align-item-center mb-2">
@@ -182,10 +182,10 @@
                                 -28%
                             </span>
                             <span class="product-wishlist position-absolute">
-                                <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                <img src="{{asset('front/images/wishlist.svg')}}" alt="" class="img-fluid">
                             </span>
                             <div class="product-img">
-                                <img src="front/images/products/01-30.webp" alt="" class="img-fluid">
+                                <img src="{{asset('front/images/products/01-30.webp')}}" alt="" class="img-fluid">
                             </div>
 
                             <div class="product-rating d-flex align-item-center mb-2">
@@ -235,10 +235,10 @@
                                 -13%
                             </span>
                             <span class="product-wishlist position-absolute">
-                                <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                <img src="{{asset('front/images/wishlist.svg')}}" alt="" class="img-fluid">
                             </span>
                             <div class="product-img">
-                                <img src="front/images/products/01-51.webp" alt="" class="img-fluid">
+                                <img src="{{asset('front/images/products/01-51.webp')}}" alt="" class="img-fluid">
                             </div>
 
                             <div class="product-rating d-flex align-item-center mb-2">
@@ -288,10 +288,10 @@
                                 -13%
                             </span>
                             <span class="product-wishlist position-absolute">
-                                <img src="front/images/wishlist.svg" alt="" class="img-fluid">
+                                <img src="{{asset('front/images/wishlist.svg')}}" alt="" class="img-fluid">
                             </span>
                             <div class="product-img">
-                                <img src="front/images/products/01-22.webp" alt="" class="img-fluid">
+                                <img src="{{asset('front/images/products/01-22.webp')}}" alt="" class="img-fluid">
                             </div>
 
                             <div class="product-rating d-flex align-item-center mb-2">

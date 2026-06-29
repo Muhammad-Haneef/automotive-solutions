@@ -10,57 +10,9 @@
       </div>
     </section>
 
-    <section class="box3 py-4 border-top border-bottom">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md-4 border-right p-lg-2">
-            <div class="d-flex align-items-start justify-content-lg-center gap-3">
-              <div class="feature-icon">
-                <img src="assets/images/iconbox.svg" class="image-fluid" alt="" width="" height="">
-              </div>
-              <div>
-                <h6 class="fw-bold mb-1">
-                  Original Products
-                </h6>
-                <small class="text-secondary">
-                  We provide only genuine products.
-                </small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 border-right p-lg-2">
-            <div class="d-flex align-items-start justify-content-lg-center gap-3">
-              <div class="feature-icon">
-                <img src="assets/images/iconbox2.svg" class="image-fluid" alt="" width="" height="">
-              </div>
-              <div>
-                <h6 class="fw-bold mb-1">
-                  Affordable Rates
-                </h6>
-                <small class="text-secondary">
-                  Fast shipping at low rates.
-                </small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4  p-lg-2">
-            <div class="d-flex align-items-start justify-content-lg-center gap-3">
-              <div class="feature-icon">
-                <img src="assets/images/iconbox3.svg" class="image-fluid" alt="" width="" height="">
-              </div>
-              <div>
-                <h6 class="fw-bold mb-1">
-                  Wide Variety
-                </h6>
-                <small class="text-secondary">
-                  Thousands of parts available.
-                </small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <x-product-values />
+
+
     <section class="pt-5 pb-4">
       <div class="container">
         <p>Vivamus sed metus sit amet dui scelerisque mattis. Donec id imperdiet nulla. Maecenas malesuada justo ac blandit maximus. Curabitur aliquam justo vitae felis pellentesque, a semper orci sollicitudin. Donec hendrerit nisl at neque dapibus dapibus. Morbi dignissim, ligula ut luctus dapibus, enim eros bibendum risus, in blandit quam augue a neque. Donec rhoncus ligula ut dapibus suscipit.</p>
@@ -71,7 +23,7 @@
         <p>Curabitur at nisl in magna feugiat finibus. Aenean ac turpis quis tortor lacinia bibendum. Aliquam sed nisi arcu. Sed efficitur placerat nunc, vel eleifend augue rhoncus ac. Nulla ut sagittis tellus. Donec nec vulputate ligula. Etiam non sapien nec arcu ullamcorper pellentesque at non neque. Proin at hendrerit nibh. Fusce metus enim, euismod bibendum feugiat in, blandit convallis felis.<p>
         <div class="row ">
           <div class="col-lg-5 my-2">
-            <img src="assets/images/about-image-01.jpg" class="img-fluid rounded" alt="">
+            <img src="{{asset('front/images/about-image-01.jpg')}}" class="img-fluid rounded" alt="">
           </div>
           <div class="col-lg-7 my-2">
             <h2>Vivamus vel feugiat dui, vel gravida nisl.</h2>
@@ -100,7 +52,7 @@
           <div class="col-lg-5">
             <div class="card bg-light rounded-4  h-100 position-relative overflow-hidden">
               <!-- Optional image -->
-              <img src="assets/images/banner-03.png" class="img-fluidcard-img" alt="...">
+              <img src="{{asset('front/images/banner-03.png')}}" class="img-fluidcard-img" alt="...">
               <div class="card-img-overlay">
                 <h2 class=" mb-3">
                   Questions you may be curious about.
