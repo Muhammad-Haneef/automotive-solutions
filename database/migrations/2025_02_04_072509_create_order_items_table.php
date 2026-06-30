@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('order_id')->constrained()->onDelete('cascade'); // Links to main orders table
+            $table->foreignId('order_id')->nullable()->constrained()->onDelete('cascade'); // Links to main orders table
             //$table->foreignId('order_vendor_id')->constrained('order_vendors')->onDelete('cascade'); // Links to sub-orders (per vendor)
-            $table->foreignId('product_id')->constrained()->onDelete('cascade'); // Links to the products table
-            $table->foreignId('vendor_id')->constrained('users')->onDelete('cascade'); // Links to the vendor (seller)
+            $table->foreignId('product_id')->nullable()->constrained()->onDelete('cascade'); // Links to the products table
+            $table->foreignId('vendor_id')->nullable()->constrained('users')->onDelete('cascade'); // Links to the vendor (seller)
             
             $table->integer('qty')->default(1);
             $table->decimal('price', 10, 2);

@@ -13,6 +13,7 @@ class CitySeeder extends Seeder
     public function run(): void
     {
         DB::table('cities')->insert([
+            /*
             // UAE Cities (country_id = 1)
             ['country_id' => 1, 'title' => 'Abu Dhabi'],
             ['country_id' => 1, 'title' => 'Ajman'],
@@ -41,28 +42,28 @@ class CitySeeder extends Seeder
             ['country_id' => 1, 'title' => 'Ruwais'],
             ['country_id' => 1, 'title' => 'Sharjah'],
             ['country_id' => 1, 'title' => 'Umm Al Quwain'],
-
+*/
             // Pakistan Cities (country_id = 2)
-            ['country_id' => 2, 'title' => 'Karachi'],
-            ['country_id' => 2, 'title' => 'Lahore'],
-            ['country_id' => 2, 'title' => 'Islamabad'],
-            ['country_id' => 2, 'title' => 'Rawalpindi'],
-            ['country_id' => 2, 'title' => 'Faisalabad'],
-            ['country_id' => 2, 'title' => 'Multan'],
-            ['country_id' => 2, 'title' => 'Peshawar'],
-            ['country_id' => 2, 'title' => 'Quetta'],
-            ['country_id' => 2, 'title' => 'Sialkot'],
-            ['country_id' => 2, 'title' => 'Gujranwala'],
-            ['country_id' => 2, 'title' => 'Hyderabad'],
-            ['country_id' => 2, 'title' => 'Sukkur'],
-            ['country_id' => 2, 'title' => 'Bahawalpur'],
-            ['country_id' => 2, 'title' => 'Abbottabad'],
-            ['country_id' => 2, 'title' => 'Mardan'],
-            ['country_id' => 2, 'title' => 'Sargodha'],
-            ['country_id' => 2, 'title' => 'Rahim Yar Khan'],
-            ['country_id' => 2, 'title' => 'Dera Ghazi Khan'],
-            ['country_id' => 2, 'title' => 'Okara'],
-            ['country_id' => 2, 'title' => 'Kasur'],
+            ['country_id' => 1, 'title' => 'Karachi'],
+            ['country_id' => 1, 'title' => 'Lahore'],
+            ['country_id' => 1, 'title' => 'Islamabad'],
+            ['country_id' => 1, 'title' => 'Rawalpindi'],
+            ['country_id' => 1, 'title' => 'Faisalabad'],
+            ['country_id' => 1, 'title' => 'Multan'],
+            ['country_id' => 1, 'title' => 'Peshawar'],
+            ['country_id' => 1, 'title' => 'Quetta'],
+            ['country_id' => 1, 'title' => 'Sialkot'],
+            ['country_id' => 1, 'title' => 'Gujranwala'],
+            ['country_id' => 1, 'title' => 'Hyderabad'],
+            ['country_id' => 1, 'title' => 'Sukkur'],
+            ['country_id' => 1, 'title' => 'Bahawalpur'],
+            ['country_id' => 1, 'title' => 'Abbottabad'],
+            ['country_id' => 1, 'title' => 'Mardan'],
+            ['country_id' => 1, 'title' => 'Sargodha'],
+            ['country_id' => 1, 'title' => 'Rahim Yar Khan'],
+            ['country_id' => 1, 'title' => 'Dera Ghazi Khan'],
+            ['country_id' => 1, 'title' => 'Okara'],
+            ['country_id' => 1, 'title' => 'Kasur'],
         ]);
     }
 }

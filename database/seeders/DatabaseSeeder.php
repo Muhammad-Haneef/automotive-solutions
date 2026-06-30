@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
             // WISHLIST & MISCELLANEOUS
             // WishlistSeeder::class,
             // CompareSeeder::class,
-            TagSeeder::class,
+            //TagSeeder::class,
             // PRODUCTS & CATEGORIES
             // CategorySeeder::class,
             // BrandSeeder::class,
@@ -108,7 +108,7 @@ class DatabaseSeeder extends Seeder
             BannerLocationSeeder::class,
             // BannerImageSeeder::class,
             // BannerSeeder::class,
-            // PageSeeder::class,
+             PageSeeder::class,
             // SUBSCRIPTIONS & REFERRALS
             // SubscriberSeeder::class,
             // ReferralSeeder::class,

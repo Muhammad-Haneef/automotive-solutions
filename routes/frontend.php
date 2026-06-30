@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+
 use App\Http\Controllers\Admin\SubscriberController;
 use App\Http\Controllers\BlogController as FrontendBlogController;
 use App\Http\Controllers\BrandController as FrontendBrandController;
@@ -15,6 +18,20 @@ use App\Http\Controllers\ContactUsController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['web'])->group(function () {
+    Route::get('/fresh-migrate', function (Request $request) {
+        /*
+        abort_unless(
+            $request->query('key') === env('DEPLOY_KEY'),
+            403
+        );
+        */
+        Artisan::call('migrate:fresh', [
+            '--seed' => true,
+            '--force' => true,
+        ]);
+
+        return '<pre>' . Artisan::output() . '</pre>';
+    });
 
 
     Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -37,7 +54,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('/categories/{slug}', [FrontendCategoryController::class, 'show'])->name('category-show');
 
 
-    
+
     // Admin login (public)
     // Route::get('/admin/login',           fn() => view('admin.login'))->name('admin-login');
     Route::get('/admin/login', fn() => view('admin.login'))->name('login');

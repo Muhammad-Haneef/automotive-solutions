@@ -14,9 +14,11 @@ class CountrySeeder extends Seeder
     public function run(): void
     {
         DB::table('countries')->insert([
+            /*
             [
                 'title' => 'United Arab Emirates',
             ],
+            */
             [
                 'title' => 'Pakistan',
             ],
