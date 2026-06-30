@@ -5,7 +5,6 @@
         @csrf
         <div class="row">
             <div class="col-sm-9">
-
                 <div class="card">
                     <div class="card-header border-t-danger">
                         <ul class="simple-wrapper nav nav-tabs" role="tablist">
@@ -38,7 +37,7 @@
                                     <x-admin.form.editor ref="content" title="Description" :content="$row->content ?? old('content')" />
                                 </div>
 
-                                <x-admin.form.seo-fields :title="old('title', $row->title ?? '')" :keywords="old('keywords', $row->keywords ?? '')" :description="old('description', $row->description ?? '')" />
+                                <x-admin.form.seo-fields :title="old('meta_title', $row->meta_title ?? '')" :keywords="old('meta_keywords', $row->meta_keywords ?? '')" :description="old('meta_description', $row->meta_description ?? '')" />
 
                                 <div class="pt-4 mt-4 border-top border-light">
                                     <div class="row">

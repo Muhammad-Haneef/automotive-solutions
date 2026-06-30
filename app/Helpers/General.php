@@ -400,7 +400,7 @@ if (!function_exists('getAssociatedFaqs')) {
             $output .= '<div class="card">
                 <div class="card-header">
                     <h5>
-                        <button class="btn btn-link collapsed ps-0" data-bs-toggle="collapse"
+                        <button type="button" class="btn btn-link collapsed ps-0" data-bs-toggle="collapse"
                             data-bs-target="#collapseicon' . $i . '" aria-expanded="false" aria-controls="collapseicon">
                             <i data-feather="help-circle"></i> ' . $faq->q . '
                         </button>

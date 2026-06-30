@@ -17,6 +17,10 @@ return new class extends Migration {
             $table->string('title')->unique();
             $table->string('slug')->unique();
             $table->text('content')->nullable();
+            
+            $table->string('meta_title')->nullable();
+            $table->string('meta_keywords')->nullable();
+            $table->string('meta_description')->nullable();
 
             $table->integer('sort_by')->default(0)->nullable();
             $table->boolean('is_active')->default(true)->nullable();

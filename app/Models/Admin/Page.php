@@ -16,6 +16,9 @@ class Page extends Model
         'title',
         'slug',
         'content',
+        'meta_title',
+        'meta_keywords',
+        'meta_description',
         'sort_by',
         'is_active',
     ];
