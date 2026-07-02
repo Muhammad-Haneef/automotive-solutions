@@ -18,6 +18,10 @@ class Blog extends Model
         'slug',
         'tags',
         'content',
+        'excerpt',
+        'meta_title',
+        'meta_keywords',
+        'meta_description',
         'image',
         'sort_by',
         'is_active',
@@ -39,10 +43,5 @@ class Blog extends Model
     public function category()
     {
         return $this->belongsTo(BlogCategory::class, 'blog_category_id');
-    }
-
-    public function tags()
-    {
-        return $this->belongsTo(Tag::class, 'tags');
     }
 }

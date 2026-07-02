@@ -41,4 +41,5 @@ class BlogCategory extends Model
         return $this->hasMany(Blog::class, 'blog_category_id');
     }
 
+
 }

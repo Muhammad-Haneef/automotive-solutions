@@ -33,8 +33,6 @@ class BlogController extends Controller
 
     public function index()
     {
-        $this->data['categories'] = BlogCategory::select('id', 'title')->where('is_active', 1)->get();
-        $this->data['tags'] = Tag::select('id', 'title')->where('is_active', 1)->get();
         $this->data['rows'] = Blog::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }

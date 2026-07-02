@@ -26,11 +26,11 @@ class StoreSupplierRequest extends BaseFormRequest
             // 'title'=>'required|unique:,title,'.$this->route('id'),
             // 'logo'=>'required',
             'title' => 'required|unique:suppliers',
-            'email' => 'required|unique:suppliers',
-            'contact_person' => 'required|unique:suppliers',
-            'contact_email' => 'required|unique:suppliers',
-            'contact_phone' => 'required|unique:suppliers',
-            'address' => 'required',
+            'email' => 'nullable|unique:suppliers',
+            'contact_person' => 'nullable|unique:suppliers',
+            'contact_email' => 'nullable|unique:suppliers',
+            'contact_phone' => 'nullable|unique:suppliers',
+            'address' => 'nullable',
         ];
     }
 }

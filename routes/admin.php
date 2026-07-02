@@ -73,45 +73,7 @@ Route::middleware(['auth:system'])
                 Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
             });
         });
-        Route::controller(WalletController::class)->group(function () {
-            Route::prefix('/wallets')->group(function () {
-                $sn = 'wallet';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
 
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(WalletPayoutRequestController::class)->group(function () {
-            Route::prefix('/wallet-payouts')->group(function () {
-                $sn = 'wallet-payout';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(WalletTransactionController::class)->group(function () {
-            Route::prefix('/wallet-transactions')->group(function () {
-                $sn = 'wallet-transaction';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
         Route::controller(WishlistController::class)->group(function () {
             Route::prefix('/wishlists')->group(function () {
                 $sn = 'wishlist';
@@ -339,36 +301,6 @@ Route::middleware(['auth:system'])
             });
         });
 
-        /*
-         * Route::controller(ProductCategoryController::class)->group(function () {
-         *     Route::prefix('/product-categories')->group(function () {
-         *         $sn = 'product-category';
-         *         $pn = 'product-categories';
-         *         Route::get('/', 'index')->name($pn);
-         *         Route::get('/add', 'create')->name('create-' . $sn);
-         *         Route::post('/add', 'store')->name('store-' . $sn);
-         *         Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-         *         Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-         *
-         *         Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-         *         Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-         *     });
-         * });
-         * Route::controller(ProductTagController::class)->group(function () {
-         *     Route::prefix('/product-tags')->group(function () {
-         *         $sn = 'product-tag';
-         *         Route::get('/', 'index')->name($sn.'s');
-         *         Route::get('/add', 'create')->name('create-' . $sn);
-         *         Route::post('/add', 'store')->name('store-' . $sn);
-         *         Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-         *         Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-         *
-         *         Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-         *         Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-         *     });
-         * });
-         */
-
         Route::controller(WarehouseController::class)->group(function () {
             Route::prefix('/warehouses')->group(function () {
                 $sn = 'warehouse';
@@ -385,19 +317,7 @@ Route::middleware(['auth:system'])
         // PRODUCTS - ending
 
         // ORDER - starting
-        Route::controller(CourierServiceController::class)->group(function () {
-            Route::prefix('/courier-services')->group(function () {
-                $sn = 'courier-service';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
 
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
         Route::controller(OrderStatusController::class)->group(function () {
             Route::prefix('/order-statuses')->group(function () {
                 $sn = 'order-status';
@@ -424,32 +344,7 @@ Route::middleware(['auth:system'])
                 Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
             });
         });
-        Route::controller(PaymentMethodController::class)->group(function () {
-            Route::prefix('/payment-methods')->group(function () {
-                $sn = 'payment-method';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
 
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(PaymentGatewayController::class)->group(function () {
-            Route::prefix('/payment-gateways')->group(function () {
-                $sn = 'payment-gateway';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
         Route::controller(OrderController::class)->group(function () {
             Route::prefix('/orders')->group(function () {
                 $sn = 'order';
@@ -476,82 +371,9 @@ Route::middleware(['auth:system'])
                 Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
             });
         });
-        Route::controller(OrderGiftWrapController::class)->group(function () {
-            Route::prefix('/orders/gift-wraps')->group(function () {
-                $sn = 'order-gift-wrap';
-                Route::get('/', 'index')->name($sn . 's');
-            });
-        });
+
         // ORDER - ending
 
-        // SMS - starting
-        Route::controller(DefaultSmsController::class)->group(function () {
-            Route::prefix('/default-sms')->group(function () {
-                $sn = 'default-sms';
-                Route::get('/', 'index')->name($sn);
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(SmsCategoryController::class)->group(function () {
-            Route::prefix('/sms-categories')->group(function () {
-                $sn = 'sms-category';
-                $pn = 'sms-categories';
-                Route::get('/', 'index')->name($pn);
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(SmsGatewayController::class)->group(function () {
-            Route::prefix('/sms-gateways')->group(function () {
-                $sn = 'sms-gateway';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(SmsController::class)->group(function () {
-            Route::prefix('/sms')->group(function () {
-                $sn = 'sms';
-                Route::get('/', 'index')->name($sn);
-                // Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                // Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                // Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                // Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                // Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(SmsApiIntegrationController::class)->group(function () {
-            Route::prefix('/sms-api-integrations')->group(function () {
-                $sn = 'sms-api-integration';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        // SMS - ending
 
         // MARKETING - starting
         Route::controller(BlogCategoryController::class)->group(function () {
@@ -581,56 +403,7 @@ Route::middleware(['auth:system'])
                 Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
             });
         });
-        Route::controller(CouponUsageController::class)->group(function () {
-            Route::prefix('/coupons-usage')->group(function () {
-                $sn = 'coupons-usage';
-                Route::get('/', 'index')->name($sn);
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
 
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(CouponController::class)->group(function () {
-            Route::prefix('/coupons')->group(function () {
-                $sn = 'coupon';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(OfferController::class)->group(function () {
-            Route::prefix('/offers')->group(function () {
-                $sn = 'offer';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/get-offer-items-by-type/{id}', 'getOfferItemsByType')->name('get-offer-items-by-type');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(LoyaltySettingController::class)->group(function () {
-            Route::prefix('/loyalty-settings')->group(function () {
-                $sn = 'loyalty-setting';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-            });
-        });
         Route::controller(SubscriberController::class)->group(function () {
             Route::prefix('/subscribers')->group(function () {
                 $sn = 'subscriber';
@@ -683,42 +456,7 @@ Route::middleware(['auth:system'])
                 Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
             });
         });
-        Route::controller(ReferralController::class)->group(function () {
-            Route::prefix('/referrals')->group(function () {
-                $sn = 'referral';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
 
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(ReferralSettingController::class)->group(function () {
-            Route::prefix('/referrals/setting')->group(function () {
-                $sn = 'referral-setting';
-                Route::get('/', 'index')->name($sn);
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-            });
-        });
-        Route::controller(GiftWrapController::class)->group(function () {
-            Route::prefix('/gift-wraps')->group(function () {
-                $sn = 'gift-wrap';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
         Route::controller(PopupController::class)->group(function () {
             Route::prefix('/popups')->group(function () {
                 $sn = 'popup';
@@ -911,19 +649,6 @@ Route::middleware(['auth:system'])
         // SYSTEM USERS - ending
 
         // HR & PAYROLL - starting
-        Route::controller(AttendanceController::class)->group(function () {
-            Route::prefix('/attendances')->group(function () {
-                $sn = 'attendance';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
         Route::controller(DepartmentController::class)->group(function () {
             Route::prefix('/departments')->group(function () {
                 $sn = 'department';
@@ -940,214 +665,6 @@ Route::middleware(['auth:system'])
         Route::controller(DesignationController::class)->group(function () {
             Route::prefix('/designations')->group(function () {
                 $sn = 'designation';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(EmployeeController::class)->group(function () {
-            Route::prefix('/employees')->group(function () {
-                $sn = 'employee';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(EmployeeDocumentController::class)->group(function () {
-            Route::prefix('/employee-documents')->group(function () {
-                $sn = 'employee-document';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(LeavesController::class)->group(function () {
-            Route::prefix('/leaves')->group(function () {
-                $sn = 'leave';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(LeaveTypeController::class)->group(function () {
-            Route::prefix('/leave-types')->group(function () {
-                $sn = 'leave-type';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(PayrollAllowanceController::class)->group(function () {
-            Route::prefix('/payroll-allowances')->group(function () {
-                $sn = 'payroll-allowance';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(PayrollController::class)->group(function () {
-            Route::prefix('/payrolls')->group(function () {
-                $sn = 'payroll';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(PayrollDeductionController::class)->group(function () {
-            Route::prefix('/payroll-deductions')->group(function () {
-                $sn = 'payroll-deduction';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(PayrollLoanController::class)->group(function () {
-            Route::prefix('/payroll-loans')->group(function () {
-                $sn = 'payroll-loan';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(PayrollPaymentController::class)->group(function () {
-            Route::prefix('/payroll-payments')->group(function () {
-                $sn = 'payroll-payment';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(PayrollSettingController::class)->group(function () {
-            Route::prefix('/payroll-settings')->group(function () {
-                $sn = 'payroll-setting';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(PayrollTaxController::class)->group(function () {
-            Route::prefix('/payroll-taxes')->group(function () {
-                $sn = 'payroll-tax';
-                Route::get('/', 'index')->name($sn . 'es');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(PerformanceReviewController::class)->group(function () {
-            Route::prefix('/performance-reviews')->group(function () {
-                $sn = 'performance-review';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(PromotionController::class)->group(function () {
-            Route::prefix('/promotions')->group(function () {
-                $sn = 'promotion';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(SalaryStructureController::class)->group(function () {
-            Route::prefix('/salary-structures')->group(function () {
-                $sn = 'salary-structure';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(TrainingController::class)->group(function () {
-            Route::prefix('/trainings')->group(function () {
-                $sn = 'training';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(WarningController::class)->group(function () {
-            Route::prefix('/warnings')->group(function () {
-                $sn = 'warning';
                 Route::get('/', 'index')->name($sn . 's');
                 Route::get('/add', 'create')->name('create-' . $sn);
                 Route::post('/add', 'store')->name('store-' . $sn);
@@ -1261,9 +778,10 @@ Route::middleware(['auth:system'])
         // GENERAL - ending
 
         // SETTINGS - starting
-        Route::controller(CourierServiceIntegrationController::class)->group(function () {
-            Route::prefix('/courier-services-integrations')->group(function () {
-                $sn = 'courier-services-integration';
+
+        Route::controller(SettingController::class)->group(function () {
+            Route::prefix('/settings')->group(function () {
+                $sn = 'setting';
                 Route::get('/', 'index')->name($sn . 's');
                 Route::get('/add', 'create')->name('create-' . $sn);
                 Route::post('/add', 'store')->name('store-' . $sn);
@@ -1278,32 +796,6 @@ Route::middleware(['auth:system'])
             Route::prefix('/shippers')->group(function () {
                 $sn = 'shipper';
                 Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(SettingController::class)->group(function () {
-            Route::prefix('/settings')->group(function () {
-                $sn = 'setting';
-                Route::get('/', 'index')->name($sn . 's');
-                Route::get('/add', 'create')->name('create-' . $sn);
-                Route::post('/add', 'store')->name('store-' . $sn);
-                Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);
-                Route::post('/edit/{id}', 'update')->name('update-' . $sn);
-
-                Route::get('/trash/{id}', 'trash')->name('trash-' . $sn);
-                Route::get('/restore/{id}', 'restore')->name('restore-' . $sn);
-            });
-        });
-        Route::controller(ShippingClassController::class)->group(function () {
-            Route::prefix('/shipping-classes')->group(function () {
-                $sn = 'shipping-class';
-                Route::get('/', 'index')->name($sn . 'es');
                 Route::get('/add', 'create')->name('create-' . $sn);
                 Route::post('/add', 'store')->name('store-' . $sn);
                 Route::get('/edit/{id}', 'edit')->name('edit-' . $sn);

@@ -6,8 +6,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use App\Models\Admin\Banner;
 
-
-class HomeSlider extends Component
+class PromotionBanner extends Component
 {
     /**
      * Create a new component instance.
@@ -22,7 +21,7 @@ class HomeSlider extends Component
      */
     public function render(): View|Closure|string
     {
-        $banner = Banner::where('id',1)->where('is_active', 1)->with(['images'])->first();
-        return view('components.home-slider', compact('banner'));
+        $banner = Banner::where('id', 2)->where('is_active', 1)->with(['images'])->first();
+        return view('components.promotion-banner', compact('banner'));
     }
 }

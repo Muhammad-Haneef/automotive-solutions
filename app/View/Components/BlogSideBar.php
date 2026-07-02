@@ -1,13 +1,13 @@
 <?php
+
 namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use App\Models\Admin\Banner;
+use App\Models\Admin\BlogCategory;
 
-
-class HomeSlider extends Component
+class BlogSideBar extends Component
 {
     /**
      * Create a new component instance.
@@ -22,7 +22,7 @@ class HomeSlider extends Component
      */
     public function render(): View|Closure|string
     {
-        $banner = Banner::where('id',1)->where('is_active', 1)->with(['images'])->first();
-        return view('components.home-slider', compact('banner'));
+        $categories = BlogCategory::withCount('blogs')->where('is_active', 1)->get();
+        return view('components.blog-side-bar', compact('categories'));
     }
 }

@@ -31,7 +31,6 @@ class FaqController extends Controller
 
     public function index()
     {
-        $this->data['categories'] = FaqCategory::all();
         $this->data['rows'] = Faq::latest()->withTrashed()->get();
         return view($this->root . 'list', $this->data);
     }
@@ -41,6 +40,7 @@ class FaqController extends Controller
      */
     public function create()
     {
+        $this->data['categories'] = FaqCategory::all();
         return view($this->root . 'form', $this->data);
     }
 

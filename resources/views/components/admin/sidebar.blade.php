@@ -54,7 +54,7 @@
                             <h6 class="lan-1">Sales & Marketing</h6>
                         </div>
                     </li>
-                    
+
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.subscribers') }}">
                             <svg class="stroke-icon">
@@ -173,7 +173,7 @@
                             <h6 class="lan-1">CMS</h6>
                         </div>
                     </li>
-
+                    <?php /*
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.vendors') }}">
                             <svg class="stroke-icon">
@@ -186,6 +186,7 @@
                             <div class="according-menu"><i class="fa-solid fa-angle-right"></i></div>
                         </a>
                     </li>
+                    */ ?>
 
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.pages') }}">

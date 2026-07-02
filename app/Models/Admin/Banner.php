@@ -14,7 +14,7 @@ class Banner extends Model
     
     protected $fillable = [
         'banner_location_id',
-        'banner_title',
+        'title',
         'description',
         'display',
         'sort_by',

@@ -12,58 +12,7 @@
    
     <x-find-auto-parts-form />
 
-    <section class="py-4">
-        <div class="container">
-            <div class="row g-4">
-                <!-- Banner 1 -->
-                <div class="col-12 col-lg-6 my-2">
-                    <div class="site-banner position-relative overflow-hidden rounded text-white h-100">
-                        <img src="{{asset('front/images/banner-05.jpg')}}" class="img-fluid w-100" alt="Banner">
-                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center p-4">
-                            <div class="w-50">
-                                <small class="text-uppercase text-white">
-                                    Refreshin spring deals
-                                </small>
-                                <h2 class="fw-bold h2 text-white">
-                                    Solid Parts. Good Performance.
-                                </h2>
-                                <p class="text-white">
-                                    Adat ontosion och parasport exosts.
-                                </p>
-                                <a href="#"
-                                    class="btn btn-primary bg-white text-white rounded-pill border-secondary">
-                                    Shop Now
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Banner 2 -->
-                <div class="col-12 col-lg-6 my-2">
-                    <div class="site-banner position-relative overflow-hidden rounded text-white h-100">
-                        <img src="{{asset('front/images/banner-06.webp')}}" class="img-fluid w-100" alt="Banner">
-                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center p-4">
-                            <div class="w-50">
-                                <small class="text-uppercase text-dark">
-                                    Refreshin spring deals
-                                </small>
-                                <h2 class="fw-bold h2 text-dark">
-                                    Automotive Solutions Quality. Aftermarket Price.
-                                </h2>
-                                <p class="text-dark">
-                                    Adat ontosion och parasport exosts.
-                                </p>
-                                <a href="#"
-                                    class="btn btn-primary bg-white text-white rounded-pill border-secondary">
-                                    Shop Now
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <x-promotion-banner />
 
     <section class="py-5">
         <div class="container">

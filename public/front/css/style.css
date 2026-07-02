@@ -60,6 +60,7 @@ body{
   
 }
 
+
 .mx-w-300{
     max-width: 300px;
 }
@@ -1192,6 +1193,28 @@ Checked Color
 .blog-section .blog-footer ul li{position: relative;font-size:13px;padding: 5px 20px;}
 .blog-section .blog-footer  li:after{content:"|";position: absolute;top:2px;right:0px;}
 .blog-section .blog-footer  li:last-child:after{display:none;}
+.blog-comment p{font-size: 14px;}
+
+.blog-category-item {
+    border-radius: 6px;
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+.blog-category-item:hover {
+    background-color: #f8f9fa;
+    padding-left: 12px;
+}
+.blog-category-item:hover .category-arrow {
+    color: #1e77fc !important;
+}
+.blog-category-list a.blog-category-item:hover {
+    background-color: #f8f9fa;
+}
+
+
+
+
+
+
 
 .sticky-top h3{font-size: 16px;}
 .thumbnail-post img{width: 66px; height: 66px; object-fit: cover;}
@@ -1216,7 +1239,15 @@ Checked Color
 .youtube{background:#fff0f0;color:#FF0000;}
 .youtube:hover{background:#ffe3e3;}
 
-.blog-comment p{font-size: 14px;}
+.linkedin{background:#f2f2f2;color:#0077B5;}
+.linkedin:hover{background:#e7e7e7;}
+
+.tiktok{background:#f2f2f2;color:#000;}
+.tiktok:hover{background:#e7e7e7;}
+
+
+
+
 
 /*=============== POPUP =============*/
 

@@ -66,3 +66,14 @@ if (!function_exists('cartCount')) {
         return app(\App\Services\CartService::class)->getCount();
     }
 }
+if (!function_exists('get_formatted_date')) {
+    function get_formatted_date($date, $d = 0)
+    {
+        $date = date_create($date);
+        if ($d) {
+            return date_format($date, "d-M-Y");
+        } else {
+            return date_format($date, "d-M-Y - h:i a");
+        }
+    }
+}

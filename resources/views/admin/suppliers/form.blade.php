@@ -48,10 +48,12 @@
 
                                 <x-admin.form.input ref="title" title="Company Name" type="text"
                                     value="{{ $row ? $row->title : old('title') }}" required=1 class="col-md-9" />
+
                                 <x-admin.form.input ref="email" title="Company Email" type="email"
-                                    value="{{ $row ? $row->email : old('email') }}" required=1 class="col-md-3" />
+                                    value="{{ $row ? $row->email : old('email') }}" class="col-md-3" />
+
                                 <x-admin.form.input ref="address" title="Address" type="text"
-                                    value="{{ $row ? $row->address : old('address') }}" required=1 />
+                                    value="{{ $row ? $row->address : old('address') }}" />
                                 <x-admin.form.textarea ref="about" title="About Supplier"
                                     value="{{ $row ? $row->about : old('about') }}" />
 
@@ -59,13 +61,13 @@
                                     <h6 class="mt-4">Contact Person</h6>
                                 </div>
                                 <x-admin.form.input ref="contact_person" title="Name" type="text"
-                                    value="{{ $row ? $row->contact_person : old('contact_person') }}" required=1
+                                    value="{{ $row ? $row->contact_person : old('contact_person') }}"
                                     class="col-md-4" />
                                 <x-admin.form.input ref="contact_email" title="Email" type="email"
-                                    value="{{ $row ? $row->contact_email : old('contact_email') }}" required=1
+                                    value="{{ $row ? $row->contact_email : old('contact_email') }}"
                                     class="col-md-4" />
                                 <x-admin.form.input ref="contact_phone" title="Phone" type="text"
-                                    value="{{ $row ? $row->contact_phone : old('contact_phone') }}" required=1
+                                    value="{{ $row ? $row->contact_phone : old('contact_phone') }}"
                                     class="col-md-4" />
 
                             </div>

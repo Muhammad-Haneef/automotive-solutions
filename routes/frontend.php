@@ -43,6 +43,7 @@ Route::middleware(['web'])->group(function () {
 
     Route::get('/blogs', [FrontendBlogController::class, 'index'])->name('blogs');
     Route::get('/blogs/{slug}', [FrontendBlogController::class, 'show'])->name('blog-show');
+    Route::get('/blogs/category/{slug}', [FrontendBlogController::class, 'index'])->name('blog-category-show');
 
     Route::get('/products', [ProductsController::class, 'index'])->name('products');
     Route::get('/products/{slug}', [ProductsController::class, 'show'])->name('product-show');
