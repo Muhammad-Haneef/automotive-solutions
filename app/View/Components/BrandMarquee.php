@@ -5,12 +5,14 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models\Admin\Brand;
 
 class BrandMarquee extends Component
 {
     /**
      * Create a new component instance.
      */
+
     public function __construct()
     {
         //
@@ -21,6 +23,7 @@ class BrandMarquee extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.brand-marquee');
+        $brands = Brand::where('is_active', 1)->get();
+        return view('components.brand-marquee', compact('brands'));
     }
 }
